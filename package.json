@@ -1,0 +1,11 @@
+{
+  "name": "dieta-familiar",
+  "version": "1.0.0",
+  "description": "Plan nutricional familiar interactivo",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 8080 -c-1",
+    "start": "npx -y http-server -p 8080 -c-1"
+  },
+  "dependencies": {}
+}

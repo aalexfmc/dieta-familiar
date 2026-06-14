@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Nutricional Familiar</title>
+  <meta name="description" content="Dashboard nutricional interactivo familiar con recetas por porciones, calculadora de raciones para cocina por lotes (batch cooking) y lista de la compra.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-container">
+      <div class="logo-icon">🍏</div>
+      <div class="logo-text">
+        <h1>NutriFamilia</h1>
+        <p>Plan Nutricional V0</p>
+      </div>
+    </div>
+    
+    <div class="header-actions">
+      <nav class="nav-tabs">
+        <button class="tab-btn active" data-tab="resumen">
+          <span>📊</span> Resumen
+        </button>
+        <button class="tab-btn" data-tab="perfiles">
+          <span>👤</span> Perfiles
+        </button>
+        <button class="tab-btn" data-tab="menu">
+          <span>🍳</span> Menú
+        </button>
+        <button class="tab-btn" data-tab="compra">
+          <span>🛒</span> Compra
+        </button>
+        <button class="tab-btn" data-tab="productos">
+          <span>📦</span> Productos
+        </button>
+        <button class="tab-btn" data-tab="consejos">
+          <span>🌿</span> Cenas y Salidas
+        </button>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema" title="Cambiar tema de color">
+        <span class="theme-toggle-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="container">
+
+    <!-- SECCIÓN: RESUMEN -->
+    <section id="resumen-section" class="page-section active">
+      <div class="section-title">
+        <h2>Panel Familiar</h2>
+        <p>Vista general de los objetivos iniciales de cada miembro de la familia.</p>
+      </div>
+      
+      <div class="dashboard-grid" id="dashboard-members-grid">
+        <!-- Renderizado dinámico desde app.js -->
+      </div>
+      
+      <div class="note-banner" style="background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--warning); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; line-height: 1.4; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 500;">
+        <span>🌿</span> <strong>Nota:</strong> Macros V0 orientativos. Se ajustarán con el peso medio semanal, hambre, rendimiento, adherencia y sensaciones.
+      </div>
+      
+      <div class="info-section-grid">
+        <div class="info-card">
+          <h3>🎯 Enfoque del Plan</h3>
+          <div class="rules-list">
+            <div class="rule-item">
+              <div class="rule-num">1</div>
+              <div class="rule-content">
+                <h4>Comidas y cenas unificadas</h4>
+                <p>Las comidas y cenas principales se cocinan juntas para toda la familia, variando únicamente las cantidades servidas a cada persona.</p>
+              </div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">2</div>
+              <div class="rule-content">
+                <h4>Desayunos y meriendas adaptados</h4>
+                <p>Cada individuo tiene asignado su propio desayuno y merienda para encajar en sus requerimientos energéticos diarios.</p>
+              </div>
+            </div>
+            <div class="rule-item">
+              <div class="rule-num">3</div>
+              <div class="rule-content">
+                <h4>Estructura semanal equilibrada</h4>
+                <p>Se contemplan 6 comidas y 6 cenas caseras preparadas en el hogar, reservando 1 comida y 1 cena fuera para disfrutar libremente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-card" style="border-color: rgba(139, 92, 246, 0.2);">
+          <h3>✨ Recomendaciones Generales</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Este plan está diseñado para optimizar el tiempo de cocina y la adherencia. Utiliza la pestaña <strong>Menú Diario</strong> en el modo <strong>En Familia</strong> para preparar los ingredientes totales y usar la calculadora integrada al repartir los platos finales.
+          </p>
+          <div style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.1); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--primary);">
+            📌 <strong>Tip:</strong> Si estás en el supermercado, puedes marcar las compras realizadas en la pestaña <strong>Lista Compra</strong> y tus avances se guardarán automáticamente en tu móvil.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: PERFILES INDIVIDUALES -->
+    <section id="perfiles-section" class="page-section">
+      <div class="section-title">
+        <h2>Perfiles Individuales</h2>
+        <p>Configuración nutricional específica, desayunos, meriendas y planificación semanal de cada miembro.</p>
+      </div>
+      
+      <div class="profile-selector" id="profile-selector-container">
+        <!-- Renderizado dinámico desde app.js -->
+      </div>
+      
+      <div class="profile-grid">
+        <div class="profile-sidebar">
+          <div class="sidebar-card" id="profile-macros-list">
+            <!-- Macros dinámicos con barras de progreso -->
+          </div>
+        </div>
+        
+        <div class="profile-main-content">
+          <div class="profile-meals-card">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;" id="profile-name">Nombre</h3>
+            
+            <p style="font-size: 0.95rem; color: var(--primary); font-weight: 600; margin-bottom: 1.5rem;" id="profile-objective">Objetivo</p>
+            
+            <div id="profile-meals-container">
+              <!-- Comidas dinámicas (Desayuno, merienda, ajustes) -->
+            </div>
+            
+            <h4 style="font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem;">🗓️ Menú Semanal Personalizado</h4>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 10%;">Día</th>
+                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 40%;">Comida</th>
+                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 40%;">Cena</th>
+                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); text-align: right; width: 10%;">Total</th>
+                  </tr>
+                </thead>
+                <tbody id="profile-menu-table-body">
+                  <!-- Filas de menú individuales dinámicas -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: MENÚ DIARIO -->
+    <section id="menu-section" class="page-section">
+      <div class="section-title">
+        <h2>Planificador de Menú Diario</h2>
+        <p>Selecciona un día de la semana para consultar qué comer y cómo estructurar el menú en familia o los platos individuales.</p>
+      </div>
+      
+      <div class="day-selector" id="menu-day-selector">
+        <!-- Renderizado dinámico de días -->
+      </div>
+      
+      <div class="menu-toolbar" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <div class="search-container" style="max-width: 380px; width: 100%;">
+          <input type="text" id="search-menu-input" placeholder="🔍 Filtrar recetas por ingrediente..." class="search-input">
+        </div>
+        <div class="toggle-container" style="margin-bottom: 0; display: flex; gap: 0.5rem;">
+          <button id="toggle-mode-individual" class="toggle-btn">🍽️ Platos Individuales</button>
+          <button id="toggle-mode-lote" class="toggle-btn active">🥘 En Familia</button>
+        </div>
+      </div>
+      
+      <div class="menu-meals-grid">
+        <!-- Card Comida -->
+        <div class="menu-meal-card" id="menu-comida-card">
+          <!-- Render dinámico comida -->
+        </div>
+        
+        <!-- Card Cena -->
+        <div class="menu-meal-card" id="menu-cena-card">
+          <!-- Render dinámico cena -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: LISTA DE COMPRA -->
+    <section id="compra-section" class="page-section">
+      <div class="section-title" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2>Lista de la Compra Semanal</h2>
+          <p>Los ingredientes que necesitas para los 6 días de cocina casera en el hogar.</p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button id="mercadona-order-btn" class="btn-secondary" style="border-color: rgba(16, 185, 129, 0.3); color: var(--success); background: rgba(16, 185, 129, 0.03);" title="Hacer pedido de Mercadona con alimentos seleccionados">🛒 Pedir Mercadona</button>
+          <button id="copy-shopping-list" class="btn-secondary" title="Copiar al portapapeles los ingredientes que te faltan comprar">📋 Copiar Pendientes</button>
+          <button id="whatsapp-shopping-list" class="btn-secondary" style="border-color: rgba(16, 185, 129, 0.3); color: var(--success); background: rgba(16, 185, 129, 0.03);" title="Enviar lista de ingredientes pendientes por WhatsApp">💬 Compartir WhatsApp</button>
+          <button id="reset-shopping-list" class="btn-secondary">🔄 Restablecer Lista</button>
+        </div>
+      </div>
+      
+      <div class="shopping-grid" id="shopping-list-container">
+        <!-- Lista de compras dinámicas -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN: PRODUCTOS MERCADONA -->
+    <section id="productos-section" class="page-section">
+      <div class="section-title">
+        <h2>Productos de Referencia (Mercadona)</h2>
+        <p>Valores y enlaces directos a las fichas/etiquetas de compra utilizadas para calcular el plan.</p>
+      </div>
+      
+      <div class="search-container" style="margin-bottom: 1.5rem; max-width: 400px; width: 100%;">
+        <input type="text" id="search-products-input" placeholder="🔍 Buscar productos por nombre o uso..." class="search-input">
+      </div>
+      
+      <div class="products-grid" id="products-grid-container">
+        <!-- Tarjetas de productos dinámicas -->
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CONSEJOS Y ALTERNATIVAS -->
+    <section id="consejos-section" class="page-section">
+      <div class="section-title">
+        <h2>Cenas de verano y salidas libres</h2>
+        <p>Cenas frescas ya decididas para la semana y recordatorio de que las comidas fuera se disfrutan sin reglas.</p>
+      </div>
+      
+      <div class="tips-grid">
+        <div class="outing-card" style="grid-column: span 2; border-color: rgba(139, 92, 246, 0.35);">
+          <h3>🎉 Salidas Fuera de Casa</h3>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0; font-weight: 500;">
+            1 comida y 1 cena fuera a la semana. No se aplican reglas ni compensaciones. Se disfruta con cabeza y se vuelve al plan en la siguiente comida.
+          </p>
+        </div>
+        
+        <div class="outing-card" style="grid-column: span 2; border-color: rgba(245, 158, 11, 0.35);">
+          <h3>☀️ Cenas de Verano Fijadas</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            En verano las cenas quedan estructuradas para ser rápidas, frescas y apetecibles, evitando sopas calientes y cocinas pesadas por la noche:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; font-size: 0.85rem; line-height: 1.5;">
+            <div style="background: rgba(255,255,255,0.02); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <strong style="color:var(--primary); display:block; margin-bottom:0.25rem;">Día 1</strong>
+              Ensalada templada de guisantes, jamón y huevo cocido.
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <strong style="color:var(--primary); display:block; margin-bottom:0.25rem;">Día 2 & Día 6</strong>
+              Pollo frío o a la plancha + ensalada grande + gazpacho.
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <strong style="color:var(--primary); display:block; margin-bottom:0.25rem;">Día 3</strong>
+              Tortilla francesa + gazpacho frío + pan medido.
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <strong style="color:var(--primary); display:block; margin-bottom:0.25rem;">Día 4</strong>
+              Ensalada fría/templada de pasta con atún y tomate.
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <strong style="color:var(--primary); display:block; margin-bottom:0.25rem;">Día 5</strong>
+              Ensalada templada o fría de judías verdes, patata y huevo.
+            </div>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--warning); margin-top: 1rem; font-style: italic; line-height: 1.4;">
+            📌 <strong>Regla de verano:</strong> Si una cena se puede servir fría o templada, mejor que caliente. Si requiere olla de cocción larga por la noche, no es una cena base de verano.
+          </p>
+        </div>
+
+        <div class="alternatives-card" style="grid-column: span 2;">
+          <h3>⚡ Recursos: Cenas Rápidas de Verano</h3>
+          <div class="alternatives-list">
+            <div class="alt-item">
+              <span class="alt-title">🥗 Ensalada Completa</span>
+              <span class="alt-desc">Ensalada grande + atún al natural + huevo cocido + pan medido.</span>
+            </div>
+            <div class="alt-item">
+              <span class="alt-title">🍳 Tortilla y Gazpacho</span>
+              <span class="alt-desc">Tortilla francesa + gazpacho frío + tomate aliñado.</span>
+            </div>
+            <div class="alt-item">
+              <span class="alt-title">🍗 Pollo y Ensalada</span>
+              <span class="alt-desc">Pollo frío ya cocinado o a la plancha + ensalada grande + gazpacho.</span>
+            </div>
+            <div class="alt-item">
+              <span class="alt-title">🍝 Pasta Express</span>
+              <span class="alt-desc">Ensalada fría o templada de pasta con atún, tomate y verdura fresca.</span>
+            </div>
+            <div class="alt-item">
+              <span class="alt-title">🥔 Cuchara Fría</span>
+              <span class="alt-desc">Ensalada de patata cocida fría + judías verdes + huevo cocido.</span>
+            </div>
+            <div class="alt-item">
+              <span class="alt-title">🥣 Gazpacho Express</span>
+              <span class="alt-desc">Gazpacho frío + jamón/atún/huevo/pollo cuando se quiera cenar con cero cocina pesada.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 NutriFamilia. Creado para organizar el plan nutricional de forma práctica e interactiva.</p>
+  </footer>
+
+  <!-- MODAL MERCADONA -->
+  <div id="mercadona-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content glassmorphic">
+      <div class="modal-header">
+        <h3>🛒 Pedido Mercadona Online</h3>
+        <button id="close-mercadona-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.5;">
+          A continuación tienes los enlaces directos para buscar y añadir los productos seleccionados a tu carrito de Mercadona:
+        </p>
+        <div id="mercadona-links-container" class="mercadona-links-grid">
+          <!-- Dinámico -->
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-top: 1.5rem; text-align: right;">
+        <button id="close-mercadona-modal-btn" class="btn-primary" style="background: var(--gradient-main); border: none; padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); color: white; cursor: pointer; font-weight: 500;">Listo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
