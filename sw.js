@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nutrifamilia-v6';
+const CACHE_NAME = 'nutrifamilia-v7';
 const ASSETS = [
   './',
   './index.html',

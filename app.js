@@ -856,6 +856,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initProducts();
     initMercadonaModal();
     initUniversalCalculator();
+    
+    // Renderizar vistas iniciales
+    renderProfileDetails();
+    renderMenuDay();
   });
 });
 

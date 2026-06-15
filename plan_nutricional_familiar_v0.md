@@ -860,10 +860,10 @@ Valores clave usados para el calculo V1:
 Lectura V1:
 
 - Padre: el objetivo sigue siendo 2600 kcal/dia de media semanal incluyendo batidos. Los 6 dias de casa quedan intencionadamente por debajo porque faltan 1 comida fuera, 1 cena fuera y posibles extras de carrera.
-- Padre en carrera: si corre 90 min o trail y ese dia no hay salida, anadir 300-500 kcal faciles de hidrato: mas arroz, patata, pan, fruta o cereal.
+- Padre en carrera: si corre 90 min o trail y ese dia no hay salida, anadir 300-500 kcal faciles de hidrato: tortitas campestres, platano, arroz, patata, Corn Flakes o barrita. No usar pan integral solo como modulo.
 - Madre: no recortar mas de entrada. La palanca principal son pasos y adherencia. Si los dias 4 o 6 tiene hambre real, usar pack salado saciante o 1 fruta extra.
 - Luis: en dias de gimnasio, si no toma batido y nota bajon, anadir batido o pack dulce potente. En descanso puede quedarse con un solo pack si no tiene hambre.
-- Natalia: no usar la tabla para limitar. Es una referencia de compra y cocina; con baloncesto o hambre se sube pan, pasta, arroz, patata, fruta o leche.
+- Natalia: no usar la tabla para limitar. Es una referencia de compra y cocina; con baloncesto o hambre se sube pasta, arroz, patata, fruta, leche, tortitas o barritas. El pan solo si entra en una comida normal y le apetece.
 
 ## Salidas semanales
 
@@ -936,9 +936,9 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 Padre:
 
 - V1 calibracion: 2600 kcal/dia de media semanal, contando el batido dentro del dia.
-- Dia de carrera: apuntar a 2800 kcal. Mantener mas hidrato en comida previa/posterior: pan, arroz, pasta, patata o fruta.
+- Dia de carrera: apuntar a 2800 kcal. Mantener mas hidrato en comida previa/posterior: tortitas campestres, platano, arroz, pasta, patata, Corn Flakes o barrita. Evitar pan integral solo como extra rapido.
 - Dia de gimnasio: apuntar a 2600 kcal. Si toma batido, no hace falta quitar cena, pero el dia completo debe quedar dentro de esa referencia.
-- Dia de descanso/oficina: apuntar a 2350-2450 kcal. Recortar sobre todo pan, arroz, pasta, patata, cereales o fruta extra.
+- Dia de descanso/oficina: apuntar a 2350-2450 kcal. Recortar sobre todo tortitas, arroz, pasta, patata, cereales, barritas o fruta extra.
 - Revision: pesar a diario y comparar medias de 7 dias. No tocar hasta tener 14 dias salvo hambre excesiva, bajada muy rapida o caida clara de rendimiento.
 - Ajuste minimo: si no baja nada en 14 dias, recortar 100-150 kcal/dia; si baja demasiado o corre peor, subir 100-150 kcal en dias de carrera.
 
@@ -952,7 +952,7 @@ Luis:
 
 - V1 calibracion: 2250 kcal/dia de media semanal, contando el batido dentro del dia.
 - Dia de gimnasio: apuntar a 2350-2400 kcal. Mantener mas hidrato alrededor del entreno y contar el batido dentro de esas kcal.
-- Dia de descanso/oficina: apuntar a 2050-2150 kcal. Recortar sobre todo tortitas, pan, arroz, pasta, patata, cereales o fruta extra.
+- Dia de descanso/oficina: apuntar a 2050-2150 kcal. Recortar sobre todo tortitas, arroz, pasta, patata, cereales, barritas o fruta extra.
 - En dias sin entreno, no es obligatorio tomar batido si ya llega a proteina con comida normal.
 - Revision: pesar a diario y comparar medias de 7 dias. No tocar hasta tener 14 dias salvo hambre excesiva, bajada muy rapida o caida clara de rendimiento.
 - Ajuste minimo: si no baja nada en 14 dias, recortar 100-150 kcal/dia; si baja demasiado o pierde fuerza claramente, subir 100-150 kcal en dias de gimnasio.

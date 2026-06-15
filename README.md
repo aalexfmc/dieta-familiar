@@ -316,6 +316,36 @@ Impacto en adherencia:
 - Menos riesgo de picoteo con frutos secos o cereales.
 - Mejor encaje con lo que la web debe mostrar: bloques simples y accionables.
 
+## 2026-06-16 - Modulos de actividad V2 sin pan integral solo
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex vio en la web que los modulos de actividad seguian usando `40-80 g pan integral` como extra rapido.
+- El pan integral comido solo tiene mala adherencia: es poco apetecible y se siente como obligacion, no como combustible facil.
+- Se mantiene el pan solo cuando forme parte de una comida real, pero deja de ser el hidrato principal de los modulos rapidos.
+
+Resumen practico:
+
+- Se crea la seccion `Modulos de actividad V2 sin pan integral solo`.
+- Padre descanso/oficina: si hay hambre real, 1 fruta o 1 pack de tortitas campestres; si es hambre grande, pack salado crujiente completo.
+- Padre gimnasio: batido post-entreno + 1 platano o 1 pack de tortitas campestres.
+- Padre carrera 10-12 km: batido + 1 platano + 1 pack de tortitas campestres.
+- Padre carrera 15-20 km / 90 min: batido + 1 platano + 2 packs de tortitas campestres, o alternativa caliente con patata cocida/arroz cocido.
+- Luis gimnasio: batido + 1 platano o 1 pack de tortitas campestres; si entrena fuerte, puede usar pack dulce potente.
+- Luis descanso/oficina: sin batido por defecto; solo fruta o tortitas si hay hambre real.
+
+Impacto:
+
+- Menos pan integral suelto.
+- Mas opciones de abrir y comer.
+- Mejor adherencia para dias de entrenamiento y carrera.
+- La web deberia sustituir los textos antiguos de `pan integral` por tortitas, platano, patata/arroz, Corn Flakes o barrita segun el modulo.
+
 ## 2026-06-15 - Modulos de actividad por tipo de dia
 
 Archivos tocados:
