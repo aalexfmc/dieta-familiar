@@ -1904,3 +1904,169 @@ body.light-theme .modal-body::-webkit-scrollbar-thumb {
   opacity: 1;
 }
 
+/* ─── Activity Modules ─────────────────────────────── */
+.activity-modules-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.activity-modules-section > h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.activity-intro {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border-radius: 0.75rem;
+  border-left: 3px solid var(--primary);
+}
+
+.activity-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .activity-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.activity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.activity-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.06));
+  border-bottom: 1px solid var(--border-color);
+}
+
+.activity-card.activity-descanso .activity-card-header {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(52, 211, 153, 0.06));
+}
+
+.activity-card.activity-gimnasio .activity-card-header {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(129, 140, 248, 0.06));
+}
+
+.activity-card.activity-carrera_media .activity-card-header {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.06));
+}
+
+.activity-card.activity-carrera_larga .activity-card-header {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.06));
+}
+
+.activity-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.activity-card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activity-card-title h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.activity-kcal-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  border-radius: 2rem;
+  background: var(--primary);
+  color: white;
+  width: fit-content;
+}
+
+.activity-card.activity-descanso .activity-kcal-badge {
+  background: var(--success);
+}
+
+.activity-card.activity-gimnasio .activity-kcal-badge {
+  background: var(--primary);
+}
+
+.activity-card.activity-carrera_media .activity-kcal-badge {
+  background: var(--warning);
+  color: #1a1a2e;
+}
+
+.activity-card.activity-carrera_larga .activity-kcal-badge {
+  background: var(--danger);
+}
+
+.activity-card-body {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.activity-module-row {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.activity-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.activity-impact {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.activity-result {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.85rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(168, 85, 247, 0.04));
+  border-radius: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.activity-nota {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding-left: 0.25rem;
+}
+
+

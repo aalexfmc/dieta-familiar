@@ -216,3 +216,34 @@ Impacto en macros:
 
 - No cambian kcal ni macros diarios, porque no se modifican cantidades.
 - Cambia la distribucion horaria: se gana adherencia y se evitan desayunos demasiado grandes.
+
+## 2026-06-15 - Modulos de actividad por tipo de dia
+
+Archivos tocados:
+
+- `app.js`
+- `styles.css`
+- `README.md`
+
+Motivo:
+
+- La V1 mostraba objetivos medios pero no explicaba como ajustar la alimentacion en dias de gimnasio o carrera.
+- Alex pidio anadir logica practica de modulos personales de actividad para Padre y Luis.
+
+Resumen practico:
+
+- Se mantiene el menu familiar comun sin cambios. La regla es: la familia come igual, el deportista anade combustible.
+- Se anade seccion "Tipo de dia" en los perfiles de Padre y Luis.
+- Padre tiene 4 tipos: descanso/oficina, gimnasio, carrera 10-12 km y carrera 15-20 km.
+- Luis tiene 2 tipos: descanso/oficina y gimnasio.
+- Cada tipo muestra modulo concreto (batido, pan, platano, cereal, patata) con impacto calorico estimado y resultado esperado.
+- No se modifican comidas ni cenas familiares. Solo se ajustan complementos personales faciles de medir.
+
+Impacto en macros:
+
+- Padre descanso: plan base ~2196 kcal, puede subir a 2350-2450 con pequenos extras.
+- Padre gimnasio: base + modulo ~2525-2575 kcal.
+- Padre carrera media: ~2660-2700 kcal.
+- Padre carrera larga: ~2800-2900 kcal.
+- Luis descanso: ~2086 kcal.
+- Luis gimnasio: ~2390-2425 kcal segun use Corn Flakes o platano.

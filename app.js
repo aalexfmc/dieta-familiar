@@ -12,7 +12,54 @@ const NUTRITION_DATA = {
       calibracion: { carrera: 2800, gimnasio: 2600, descanso: "2350-2450" },
       desayuno: "<strong>Fijo:</strong> Café con leche semidesnatada 150 ml.<br><strong>Bloque flexible:</strong> Pan integral 80 g + jamón serrano 60 g + tomate + AOVE 10 g + 1 fruta + 2 yogures +Proteínas pequeños 120 g + Corn Flakes 15 g + 1 fruta.",
       merienda: "Se reparte libremente entre desayuno, media mañana, comida o merienda según convenga.",
-      ajustes: "<strong>Calibración V1:</strong> Carrera 2800 kcal · Gimnasio 2600 kcal · Descanso 2350-2450 kcal.<br><strong>Noche con entreno:</strong> 250 ml leche semidesnatada + 1 scoop proteína + creatina (cuenta en el total diario V1). 2 batidos en 6 días."
+      ajustes: "<strong>Calibración V1:</strong> Carrera 2800 kcal · Gimnasio 2600 kcal · Descanso 2350-2450 kcal.<br><strong>Noche con entreno:</strong> 250 ml leche semidesnatada + 1 scoop proteína + creatina (cuenta en el total diario V1). 2 batidos en 6 días.",
+      modulos_actividad: [
+        {
+          tipo: 'descanso',
+          icono: '🛋️',
+          titulo: 'Descanso / Oficina',
+          kcal_objetivo: '2350-2450',
+          batido: false,
+          modulo: 'Sin batido. Mantener plan base.',
+          extra_opcional: 'Si hay hambre real: +40 g pan integral o +10 g AOVE.',
+          resultado: '~2196-2450 kcal',
+          nota: 'No añadir más proteína: ya llega al objetivo proteico.'
+        },
+        {
+          tipo: 'gimnasio',
+          icono: '🏋️',
+          titulo: 'Día de Gimnasio',
+          kcal_objetivo: '2600',
+          batido: true,
+          modulo: 'Batido post-entreno (250 ml leche + proteína + creatina) + 40-60 g pan integral o 1 plátano.',
+          impacto: '+330-380 kcal · +30-33 g P · +34-45 g H · +6 g G',
+          resultado: '~2525-2575 kcal',
+          nota: 'El batido cuenta dentro del total diario V1.'
+        },
+        {
+          tipo: 'carrera_media',
+          icono: '🏃',
+          titulo: 'Carrera 10-12 km',
+          kcal_objetivo: '2600-2800',
+          batido: true,
+          modulo: 'Batido post-carrera + 1 plátano + 60 g pan integral.',
+          impacto: '+470 kcal aprox.',
+          resultado: '~2660-2700 kcal',
+          nota: 'Suficiente si la carrera no ha sido muy larga o intensa.'
+        },
+        {
+          tipo: 'carrera_larga',
+          icono: '🏃♂️',
+          titulo: 'Carrera 15-20 km / 90 min',
+          kcal_objetivo: '2800',
+          batido: true,
+          modulo: 'Batido post-carrera + 1 plátano + 80 g pan integral + extra de hidrato.',
+          extras_hidrato: '250 g patata cocida, o 50 g arroz seco extra, o 30 g Corn Flakes, o bocadillo 60 g pan.',
+          impacto: '+600-700 kcal aprox.',
+          resultado: '~2800-2900 kcal',
+          nota: 'Priorizar hidratos, no más proteína.'
+        }
+      ]
     },
     madre: {
       nombre: "Mamá",
@@ -35,7 +82,31 @@ const NUTRITION_DATA = {
       calibracion: { gimnasio: "2350-2400", descanso: "2050-2150" },
       desayuno: "<strong>Fijo:</strong> Café con leche semidesnatada 150 ml.<br><strong>Bloque flexible:</strong> Yogur +Proteínas 500 g + Corn Flakes 10 g + chocolate 85% 24 g + frutos rojos 100 g + 1 plátano + 1 paquete tortitas campestres.",
       merienda: "Se reparte libremente entre desayuno, media mañana, comida o merienda según convenga.",
-      ajustes: "<strong>Calibración V1:</strong> Gimnasio 2350-2400 kcal · Descanso 2050-2150 kcal.<br><strong>Noche con entreno:</strong> 250 ml leche semidesnatada + 1 scoop proteína + creatina (cuenta en el total diario V1). 3 batidos en 6 días."
+      ajustes: "<strong>Calibración V1:</strong> Gimnasio 2350-2400 kcal · Descanso 2050-2150 kcal.<br><strong>Noche con entreno:</strong> 250 ml leche semidesnatada + 1 scoop proteína + creatina (cuenta en el total diario V1). 3 batidos en 6 días.",
+      modulos_actividad: [
+        {
+          tipo: 'descanso',
+          icono: '🛋️',
+          titulo: 'Descanso / Oficina',
+          kcal_objetivo: '2050-2150',
+          batido: false,
+          modulo: 'Sin batido. Mantener plan base.',
+          extra_opcional: 'Si hay hambre real: +10 g chocolate 85%, +10 g AOVE, o 1 fruta. No más yogur proteico ni whey en descanso.',
+          resultado: '~2086 kcal',
+          nota: 'Ya va alto de proteína — no añadir más.'
+        },
+        {
+          tipo: 'gimnasio',
+          icono: '🏋️',
+          titulo: 'Día de Gimnasio',
+          kcal_objetivo: '2350-2400',
+          batido: true,
+          modulo: 'Batido post-entreno (250 ml leche + proteína + creatina) + 20 g Corn Flakes o 1 plátano.',
+          impacto: '+305-340 kcal · +30 g P · +32-42 g H · +6 g G',
+          resultado: '~2390-2425 kcal',
+          nota: 'Pierna/espalda fuerte → plátano. Sesión ligera → 20 g Corn Flakes.'
+        }
+      ]
     },
     natalia: {
       nombre: "Natalia",
@@ -835,6 +906,44 @@ function renderProfileDetails() {
   
   // Comidas Fijas
   const mealsContainer = document.getElementById('profile-meals-container');
+  
+  // Build activity modules HTML if the member has them
+  let activityHTML = '';
+  if (member.modulos_actividad) {
+    activityHTML = `
+      <div class="activity-modules-section">
+        <h4>⚡ Tipo de Día — Módulos de Actividad</h4>
+        <p class="activity-intro">La comida y la cena familiares no cambian. En días de entrenamiento se ajusta el combustible con módulos personales sencillos.</p>
+        <div class="activity-cards">
+          ${member.modulos_actividad.map(m => `
+            <div class="activity-card activity-${m.tipo}">
+              <div class="activity-card-header">
+                <span class="activity-icon">${m.icono}</span>
+                <div class="activity-card-title">
+                  <h5>${m.titulo}</h5>
+                  <span class="activity-kcal-badge">${m.kcal_objetivo} kcal</span>
+                </div>
+              </div>
+              <div class="activity-card-body">
+                <div class="activity-module-row">
+                  <span class="activity-label">${m.batido ? '🥤 Módulo' : '📋 Plan'}</span>
+                  <span>${m.modulo}</span>
+                </div>
+                ${m.extra_opcional ? `<div class="activity-module-row"><span class="activity-label">➕ Opcional</span><span>${m.extra_opcional}</span></div>` : ''}
+                ${m.extras_hidrato ? `<div class="activity-module-row"><span class="activity-label">🍞 Extra hidrato</span><span>${m.extras_hidrato}</span></div>` : ''}
+                ${m.impacto ? `<div class="activity-module-row"><span class="activity-label">📊 Impacto</span><span class="activity-impact">${m.impacto}</span></div>` : ''}
+                <div class="activity-result">
+                  <span>Resultado esperado: <strong>${m.resultado}</strong></span>
+                </div>
+                ${m.nota ? `<div class="activity-nota"><em>💡 ${m.nota}</em></div>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+  
   mealsContainer.innerHTML = `
     <div class="meal-block">
       <h4>🍳 Bloque Personal Diario</h4>
@@ -848,6 +957,7 @@ function renderProfileDetails() {
       <h5>💡 Ajustes y Calibración V1</h5>
       <p>${member.ajustes}</p>
     </div>
+    ${activityHTML}
   `;
   
   // Menú Semanal y Gráfico
