@@ -750,13 +750,20 @@ const MEMBER_TIMELINES = {
   ]
 };
 
-let currentTab = 'resumen';
-let currentUser = localStorage.getItem('dieta_current_user') || 'padre';
-let activeMember = currentUser;
+let currentTab = 'perfiles';
+let currentUser = localStorage.getItem('dieta_current_user') || 'global';
+let activeMember = (currentUser === 'global') ? 'padre' : currentUser;
 let activeDay = 1;
-let menuViewMode = 'lote'; // 'lote' o 'individual'
+let menuViewMode = (currentUser === 'global') ? 'lote' : 'individual'; // 'lote' o 'individual'
 let batchMultiplier = 1; // Multiplicador de raciones para cocina por lotes
 let selectedActivityType = null; // Tipo de actividad seleccionado (sobrescribe macros de perfil)
+
+// Aplicar clase individual-mode al body según corresponda
+if (currentUser !== 'global') {
+  document.body.classList.add('individual-mode');
+} else {
+  document.body.classList.remove('individual-mode');
+}
 
 // CLOUD SYNC CONFIG (local proxy → jsonblob.com, zero CORS issues)
 const SYNC_API_URL = '/api/sync';
@@ -859,7 +866,26 @@ function initUserSelector() {
     select.addEventListener('change', (e) => {
       currentUser = e.target.value;
       localStorage.setItem('dieta_current_user', currentUser);
-      activeMember = currentUser;
+      activeMember = (currentUser === 'global') ? 'padre' : currentUser;
+      menuViewMode = (currentUser === 'global') ? 'lote' : 'individual';
+      
+      const toggleInd = document.getElementById('toggle-mode-individual');
+      const toggleLote = document.getElementById('toggle-mode-lote');
+      if (toggleInd && toggleLote) {
+        if (menuViewMode === 'individual') {
+          toggleInd.classList.add('active');
+          toggleLote.classList.remove('active');
+        } else {
+          toggleLote.classList.add('active');
+          toggleInd.classList.remove('active');
+        }
+      }
+      
+      if (currentUser === 'global') {
+        document.body.classList.remove('individual-mode');
+      } else {
+        document.body.classList.add('individual-mode');
+      }
       
       initDashboard();
       initProfiles();
@@ -881,7 +907,27 @@ function initUserSelector() {
         localStorage.setItem('dieta_current_user', currentUser);
         
         if (select) select.value = currentUser;
-        activeMember = currentUser;
+        activeMember = (currentUser === 'global') ? 'padre' : currentUser;
+        menuViewMode = (currentUser === 'global') ? 'lote' : 'individual';
+        
+        const toggleInd = document.getElementById('toggle-mode-individual');
+        const toggleLote = document.getElementById('toggle-mode-lote');
+        if (toggleInd && toggleLote) {
+          if (menuViewMode === 'individual') {
+            toggleInd.classList.add('active');
+            toggleLote.classList.remove('active');
+          } else {
+            toggleLote.classList.add('active');
+            toggleInd.classList.remove('active');
+          }
+        }
+        
+        if (currentUser === 'global') {
+          document.body.classList.remove('individual-mode');
+        } else {
+          document.body.classList.add('individual-mode');
+        }
+        
         modal.style.display = 'none';
         
         initDashboard();
@@ -1147,31 +1193,37 @@ function renderProfileDetails() {
   let activityHTML = '';
   if (member.modulos_actividad) {
     activityHTML = `
-      <div class="activity-modules-section">
-        <h4>⚡ Tipo de Día — Módulos de Actividad</h4>
-        <p class="activity-intro">La comida y la cena familiares no cambian. Haz clic en un tipo de día para ver qué módulo o comida extra añadir a tu plan diario.</p>
-        <div class="activity-cards">
-          ${member.modulos_actividad.map(m => `
-            <div class="activity-card activity-${m.tipo} ${selectedActivityType === m.tipo ? 'active' : ''}" data-type="${m.tipo}">
-              <div class="activity-card-header">
-                <span class="activity-icon">${m.icono}</span>
-                <div class="activity-card-title">
-                  <h5>${m.titulo}</h5>
+      <details class="clean-details" style="margin-top: 1.5rem;" ${currentUser === 'global' ? 'open' : ''}>
+        <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
+          ⚡ Tipo de Día — Módulos de Actividad
+        </summary>
+        <div class="details-content" style="padding-top: 0.5rem;">
+          <p class="activity-intro" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            La comida y la cena familiares no cambian. Haz clic en un tipo de día para ver qué módulo o comida extra añadir a tu plan diario.
+          </p>
+          <div class="activity-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            ${member.modulos_actividad.map(m => `
+              <div class="activity-card activity-${m.tipo} ${selectedActivityType === m.tipo ? 'active' : ''}" data-type="${m.tipo}" style="cursor: pointer; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; background: var(--bg-card); transition: all 0.2s;">
+                <div class="activity-card-header" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                  <span class="activity-icon" style="font-size: 1.25rem;">${m.icono}</span>
+                  <div class="activity-card-title">
+                    <h5 style="margin: 0; font-size: 0.95rem; font-weight: 600;">${m.titulo}</h5>
+                  </div>
+                </div>
+                <div class="activity-card-body" style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
+                  <div class="activity-module-row">
+                    <strong style="color: var(--text-primary);">${m.batido ? '🥤 Módulo' : '📋 Plan'}:</strong>
+                    <span>${m.modulo}</span>
+                  </div>
+                  ${m.extra_opcional ? `<div class="activity-module-row"><strong>➕ Opcional:</strong> <span>${m.extra_opcional}</span></div>` : ''}
+                  ${m.extras_hidrato ? `<div class="activity-module-row"><strong>🍞 Extra hidrato:</strong> <span>${m.extras_hidrato}</span></div>` : ''}
+                  ${m.nota ? `<div class="activity-nota" style="font-style: italic; color: var(--text-muted); margin-top: 0.25rem;">💡 ${m.nota}</div>` : ''}
                 </div>
               </div>
-              <div class="activity-card-body">
-                <div class="activity-module-row">
-                  <span class="activity-label">${m.batido ? '🥤 Módulo' : '📋 Plan'}</span>
-                  <span>${m.modulo}</span>
-                </div>
-                ${m.extra_opcional ? `<div class="activity-module-row"><span class="activity-label">➕ Opcional</span><span>${m.extra_opcional}</span></div>` : ''}
-                ${m.extras_hidrato ? `<div class="activity-module-row"><span class="activity-label">🍞 Extra hidrato</span><span>${m.extras_hidrato}</span></div>` : ''}
-                ${m.nota ? `<div class="activity-nota"><em>💡 ${m.nota}</em></div>` : ''}
-              </div>
-            </div>
-          `).join('')}
+            `).join('')}
+          </div>
         </div>
-      </div>
+      </details>
     `;
   }
   
@@ -1179,22 +1231,28 @@ function renderProfileDetails() {
   let packsHTML = '';
   if (member.packs_cero_elaboracion) {
     packsHTML = `
-      <div class="packs-section">
-        <h4>📦 Packs 0 Elaboración Hacendado</h4>
-        <p class="activity-intro">Opciones rápidas de Mercadona con unidades completas (sin pesar cereales, medias raciones ni picoteo libre) para elegir dentro del bloque personal diario.</p>
-        <div class="packs-grid">
-          ${member.packs_cero_elaboracion.map(p => `
-            <div class="pack-card">
-              <div class="pack-header">
-                <h5>${p.nombre}</h5>
-                <span class="pack-momento">${p.momento}</span>
+      <details class="clean-details" style="margin-top: 1.5rem;" ${currentUser === 'global' ? 'open' : ''}>
+        <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
+          📦 Packs 0 Elaboración Hacendado
+        </summary>
+        <div class="details-content" style="padding-top: 0.5rem;">
+          <p class="activity-intro" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Opciones rápidas de Mercadona con unidades completas (sin pesar cereales, medias raciones ni picoteo libre) para elegir dentro del bloque personal diario.
+          </p>
+          <div class="packs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            ${member.packs_cero_elaboracion.map(p => `
+              <div class="pack-card" style="border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; background: var(--bg-card);">
+                <div class="pack-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <h5 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-primary);">${p.nombre}</h5>
+                  <span class="pack-momento" style="font-size: 0.75rem; color: var(--primary); font-weight: 500; background: rgba(14, 165, 233, 0.08); padding: 0.15rem 0.4rem; border-radius: var(--radius-sm);">${p.momento}</span>
+                </div>
+                <div class="pack-products" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">🛒 ${p.productos}</div>
+                <div class="pack-comment" style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.5rem;">💡 ${p.comentario}</div>
               </div>
-              <div class="pack-products">🛒 ${p.productos}</div>
-              <div class="pack-comment">💡 ${p.comentario}</div>
-            </div>
-          `).join('')}
+            `).join('')}
+          </div>
         </div>
-      </div>
+      </details>
     `;
   }
   
@@ -1242,88 +1300,6 @@ function renderProfileDetails() {
       renderProfileDetails();
     });
   });
-  
-  // Menú Semanal y Gráfico
-  renderMemberMenuTable();
-}
-
-function renderMemberMenuTable() {
-  const tableBody = document.getElementById('profile-menu-table-body');
-  if (!tableBody) return;
-  
-  tableBody.innerHTML = '';
-  
-  // Cargar estado de platos cocinados desde localStorage
-  const savedCookedState = JSON.parse(localStorage.getItem('dieta_cooked_state')) || {};
-  
-  // Conseguir los totales diarios para este miembro
-  const totales = NUTRITION_DATA.totales_diarios[activeMember] || [];
-  
-  for (let d = 1; d <= 6; d++) {
-    const dayData = NUTRITION_DATA.menu[d];
-    const comidaNombre = dayData.comida.nombre;
-    const cenaNombre = dayData.cena.nombre;
-    
-    const comidaKey = `cooked_${activeMember}_day_${d}_comida`;
-    const cenaKey = `cooked_${activeMember}_day_${d}_cena`;
-    
-    const isComidaCooked = !!savedCookedState[comidaKey];
-    const isCenaCooked = !!savedCookedState[cenaKey];
-    
-    const totalMacros = totales.find(t => t.dia === d) || { kcal: '-', p: '-', h: '-', g: '-' };
-    
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td style="font-weight: 600; text-align: center;">Día ${d}</td>
-      <td class="${isComidaCooked ? 'cooked-done' : ''}">
-        <div style="display:flex; align-items:flex-start; gap:0.5rem;">
-          <input type="checkbox" class="cooked-checkbox" data-key="${comidaKey}" ${isComidaCooked ? 'checked' : ''} title="Marcar como cocinado / consumido">
-          <div>
-            <div style="font-weight: 500; font-size: 0.9rem;">${comidaNombre}</div>
-            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">
-              ${formatIngredientesList(dayData.comida.individual[activeMember])}
-            </div>
-          </div>
-        </div>
-      </td>
-      <td class="${isCenaCooked ? 'cooked-done' : ''}">
-        <div style="display:flex; align-items:flex-start; gap:0.5rem;">
-          <input type="checkbox" class="cooked-checkbox" data-key="${cenaKey}" ${isCenaCooked ? 'checked' : ''} title="Marcar como cocinado / consumido">
-          <div>
-            <div style="font-weight: 500; font-size: 0.9rem;">${cenaNombre}</div>
-            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">
-              ${formatIngredientesList(dayData.cena.individual[activeMember])}
-              ${dayData.cena.lote.extras && dayData.cena.lote.extras[activeMember] ? `<br><strong style="color:var(--warning);">Extra:</strong> ${dayData.cena.lote.extras[activeMember]}` : ''}
-            </div>
-          </div>
-        </div>
-      </td>
-    `;
-    tableBody.appendChild(tr);
-  }
-  
-  // Agregar escuchadores de eventos a los checkboxes de cocinado
-  const checkboxes = tableBody.querySelectorAll('.cooked-checkbox');
-  checkboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-      const key = cb.getAttribute('data-key');
-      const td = cb.closest('td');
-      if (cb.checked) {
-        savedCookedState[key] = true;
-        if (td) td.classList.add('cooked-done');
-      } else {
-        delete savedCookedState[key];
-        if (td) td.classList.remove('cooked-done');
-      }
-      localStorage.setItem('dieta_cooked_state', JSON.stringify(savedCookedState));
-      syncPush();
-    });
-  });
-}
-
-function formatIngredientesList(indData) {
-  if (!indData) return '';
-  return Object.keys(indData).map(k => `${k}: <strong>${indData[k]}</strong>`).join(" | ");
 }
 
 // MENÚ DIARIO
@@ -1588,6 +1564,28 @@ function mealMatchesQuery(meal, query) {
 function renderMeal(mealData, cardEl, label) {
   cardEl.innerHTML = '';
   
+  // Extraer día y tipo de comida de la etiqueta (ej: "Día 3 • Comida" o "Comida")
+  let day = activeDay;
+  const dayMatch = label.match(/Día\s+(\d+)/i);
+  if (dayMatch) {
+    day = parseInt(dayMatch[1]);
+  }
+  const mealType = label.toLowerCase().includes('comida') ? 'comida' : 'cena';
+  
+  // Claves de estado de plato cocinado
+  const savedCookedState = JSON.parse(localStorage.getItem('dieta_cooked_state')) || {};
+  const globalCookedKey = `cooked_global_day_${day}_${mealType}`;
+  const userCookedKey = currentUser !== 'global' ? `cooked_${currentUser}_day_${day}_${mealType}` : '';
+  const isCooked = !!savedCookedState[globalCookedKey] || (userCookedKey && !!savedCookedState[userCookedKey]);
+  
+  const activeCookedKey = currentUser === 'global' ? globalCookedKey : `cooked_${currentUser}_day_${day}_${mealType}`;
+  
+  if (isCooked) {
+    cardEl.classList.add('cooked-done-card');
+  } else {
+    cardEl.classList.remove('cooked-done-card');
+  }
+  
   const savedPostponedState = JSON.parse(localStorage.getItem('dieta_postponed_state')) || {};
   let postponedCount = 0;
   Object.keys(savedPostponedState).forEach(key => {
@@ -1615,13 +1613,35 @@ function renderMeal(mealData, cardEl, label) {
   header.className = 'menu-meal-header';
   header.style.cssText = 'display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; width:100%;';
   header.innerHTML = `
-    <div>
-      <span>${label}</span>
-      <h3>${mealData.nombre}</h3>
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      <input type="checkbox" class="meal-cooked-checkbox" data-key="${activeCookedKey}" ${isCooked ? 'checked' : ''} style="width: 20px; height: 20px; accent-color: var(--success); cursor: pointer; flex-shrink: 0;" title="Marcar como hecho">
+      <div>
+        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary);">${label}</span>
+        <h3 style="margin: 0.15rem 0 0 0; font-size: 1.2rem; font-weight: 700; font-family: 'Outfit', sans-serif;">${mealData.nombre}</h3>
+      </div>
     </div>
     ${buttonHtml}
   `;
   cardEl.appendChild(header);
+
+  // Escuchador del checkbox de cocinado
+  const checkbox = header.querySelector('.meal-cooked-checkbox');
+  if (checkbox) {
+    checkbox.addEventListener('change', () => {
+      const key = checkbox.getAttribute('data-key');
+      if (checkbox.checked) {
+        savedCookedState[key] = true;
+        cardEl.classList.add('cooked-done-card');
+      } else {
+        delete savedCookedState[key];
+        delete savedCookedState[globalCookedKey];
+        if (userCookedKey) delete savedCookedState[userCookedKey];
+        cardEl.classList.remove('cooked-done-card');
+      }
+      localStorage.setItem('dieta_cooked_state', JSON.stringify(savedCookedState));
+      syncPush();
+    });
+  }
 
   // Agregar Receta Rápida si existe en los datos
   if (mealData.instrucciones && mealData.instrucciones.length > 0) {
@@ -1661,55 +1681,95 @@ function renderMeal(mealData, cardEl, label) {
   }
   
   if (menuViewMode === 'individual') {
-    // Tabla individual
-    const table = document.createElement('table');
-    table.className = 'portions-table';
-    
-    // Obtener las claves de ingredientes a partir del primer miembro
-    const firstMemberId = Object.keys(mealData.individual)[0];
-    const ingredKeys = Object.keys(mealData.individual[firstMemberId]);
-    
-    let ths = ingredKeys.map(k => `<th>${k}</th>`).join('');
-    table.innerHTML = `
-      <thead>
-        <tr>
-          <th>Persona</th>
-          ${ths}
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    `;
-    
-    const tbody = table.querySelector('tbody');
-    
-    Object.keys(mealData.individual).forEach(mId => {
+    if (currentUser !== 'global') {
+      // Vista individual personalizada - solo muestra la porción del usuario actual
+      const mId = currentUser;
       const member = NUTRITION_DATA.miembros[mId];
       const memberPortion = mealData.individual[mId];
-      const isCurrent = currentUser === mId;
       
-      const tr = document.createElement('tr');
-      tr.className = `${mId} ${isCurrent ? 'active-user-row' : ''}`;
-      
-      let tds = ingredKeys.map(k => {
-        let val = memberPortion[k] || '-';
-        return `<td class="qty-highlight" data-label="${k}">${val}</td>`;
-      }).join('');
-      
-      // Extras si los hay para esta cena
-      let extraText = '';
-      if (label === 'Cena' && mealData.lote.extras && mealData.lote.extras[mId]) {
-        extraText = `<br><span style="font-size:0.75rem; color:var(--warning); font-weight:normal;">+ Extra: ${mealData.lote.extras[mId]}</span>`;
+      if (memberPortion) {
+        const portionContainer = document.createElement('div');
+        portionContainer.className = 'personal-portion-container';
+        
+        let extraText = '';
+        if (mealType === 'cena' && mealData.lote.extras && mealData.lote.extras[mId]) {
+          extraText = `
+            <div style="margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: rgba(245, 158, 11, 0.1); border-left: 3px solid var(--warning); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-primary);">
+              <strong style="color: var(--warning);">⚡ Tu Extra de Cena:</strong> ${mealData.lote.extras[mId]}
+            </div>
+          `;
+        }
+        
+        const ingredientsHtml = Object.keys(memberPortion).map(k => {
+          const val = memberPortion[k] || '-';
+          return `
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+              <span style="color: var(--text-secondary); font-weight: 500;">${k}</span>
+              <strong style="color: var(--primary); font-size: 0.95rem;">${val}</strong>
+            </div>
+          `;
+        }).join('');
+        
+        portionContainer.innerHTML = `
+          <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.25rem;">
+            🍽️ Tu Porción (${member.nombre})
+          </h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.5rem;">
+            ${ingredientsHtml}
+          </div>
+          ${extraText}
+        `;
+        cardEl.appendChild(portionContainer);
       }
+    } else {
+      // Vista individual global (Todos) - Tabla original
+      const table = document.createElement('table');
+      table.className = 'portions-table';
       
-      tr.innerHTML = `
-        <td class="name-cell"><span class="dot"></span> ${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''} ${extraText}</td>
-        ${tds}
+      const firstMemberId = Object.keys(mealData.individual)[0];
+      const ingredKeys = Object.keys(mealData.individual[firstMemberId]);
+      
+      let ths = ingredKeys.map(k => `<th>${k}</th>`).join('');
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Persona</th>
+            ${ths}
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
       `;
-      tbody.appendChild(tr);
-    });
-    
-    cardEl.appendChild(table);
+      
+      const tbody = table.querySelector('tbody');
+      
+      Object.keys(mealData.individual).forEach(mId => {
+        const member = NUTRITION_DATA.miembros[mId];
+        const memberPortion = mealData.individual[mId];
+        const isCurrent = currentUser === mId;
+        
+        const tr = document.createElement('tr');
+        tr.className = `${mId} ${isCurrent ? 'active-user-row' : ''}`;
+        
+        let tds = ingredKeys.map(k => {
+          let val = memberPortion[k] || '-';
+          return `<td class="qty-highlight" data-label="${k}">${val}</td>`;
+        }).join('');
+        
+        let extraText = '';
+        if (mealType === 'cena' && mealData.lote.extras && mealData.lote.extras[mId]) {
+          extraText = `<br><span style="font-size:0.75rem; color:var(--warning); font-weight:normal;">+ Extra: ${mealData.lote.extras[mId]}</span>`;
+        }
+        
+        tr.innerHTML = `
+          <td class="name-cell"><span class="dot"></span> ${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''} ${extraText}</td>
+          ${tds}
+        `;
+        tbody.appendChild(tr);
+      });
+      
+      cardEl.appendChild(table);
+    }
   } else {
     // Vista por lote (Batch cooking) y calculadora
     const batchDiv = document.createElement('div');
@@ -1828,6 +1888,21 @@ function renderMeal(mealData, cardEl, label) {
         calcResults.innerHTML = '';
         calcResults.style.display = 'grid';
         
+        // Si el usuario es individual, mostrar su resultado gigante al principio, y la lista abajo pequeña
+        if (currentUser !== 'global') {
+          const mId = currentUser;
+          const pct = mealData.lote.reparto[mId];
+          const portionWeight = ((totalWeight * pct) / 100).toFixed(1);
+          
+          const personalHeader = document.createElement('div');
+          personalHeader.style.cssText = 'grid-column: 1 / -1; margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(14, 165, 233, 0.08); border: 1px solid var(--primary); border-radius: var(--radius-sm); text-align: center;';
+          personalHeader.innerHTML = `
+            <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">⚖️ Tu Ración Calculada:</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-top: 0.25rem;">${portionWeight} g <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">(${pct}%)</span></div>
+          `;
+          calcResults.appendChild(personalHeader);
+        }
+        
         Object.keys(mealData.lote.reparto).forEach(mId => {
           const member = NUTRITION_DATA.miembros[mId];
           const pct = mealData.lote.reparto[mId];
@@ -1836,6 +1911,12 @@ function renderMeal(mealData, cardEl, label) {
           
           const box = document.createElement('div');
           box.className = `calc-result-box ${isCurrent ? 'active-user-calc-result' : ''}`;
+          
+          // Si es usuario individual, hacer el resto de cajas más discretas
+          if (currentUser !== 'global' && !isCurrent) {
+            box.style.opacity = '0.6';
+          }
+          
           box.innerHTML = `
             <span class="calc-result-name">${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''}</span>
             <span class="calc-result-val">${portionWeight} g</span>

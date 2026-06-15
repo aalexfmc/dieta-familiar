@@ -29,6 +29,7 @@
       <div class="header-user-selector">
         <span>👤 Soy:</span>
         <select id="header-user-select" class="user-select-dropdown">
+          <option value="global">Todos (Global) 🌍</option>
           <option value="padre">Papá</option>
           <option value="madre">Mamá</option>
           <option value="luis">Luis</option>
@@ -37,20 +38,14 @@
       </div>
       
       <nav class="nav-tabs">
-        <button class="tab-btn active" data-tab="resumen">
-          <span>📊</span> Resumen
-        </button>
-        <button class="tab-btn" data-tab="perfiles">
-          <span>👤</span> Perfiles
+        <button class="tab-btn active" data-tab="perfiles">
+          <span>👤</span> Mi Plan
         </button>
         <button class="tab-btn" data-tab="menu">
-          <span>🍳</span> Menú
+          <span>🍳</span> Menú Diario
         </button>
         <button class="tab-btn" data-tab="compra">
           <span>🛒</span> Compra
-        </button>
-        <button class="tab-btn" data-tab="productos">
-          <span>📦</span> Productos
         </button>
         <button class="tab-btn" data-tab="consejos">
           <span>🌿</span> Cenas y Salidas
@@ -65,63 +60,8 @@
   <!-- MAIN CONTAINER -->
   <main class="container">
 
-    <!-- SECCIÓN: RESUMEN -->
-    <section id="resumen-section" class="page-section active">
-      <div class="section-title">
-        <h2>Panel Familiar</h2>
-        <p>Vista general de los objetivos iniciales de cada miembro de la familia.</p>
-      </div>
-      
-      <div class="dashboard-grid" id="dashboard-members-grid">
-        <!-- Renderizado dinámico desde app.js -->
-      </div>
-      
-      <div class="note-banner" style="background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--warning); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; line-height: 1.4; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 500;">
-        <span>🌿</span> <strong>Nota:</strong> Macros V1 calibrados. Se ajustarán con el peso medio semanal, hambre, rendimiento, adherencia y sensaciones.
-      </div>
-      
-      <div class="info-section-grid">
-        <div class="info-card">
-          <h3>🎯 Enfoque del Plan</h3>
-          <div class="rules-list">
-            <div class="rule-item">
-              <div class="rule-num">1</div>
-              <div class="rule-content">
-                <h4>Comidas y cenas unificadas</h4>
-                <p>Las comidas y cenas principales se cocinan juntas para toda la familia, variando únicamente las cantidades servidas a cada persona.</p>
-              </div>
-            </div>
-            <div class="rule-item">
-              <div class="rule-num">2</div>
-              <div class="rule-content">
-                <h4>Bloques personales y snacks</h4>
-                <p>Cada individuo tiene asignado su propio bloque personal diario y distribución flexible de packs para encajar en sus requerimientos.</p>
-              </div>
-            </div>
-            <div class="rule-item">
-              <div class="rule-num">3</div>
-              <div class="rule-content">
-                <h4>Estructura semanal equilibrada</h4>
-                <p>Se contemplan 6 comidas y 6 cenas caseras preparadas en el hogar, reservando 1 comida y 1 cena fuera para disfrutar libremente.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="info-card" style="border-color: rgba(139, 92, 246, 0.2);">
-          <h3>✨ Recomendaciones Generales</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-            Este plan está diseñado para optimizar el tiempo de cocina y la adherencia. Utiliza la pestaña <strong>Menú Diario</strong> en el modo <strong>En Familia</strong> para preparar los ingredientes totales y usar la calculadora integrada al repartir los platos finales.
-          </p>
-          <div style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.1); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--primary);">
-            📌 <strong>Tip:</strong> Si estás en el supermercado, puedes marcar las compras realizadas en la pestaña <strong>Lista Compra</strong> y tus avances se guardarán automáticamente en tu móvil.
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SECCIÓN: PERFILES INDIVIDUALES -->
-    <section id="perfiles-section" class="page-section">
+    <section id="perfiles-section" class="page-section active">
       <div class="section-title">
         <h2>Perfiles Individuales</h2>
         <p>Configuración nutricional específica, bloques personales, distribución flexible y planificación semanal de cada miembro.</p>
@@ -148,21 +88,7 @@
               <!-- Comidas dinámicas (Desayuno, merienda, ajustes) -->
             </div>
             
-            <h4 style="font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem;">🗓️ Menú Semanal Personalizado</h4>
-            <div style="overflow-x: auto;">
-              <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
-                <thead>
-                  <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
-                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 10%;">Día</th>
-                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 45%;">Comida</th>
-                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 45%;">Cena</th>
-                  </tr>
-                </thead>
-                <tbody id="profile-menu-table-body">
-                  <!-- Filas de menú individuales dinámicas -->
-                </tbody>
-              </table>
-            </div>
+
           </div>
         </div>
       </div>
@@ -224,21 +150,6 @@
       </div>
     </section>
 
-    <!-- SECCIÓN: PRODUCTOS MERCADONA -->
-    <section id="productos-section" class="page-section">
-      <div class="section-title">
-        <h2>Productos de Referencia (Mercadona)</h2>
-        <p>Valores y enlaces directos a las fichas/etiquetas de compra utilizadas para calcular el plan.</p>
-      </div>
-      
-      <div class="search-container" style="margin-bottom: 1.5rem; max-width: 400px; width: 100%;">
-        <input type="text" id="search-products-input" placeholder="🔍 Buscar productos por nombre o uso..." class="search-input">
-      </div>
-      
-      <div class="products-grid" id="products-grid-container">
-        <!-- Tarjetas de productos dinámicas -->
-      </div>
-    </section>
 
     <!-- SECCIÓN: CONSEJOS Y ALTERNATIVAS -->
     <section id="consejos-section" class="page-section">
@@ -449,7 +360,7 @@
         <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.5;">
           Selecciona quién eres para personalizar la aplicación y enfocar el menú y perfiles en ti:
         </p>
-        <div class="welcome-user-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0 0.5rem;">
+        <div class="welcome-user-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0 0.5rem; margin-bottom: 1rem;">
           <button class="welcome-user-card" data-user="padre">
             <span class="avatar">👨</span>
             <span class="name">Papá</span>
@@ -465,6 +376,11 @@
           <button class="welcome-user-card" data-user="natalia">
             <span class="avatar">👧</span>
             <span class="name">Natalia</span>
+          </button>
+        </div>
+        <div style="padding: 0 0.5rem;">
+          <button class="welcome-user-card global-welcome-btn" data-user="global" style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.85rem; border-radius: var(--radius-md); font-weight: bold; background: rgba(14, 165, 233, 0.08); border: 1px dashed var(--primary); color: var(--primary);">
+            <span>🌍</span> Vista Familiar (Global)
           </button>
         </div>
       </div>
