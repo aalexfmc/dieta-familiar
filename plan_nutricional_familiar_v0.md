@@ -220,6 +220,26 @@ Reglas:
 | Salado ocasional | Merienda | 1 pack palitos con frutos secos 65 g + 1 mini brik gazpacho 330 ml | 449 / 12 / 47 / 24 | Muy apetecible pero mas graso/salado. Usar como opcion, no obligacion. |
 | Baloncesto | Antes o despues de entrenar | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil. No recortar en dias de basket. |
 
+## Modulos de actividad V2 sin pan integral solo
+
+Regla: los modulos de actividad no deben usar pan integral como hidrato principal si se va a comer solo. Es poco apetecible y baja la adherencia. Si se usa pan, que sea dentro de una comida real; para modulos rapidos se priorizan tortitas campestres, platano, patata cocida, arroz, Corn Flakes o barritas.
+
+### Padre
+
+| Tipo de dia | Plan / modulo | Producto concreto | kcal aprox. | Uso |
+|---|---|---|---:|---|
+| Descanso/oficina | Sin batido. Mantener plan base. Opcional solo si hay hambre real. | 1 pack tortitas campestres 35 g o 1 fruta. Si el hambre es grande, mejor pack salado crujiente completo. | 80-145 | No anadir mas proteina por defecto: ya llega al objetivo proteico con la base. |
+| Dia de gimnasio | Batido post-entreno + hidrato facil. | 250 ml leche semidesnatada + 1 scoop proteina + creatina + 1 platano o 1 pack tortitas campestres 35 g. | 335-375 | Elegir platano si quiere algo mas ligero; tortitas si quiere algo crujiente y mas saciante. |
+| Carrera 10-12 km | Batido post-carrera + hidrato facil. | Batido habitual + 1 platano + 1 pack tortitas campestres 35 g. | 480 | Suficiente si la carrera no ha sido muy larga o intensa. |
+| Carrera 15-20 km / 90 min | Batido post-carrera + hidrato alto. | Batido habitual + 1 platano + 2 packs tortitas campestres 70 g. Si prefiere comida caliente: cambiar las tortitas por 250 g patata cocida o 150 g arroz cocido. | 590-625 | Priorizar hidratos, no mas proteina. Si aun se queda corto, anadir 1 barrita muesli o 30 g Corn Flakes. |
+
+### Luis
+
+| Tipo de dia | Plan / modulo | Producto concreto | kcal aprox. | Uso |
+|---|---|---|---:|---|
+| Descanso/oficina | Sin batido por defecto. | Mantener bloque personal V2. Si hay hambre real: 1 fruta o 1 pack tortitas campestres 35 g. | 80-145 | No meter batido si ya llega a proteina y no ha entrenado. |
+| Dia de gimnasio | Batido post-entreno + hidrato facil. | 250 ml leche semidesnatada + 1 scoop proteina + creatina + 1 platano o 1 pack tortitas campestres 35 g. | 335-375 | Si entrena fuerte y nota bajon, usar el pack dulce potente en vez de solo platano. |
+
 ### Tabla productos packs
 
 | Producto | Unidad usada | kcal | Proteina | Hidratos | Grasas | Fuente |
