@@ -1098,6 +1098,8 @@ function renderProfileDetails() {
             </div>
           `).join('')}
         </div>
+      </div>
+    `;
   }
   
   // Build packs HTML if the member has them
