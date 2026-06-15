@@ -217,6 +217,64 @@ Impacto en macros:
 - No cambian kcal ni macros diarios, porque no se modifican cantidades.
 - Cambia la distribucion horaria: se gana adherencia y se evitan desayunos demasiado grandes.
 
+## 2026-06-15 - Packs 0 elaboracion Mercadona
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex pidio aplicar el sistema de packs completos de 0 elaboracion para almuerzos/meriendas, evitando cantidades raras como 15 g de cereales, medias raciones, yogures aburridos o frutos secos libres.
+
+Resumen practico:
+
+- Se anade la seccion `Packs 0 elaboracion` despues del bloque personal diario.
+- Se crean packs por persona para Padre, Madre, Luis y Natalia.
+- Se separan packs salados, dulces, saciantes, de gimnasio, carrera y baloncesto.
+- Todos los packs usan unidades completas: pack individual, lata, mini brik, botella, barrita, unidad de postre o pieza de fruta.
+- Se anade una tabla de productos usados con kcal, proteina, hidratos, grasas y fuente.
+- Se actualiza la lista de compra con natillas +Proteinas, bebida stracciatella +Proteinas, tortitas con chocolate, barritas, gazpacho mini briks, palitos con frutos secos y atun extra si se usan packs salados.
+
+Productos principales usados:
+
+- Tortitas de maiz campestre Hacendado.
+- Tortitas de maiz con chocolate Hacendado.
+- Barritas muesli chocolate Hacendado.
+- Barritas cereales y frutos secos Hacendado.
+- Bebida lactea stracciatella +Proteinas Hacendado.
+- Natillas chocolate +Proteinas Hacendado.
+- Gazpacho tradicional Hacendado mini briks.
+- Palitos con frutos secos Hacendado.
+- Atun claro al natural Hacendado.
+
+Impacto nutricional:
+
+- No se recalculan todos los totales semanales porque los packs son opciones intercambiables, no un nuevo menu fijo obligatorio.
+- La tabla de `Totales diarios recalculados V1` queda como foto base del plan.
+- Si se cambia el bloque personal por un pack concreto, se usa la tabla de macros del pack para ajustar ese dia.
+
+Impacto en adherencia:
+
+- Menos preparacion.
+- Menos pesajes pequenos.
+- Packs mas apetecibles y faciles de comprar.
+- Mejor control del picoteo, especialmente en Madre, porque no hay frutos secos libres ni medias raciones.
+
+Limitaciones de datos:
+
+- Para varios productos se usaron etiquetas visibles en fotos oficiales del API de Mercadona.
+- En atun, platano, fruta media y leche semidesnatada se mantienen estimaciones prudentes porque la etiqueta numerica exacta no quedo incorporada como dato legible en esta revision.
+
+Reglas de uso:
+
+- Usar packs completos.
+- No medias raciones.
+- No frutos secos libres.
+- Padre y Luis usan extras de entrenamiento/carrera solo cuando toca.
+- Natalia no recorta hidratos en baloncesto ni usa los macros como limite.
+
 ## 2026-06-15 - Modulos de actividad por tipo de dia
 
 Archivos tocados:

@@ -124,6 +124,13 @@ Valores usados a partir de fichas/etiquetas de Mercadona cuando estan disponible
 | Corn Flakes Hacendado | https://tienda.mercadona.es/product/22966/cereales-copos-maiz-corn-flakes-hacendado-0-azucares-anadidos-caja | Desayuno |
 | Chocolate 85% | https://tienda.mercadona.es/product/12493/porciones-chocolate-negro-85-cacao-extrafino-hacendado-paquete | Extra controlado |
 | Tortitas campestres | https://tienda.mercadona.es/product/14786/tortitas-maiz-campestre-hacendado-paquete | Extra Luis / snack |
+| Tortitas de maiz con chocolate | https://tienda.mercadona.es/product/14015/tortitas-maiz-con-chocolate-hacendado-paquete | Pack dulce cerrado |
+| Barritas muesli chocolate | https://tienda.mercadona.es/product/9349/barritas-cereales-muesli-hacendado-con-chocolate-caja | Pack dulce / carrera |
+| Barritas cereales y frutos secos | https://tienda.mercadona.es/product/52493/barritas-cereales-con-frutos-secos-hacendado-caja | Pack dulce-saciante |
+| Bebida lactea stracciatella +Proteinas | https://tienda.mercadona.es/product/19985/bebida-lactea-desnatada-sabor-stracciatella-proteinas-hacendado-0-azucares-anadidos-20-g-proteinas-botella | Pack proteico listo |
+| Natillas chocolate +Proteinas | https://tienda.mercadona.es/product/21061/natillas-con-chocolate-proteinas-hacendado-13-g-mg-10-g-proteinas-pack-4 | Pack dulce controlado |
+| Gazpacho tradicional mini briks | https://tienda.mercadona.es/product/39934/gazpacho-tradicional-hacendado-pack-3 | Pack salado fresco |
+| Palitos con frutos secos | https://tienda.mercadona.es/product/13372/palitos-con-frutos-secos-hacendado-pack-2 | Pack salado ocasional |
 | Ketchup zero | https://tienda.mercadona.es/product/35343/ketchup-zero-azucares-anadidos-hacendado-bote | Salsa |
 | Leche semidesnatada Hacendado | https://tienda.mercadona.es/product/10382/leche-semidesnatada-hacendado-brick | Batido post-entreno Padre/Luis |
 | Frutos secos naturales / nueces | Confirmar etiqueta concreta en casa | Extra medido Madre |
@@ -160,6 +167,69 @@ Nota: el bote de 500 g se mantiene solo cuando encaja de verdad. Para la familia
 - Total flexible orientativo usado para calculo: leche semidesnatada 250 ml + Corn Flakes 40 g + 1 fruta + bocadillo pequeno de pan 60 g + jamon 30 g + 1 fruta.
 - Alternativas equivalentes: tostadas con jamon/tomate + fruta, cereales con leche, yogur con fruta, bocadillo pequeno o tortitas.
 - En dias de baloncesto: no recortar hidratos.
+
+## Packs 0 elaboracion
+
+Objetivo: que almuerzos y meriendas funcionen con unidades completas, sin pesar 15 g de cereal, medias raciones ni preparaciones raras. Estos packs no son para sumarlos todos: son opciones cerradas para elegir dentro del bloque personal diario.
+
+Reglas:
+
+- Cafe con leche de Padre, Madre y Luis se mantiene fijo por la manana.
+- Madre mantiene infusion + fruta a media manana.
+- Elegir packs completos: 1 envase, 1 lata, 1 barrita, 1 mini brik, 1 pack individual o 1 fruta.
+- No usar frutos secos libres. Si se usan, que sean barrita, pack individual o racion ya cerrada.
+- Si se usa un pack mas procesado, rotarlo y no convertirlo en la unica opcion diaria.
+- Natalia no usa estos packs como limite. En baloncesto o hambre se sube energia sin recortar.
+
+### Packs Padre
+
+| Pack | Momento | Productos completos | kcal/P/C/F aprox. | Comentario |
+|---|---|---|---:|---|
+| Salado crujiente | Almuerzo o merienda | 1 pack tortitas campestres 35 g + 1 lata atun natural + 1 mini brik gazpacho 330 ml | 340 / 18 / 38 / 12 | Salado, fresco y saciante. Alto en sal, no usar siempre. |
+| Dulce activo | Merienda o post-gym ligero | 1 bebida lactea stracciatella +Proteinas 280 g + 1 pack tortitas maiz chocolate 32,5 g | 301 / 22 / 32 / 9 | Muy comodo y apetecible. Mas procesado, usar con rotacion. |
+| Extra carrera | Pre/post carrera | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil para correr. Bajo en proteina a proposito. |
+| Post-entreno listo | Gimnasio | 1 bebida lactea stracciatella +Proteinas 280 g | 146 / 20 / 11 / 2 | Alternativa rapida al shaker. Si toma leche + scoop, no sumar tambien este por defecto. |
+
+### Packs Madre
+
+| Pack | Momento | Productos completos | kcal/P/C/F aprox. | Comentario |
+|---|---|---|---:|---|
+| Dulce controlado | Merienda | 1 natillas chocolate +Proteinas 120 g + 1 barrita cereales y frutos secos | 215 / 13 / 17 / 9 | Dulce, cerrado y mas apetecible que yogur solo. Procesado, rotar. |
+| Salado saciante | Hambre real | 1 mini brik gazpacho 330 ml + 1 lata atun natural + 1 fruta | 275 / 17 / 31 / 9 | Muy saciante y sin cocina. Alto en sal por atun/gazpacho. |
+| Crujiente controlado | Merienda | 1 pack tortitas campestres 35 g + 1 natillas chocolate +Proteinas 120 g | 242 / 12 / 37 / 4 | Crujiente + dulce, todo cerrado. Mejor que picoteo sin medir. |
+
+### Packs Luis
+
+| Pack | Momento | Productos completos | kcal/P/C/F aprox. | Comentario |
+|---|---|---|---:|---|
+| Dulce potente | Merienda o pre-gym | 1 bebida lactea stracciatella +Proteinas 280 g + 1 pack tortitas maiz chocolate 32,5 g + 1 platano | 406 / 23 / 59 / 9 | Energetico y facil. Bueno si entrena; en descanso puede ser demasiado. |
+| Salado crujiente | Almuerzo o merienda | 1 pack tortitas campestres 35 g + 1 lata atun natural + 1 mini brik gazpacho 330 ml | 340 / 18 / 38 / 12 | Salado y rapido. No hace falta meter mas proteina si ya va alto. |
+| Extra gimnasio | Post-gym | Batido habitual: 250 ml leche semidesnatada + 1 scoop proteina + creatina | 230 / 32 / 14 / 6 | Cuenta dentro del dia. En descanso no es obligatorio. |
+
+### Packs Natalia
+
+| Pack | Momento | Productos completos | kcal/P/C/F aprox. | Comentario |
+|---|---|---|---:|---|
+| Dulce normal | Merienda | 1 vaso leche semidesnatada 250 ml + 1 barrita muesli chocolate + 1 fruta | 294 / 10 / 47 / 8 | Flexible, normal y sin enfoque de dieta. |
+| Salado ocasional | Merienda | 1 pack palitos con frutos secos 65 g + 1 mini brik gazpacho 330 ml | 449 / 12 / 47 / 24 | Muy apetecible pero mas graso/salado. Usar como opcion, no obligacion. |
+| Baloncesto | Antes o despues de entrenar | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil. No recortar en dias de basket. |
+
+### Tabla productos packs
+
+| Producto | Unidad usada | kcal | Proteina | Hidratos | Grasas | Fuente |
+|---|---:|---:|---:|---:|---:|---|
+| Tortitas de maiz campestre Hacendado | 1 pack individual 35 g | 145 | 2,3 g | 27 g | 3,0 g | Etiqueta oficial foto API Mercadona |
+| Tortitas de maiz con chocolate Hacendado | 1 pack individual 32,5 g | 155 | 2,0 g | 21 g | 6,8 g | Etiqueta oficial foto API Mercadona |
+| Barritas muesli chocolate Hacendado | 1 barrita 23 g | 99 | 1,6 g | 15 g | 3,3 g | Etiqueta oficial foto API Mercadona |
+| Barritas cereales y frutos secos Hacendado | 1 barrita 25 g | 118 | 3,4 g | 7,2 g | 8,0 g | Etiqueta oficial foto API Mercadona |
+| Bebida lactea stracciatella +Proteinas Hacendado | 1 botella 280 g | 146 | 20 g | 11,4 g | 2,0 g | Etiqueta oficial foto API Mercadona |
+| Natillas chocolate +Proteinas Hacendado | 1 unidad 120 g | 97 | 10 g | 10 g | 1,3 g | Etiqueta oficial foto API Mercadona |
+| Gazpacho tradicional Hacendado mini brik | 1 mini brik 330 ml | 132 | 3,1 g | 11,4 g | 8,5 g | Etiqueta oficial foto API Mercadona |
+| Palitos con frutos secos Hacendado | 1 paquete individual 65 g | 317 | 8,5 g | 35 g | 15,2 g | Etiqueta oficial foto API Mercadona |
+| Atun claro al natural Hacendado | 1 lata | 63 | 13 g | 0 g | 0,5 g | Formato oficial Mercadona; macros estimados por etiqueta no visible |
+| Platano | 1 pieza mediana | 105 | 1,3 g | 27 g | 0,3 g | Estimado |
+| Fruta media | 1 pieza | 80 | 0,5 g | 20 g | 0,2 g | Estimado |
+| Leche semidesnatada Hacendado | 250 ml | 115 | 7,8 g | 11,8 g | 4,0 g | Estimado usado en plan V1 |
 
 ## Chequeo de proporciones practicas
 
@@ -713,7 +783,9 @@ Sal y especias: 1/2 cucharilla de postre rasa de sal para patata y judias, 1/2 c
 
 ## Totales diarios recalculados V1
 
-Incluyen bloque personal diario, comida y cena de los 6 dias de casa. No incluyen la comida fuera ni la cena fuera semanal. En Padre y Luis, la tabla principal no incluye batido; debajo queda la tabla con batido.
+Incluyen bloque personal diario base, comida y cena de los 6 dias de casa. No incluyen la comida fuera ni la cena fuera semanal. En Padre y Luis, la tabla principal no incluye batido; debajo queda la tabla con batido.
+
+Nota sobre Packs 0 elaboracion: estos totales V1 siguen siendo la foto base del plan. Si se cambia el bloque personal por un pack distinto, usar la tabla de macros del pack para ajustar el dia. No hace falta recalcular toda la semana por elegir un pack puntual.
 
 Valores clave usados para el calculo V1:
 
@@ -779,7 +851,7 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 - Carne picada vacuno premium 400 g: 2 paquetes.
 - Tacos vacuno marinado para guisar: 1 bandeja de 600 g.
 - Huevos L: 2 paquetes de 12.
-- Atun natural: 1 pack de 6 latas.
+- Atun natural: 1 pack de 6 latas para cenas. Anadir 1 pack extra si se usan packs salados con atun varias veces.
 - Jamon serrano: 700-900 g total para desayunos y cenas.
 
 ### Hidratos
@@ -805,6 +877,8 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 
 - Yogur +Proteinas 500 g: 7 botes para Luis si mantiene el desayuno diario.
 - Yogur +Proteinas natural pack 4 x 120 g: 8 packs para Padre y Madre si Padre toma 2 unidades/dia y Madre 2 unidades/dia durante 7 dias (28 unidades previstas + 4 de margen).
+- Natillas chocolate +Proteinas pack 4 x 120 g: 1-2 packs si se usan meriendas dulces cerradas.
+- Bebida lactea stracciatella +Proteinas 280 g: 4-8 botellas segun uso de Padre/Luis/Natalia.
 - Leche semidesnatada: 6-7 bricks de 1 L si Padre, Madre y Luis toman cafe con leche a diario y Padre/Luis toman 250 ml extra con proteina en 3-4 noches de entrenamiento.
 - Proteina en polvo: no se compra por defecto en Mercadona si ya la tienen; contar 1 scoop por persona y noche de entrenamiento.
 - Creatina: 3-5 g diarios por persona que la use. No aporta kcal ni macros.
@@ -812,6 +886,11 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 - Frutos rojos congelados: 1-2 bolsas segun uso de Luis.
 - Frutos secos naturales / nueces: 1 paquete de 200 g aprox. para 15 g/dia de Madre y margen.
 - Chocolate 85%: 1 paquete.
+- Tortitas de maiz con chocolate: 1-2 paquetes si se usan packs dulces.
+- Barritas muesli chocolate: 1 caja.
+- Barritas cereales y frutos secos: 1 caja.
+- Gazpacho mini briks pack 3 x 330 ml: 2-4 packs si se usan packs salados.
+- Palitos con frutos secos: 1 pack opcional para Natalia o snack salado ocasional.
 - AOVE: 1 botella.
 - Ketchup zero / mostaza / especias: segun necesidad.
 

@@ -23,7 +23,9 @@ const NUTRITION_DATA = {
           modulo: 'Sin batido. Mantener plan base.',
           extra_opcional: 'Si hay hambre real: +40 g pan integral o +10 g AOVE.',
           resultado: '~2196-2450 kcal',
-          nota: 'No añadir más proteína: ya llega al objetivo proteico.'
+          nota: 'No añadir más proteína: ya llega al objetivo proteico.',
+          macros: { kcal: "2350-2450", p: "170 g", h: "270 g", g: "70 g" },
+          macros_num: { kcal: 2400, p: 170, h: 270, g: 70 }
         },
         {
           tipo: 'gimnasio',
@@ -34,7 +36,9 @@ const NUTRITION_DATA = {
           modulo: 'Batido post-entreno (250 ml leche + proteína + creatina) + 40-60 g pan integral o 1 plátano.',
           impacto: '+330-380 kcal · +30-33 g P · +34-45 g H · +6 g G',
           resultado: '~2525-2575 kcal',
-          nota: 'El batido cuenta dentro del total diario V1.'
+          nota: 'El batido cuenta dentro del total diario V1.',
+          macros: { kcal: "2600", p: "200 g", h: "290 g", g: "70 g" },
+          macros_num: { kcal: 2600, p: 200, h: 290, g: 70 }
         },
         {
           tipo: 'carrera_media',
@@ -45,11 +49,13 @@ const NUTRITION_DATA = {
           modulo: 'Batido post-carrera + 1 plátano + 60 g pan integral.',
           impacto: '+470 kcal aprox.',
           resultado: '~2660-2700 kcal',
-          nota: 'Suficiente si la carrera no ha sido muy larga o intensa.'
+          nota: 'Suficiente si la carrera no ha sido muy larga o intensa.',
+          macros: { kcal: "2600-2800", p: "200 g", h: "315 g", g: "70 g" },
+          macros_num: { kcal: 2700, p: 200, h: 315, g: 70 }
         },
         {
           tipo: 'carrera_larga',
-          icono: '🏃♂️',
+          icono: '🏃‍♂️',
           titulo: 'Carrera 15-20 km / 90 min',
           kcal_objetivo: '2800',
           batido: true,
@@ -57,7 +63,9 @@ const NUTRITION_DATA = {
           extras_hidrato: '250 g patata cocida, o 50 g arroz seco extra, o 30 g Corn Flakes, o bocadillo 60 g pan.',
           impacto: '+600-700 kcal aprox.',
           resultado: '~2800-2900 kcal',
-          nota: 'Priorizar hidratos, no más proteína.'
+          nota: 'Priorizar hidratos, no más proteína.',
+          macros: { kcal: "2800-2900", p: "200 g", h: "355 g", g: "70 g" },
+          macros_num: { kcal: 2850, p: 200, h: 355, g: 70 }
         }
       ]
     },
@@ -93,7 +101,9 @@ const NUTRITION_DATA = {
           modulo: 'Sin batido. Mantener plan base.',
           extra_opcional: 'Si hay hambre real: +10 g chocolate 85%, +10 g AOVE, o 1 fruta. No más yogur proteico ni whey en descanso.',
           resultado: '~2086 kcal',
-          nota: 'Ya va alto de proteína — no añadir más.'
+          nota: 'Ya va alto de proteína — no añadir más.',
+          macros: { kcal: "2050-2150", p: "172 g", h: "243 g", g: "47 g" },
+          macros_num: { kcal: 2100, p: 172, h: 243, g: 47 }
         },
         {
           tipo: 'gimnasio',
@@ -104,7 +114,9 @@ const NUTRITION_DATA = {
           modulo: 'Batido post-entreno (250 ml leche + proteína + creatina) + 20 g Corn Flakes o 1 plátano.',
           impacto: '+305-340 kcal · +30 g P · +32-42 g H · +6 g G',
           resultado: '~2390-2425 kcal',
-          nota: 'Pierna/espalda fuerte → plátano. Sesión ligera → 20 g Corn Flakes.'
+          nota: 'Pierna/espalda fuerte → plátano. Sesión ligera → 20 g Corn Flakes.',
+          macros: { kcal: "2350-2400", p: "202 g", h: "283 g", g: "53 g" },
+          macros_num: { kcal: 2380, p: 202, h: 283, g: 53 }
         }
       ]
     },
@@ -597,10 +609,11 @@ let activeMember = 'padre';
 let activeDay = 1;
 let menuViewMode = 'lote'; // 'lote' o 'individual'
 let batchMultiplier = 1; // Multiplicador de raciones para cocina por lotes
+let selectedActivityType = null; // Tipo de actividad seleccionado (sobrescribe macros de perfil)
 
 // CLOUD SYNC CONFIG (local proxy → jsonblob.com, zero CORS issues)
 const SYNC_API_URL = '/api/sync';
-const SYNC_KEYS = ['dieta_shopping_state', 'dieta_cooked_state', 'dieta_postponed_state'];
+const SYNC_KEYS = ['dieta_shopping_state', 'dieta_cooked_state', 'dieta_postponed_state', 'dieta_custom_shopping_items'];
 let isSyncing = false;
 
 function setSyncStatus(status) {
@@ -684,8 +697,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initProfiles();
     initMenu();
     initShoppingList();
+    initShoppingListActions();
     initProducts();
     initMercadonaModal();
+    initUniversalCalculator();
   });
 });
 
@@ -772,6 +787,7 @@ function initDashboard() {
     
     card.addEventListener('click', () => {
       activeMember = member.id;
+      selectedActivityType = null;
       switchTab('perfiles');
     });
     
@@ -794,6 +810,7 @@ function initProfiles() {
     
     btn.addEventListener('click', () => {
       activeMember = member.id;
+      selectedActivityType = null;
       document.querySelectorAll('.profile-select-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       renderProfileDetails();
@@ -811,14 +828,32 @@ function renderProfileDetails() {
   document.getElementById('profile-name').innerText = member.nombre;
   document.getElementById('profile-objective').innerText = member.objetivo;
   
-  // Macros Sidebar
+  // Macros Sidebar & Override Badge Logic
   const macrosList = document.getElementById('profile-macros-list');
   
+  let activeMacros = member.macros;
+  let activeMacrosNum = member.macros_num;
+  let overrideBadgeHTML = '';
+
+  if (selectedActivityType && member.modulos_actividad) {
+    const actModule = member.modulos_actividad.find(m => m.tipo === selectedActivityType);
+    if (actModule && actModule.macros && actModule.macros_num) {
+      activeMacros = actModule.macros;
+      activeMacrosNum = actModule.macros_num;
+      overrideBadgeHTML = `
+        <div class="sidebar-override-badge">
+          <span>⚡ ${actModule.titulo}</span>
+          <button class="sidebar-override-close" id="clear-activity-override" title="Volver a media semanal">&times;</button>
+        </div>
+      `;
+    }
+  }
+
   // Calculate SVG offsets
-  const kcalVal = member.macros_num.kcal || 2000;
-  const pVal = member.macros_num.p || 100;
-  const hVal = member.macros_num.h || 200;
-  const gVal = member.macros_num.g || 50;
+  const kcalVal = activeMacrosNum.kcal || 2000;
+  const pVal = activeMacrosNum.p || 100;
+  const hVal = activeMacrosNum.h || 200;
+  const gVal = activeMacrosNum.g || 50;
   
   const maxValues = { kcal: 3200, p: 200, h: 400, g: 100 };
   
@@ -834,9 +869,10 @@ function renderProfileDetails() {
   const offsetP = circumferenceP - (pctP * circumferenceP);
   const offsetG = circumferenceG - (pctG * circumferenceG);
   
-  const kcalText = member.kcal === 'Flexible' ? 'Flex' : kcalVal;
+  const kcalText = member.kcal === 'Flexible' && !selectedActivityType ? 'Flex' : kcalVal;
 
   macrosList.innerHTML = `
+    ${overrideBadgeHTML}
     <h4>Objetivos Nutricionales</h4>
     
     <div class="macros-chart-container">
@@ -875,9 +911,9 @@ function renderProfileDetails() {
   const metersList = macrosList.querySelector('.macros-meters-list');
   const labelMap = { kcal: 'Calorías (kcal)', p: 'Proteína (g)', h: 'Carbohidratos (g)', g: 'Grasas (g)' };
   
-  Object.keys(member.macros).forEach(key => {
-    const valText = member.macros[key];
-    const valNum = member.macros_num[key] || 0;
+  Object.keys(activeMacros).forEach(key => {
+    const valText = activeMacros[key];
+    const valNum = activeMacrosNum[key] || 0;
     const maxVal = maxValues[key] || 100;
     const percentage = valNum ? Math.min((valNum / maxVal) * 100, 100) : 0;
     
@@ -904,6 +940,16 @@ function renderProfileDetails() {
     });
   }, 50);
   
+  // Clear override button listener
+  const clearOverrideBtn = document.getElementById('clear-activity-override');
+  if (clearOverrideBtn) {
+    clearOverrideBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectedActivityType = null;
+      renderProfileDetails();
+    });
+  }
+  
   // Comidas Fijas
   const mealsContainer = document.getElementById('profile-meals-container');
   
@@ -913,10 +959,10 @@ function renderProfileDetails() {
     activityHTML = `
       <div class="activity-modules-section">
         <h4>⚡ Tipo de Día — Módulos de Actividad</h4>
-        <p class="activity-intro">La comida y la cena familiares no cambian. En días de entrenamiento se ajusta el combustible con módulos personales sencillos.</p>
+        <p class="activity-intro">La comida y la cena familiares no cambian. Haz clic en un tipo de día para ver cómo cambian sus objetivos en el panel lateral.</p>
         <div class="activity-cards">
           ${member.modulos_actividad.map(m => `
-            <div class="activity-card activity-${m.tipo}">
+            <div class="activity-card activity-${m.tipo} ${selectedActivityType === m.tipo ? 'active' : ''}" data-type="${m.tipo}">
               <div class="activity-card-header">
                 <span class="activity-icon">${m.icono}</span>
                 <div class="activity-card-title">
@@ -959,6 +1005,19 @@ function renderProfileDetails() {
     </div>
     ${activityHTML}
   `;
+  
+  // Attach click listeners to activity cards
+  mealsContainer.querySelectorAll('.activity-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const type = card.getAttribute('data-type');
+      if (selectedActivityType === type) {
+        selectedActivityType = null;
+      } else {
+        selectedActivityType = type;
+      }
+      renderProfileDetails();
+    });
+  });
   
   // Menú Semanal y Gráfico
   renderMemberMenuTable();
@@ -1598,16 +1657,34 @@ function updateCategoryStatus(card) {
   }
 }
 
+// LISTA DE LA COMPRA
+const SUPERMARKET_ORDER = ['Legumbres y Verduras', 'Proteína', 'Desayuno, Meriendas y Extras', 'Hidratos'];
+
 function initShoppingList() {
   const container = document.getElementById('shopping-list-container');
   if (!container) return;
   
   container.innerHTML = '';
   
+  // Configurar estado visual de "Ocultar Tachados" al re-renderizar
+  const isHidden = localStorage.getItem('dieta_hide_checked') === 'true';
+  if (isHidden) {
+    container.classList.add('hide-checked-active');
+  } else {
+    container.classList.remove('hide-checked-active');
+  }
+
   // Cargar estado guardado de localStorage
   const savedState = JSON.parse(localStorage.getItem('dieta_shopping_state')) || {};
   
-  Object.keys(NUTRITION_DATA.compra).forEach(cat => {
+  // Ordenar categorías según el pasillo de Mercadona
+  const sortedCategories = Object.keys(NUTRITION_DATA.compra).sort((a, b) => {
+    const indexA = SUPERMARKET_ORDER.indexOf(a);
+    const indexB = SUPERMARKET_ORDER.indexOf(b);
+    return (indexA !== -1 ? indexA : 99) - (indexB !== -1 ? indexB : 99);
+  });
+
+  sortedCategories.forEach(cat => {
     const card = document.createElement('div');
     card.className = 'shopping-card';
     
@@ -1662,20 +1739,141 @@ function initShoppingList() {
     updateCategoryStatus(card);
   });
   
+  // Card de Extras del Hogar / Personalizados
+  const customCard = document.createElement('div');
+  customCard.className = 'shopping-card';
+  customCard.id = 'shopping-card-custom';
+  
+  const customH3 = document.createElement('h3');
+  customH3.innerHTML = `<span>🏠</span> Extras / Varios`;
+  customCard.appendChild(customH3);
+  
+  const customUl = document.createElement('div');
+  customUl.className = 'shopping-list';
+  
+  const customItems = JSON.parse(localStorage.getItem('dieta_custom_shopping_items')) || [];
+  
+  customItems.forEach((item, index) => {
+    const itemEl = document.createElement('div');
+    itemEl.className = `shopping-item ${item.checked ? 'checked' : ''}`;
+    itemEl.innerHTML = `
+      <input type="checkbox" class="shopping-item-check" data-index="${index}" ${item.checked ? 'checked' : ''}>
+      <span class="shopping-item-text" style="cursor: pointer; flex-grow: 1;">${item.text}</span>
+      <button class="custom-item-delete-btn" data-index="${index}" title="Eliminar artículo">&times;</button>
+    `;
+    
+    const checkbox = itemEl.querySelector('input.shopping-item-check');
+    checkbox.addEventListener('change', () => {
+      item.checked = checkbox.checked;
+      if (item.checked) {
+        itemEl.classList.add('checked');
+      } else {
+        itemEl.classList.remove('checked');
+      }
+      localStorage.setItem('dieta_custom_shopping_items', JSON.stringify(customItems));
+      syncPush();
+      updateCategoryStatus(customCard);
+    });
+    
+    const textSpan = itemEl.querySelector('.shopping-item-text');
+    textSpan.addEventListener('click', () => {
+      checkbox.checked = !checkbox.checked;
+      checkbox.dispatchEvent(new Event('change'));
+    });
+    
+    const deleteBtn = itemEl.querySelector('.custom-item-delete-btn');
+    deleteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      customItems.splice(index, 1);
+      localStorage.setItem('dieta_custom_shopping_items', JSON.stringify(customItems));
+      syncPush();
+      initShoppingList();
+    });
+    
+    customUl.appendChild(itemEl);
+  });
+  
+  // Formulario para añadir extras
+  const addForm = document.createElement('div');
+  addForm.className = 'add-custom-item-container';
+  addForm.innerHTML = `
+    <input type="text" placeholder="Añadir artículo extra..." class="add-custom-item-input" id="add-custom-item-input">
+    <button class="add-custom-item-btn" id="add-custom-item-btn">Añadir</button>
+  `;
+  
+  const addInput = addForm.querySelector('#add-custom-item-input');
+  const addBtn = addForm.querySelector('#add-custom-item-btn');
+  
+  const addAction = () => {
+    const text = addInput.value.trim();
+    if (!text) return;
+    customItems.push({ text: text, checked: false });
+    localStorage.setItem('dieta_custom_shopping_items', JSON.stringify(customItems));
+    syncPush();
+    initShoppingList();
+  };
+  
+  addBtn.addEventListener('click', addAction);
+  addInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addAction();
+  });
+  
+  customCard.appendChild(customUl);
+  customCard.appendChild(addForm);
+  container.appendChild(customCard);
+  updateCategoryStatus(customCard);
+}
+
+let isShoppingActionsInit = false;
+
+function initShoppingListActions() {
+  if (isShoppingActionsInit) return;
+  isShoppingActionsInit = true;
+  
   // Botón reset
   const resetBtn = document.getElementById('reset-shopping-list');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       if (!confirm('¿Seguro que quieres borrar todo lo tachado de la lista?')) return;
       localStorage.removeItem('dieta_shopping_state');
-      document.querySelectorAll('.shopping-card').forEach(card => {
-        card.querySelectorAll('.shopping-item').forEach(el => {
-          el.classList.remove('checked');
-          const cb = el.querySelector('input.shopping-item-check');
-          if (cb) cb.checked = false;
-        });
-        updateCategoryStatus(card);
-      });
+      
+      // También resetear custom items
+      const customItems = JSON.parse(localStorage.getItem('dieta_custom_shopping_items')) || [];
+      customItems.forEach(item => item.checked = false);
+      localStorage.setItem('dieta_custom_shopping_items', JSON.stringify(customItems));
+      
+      syncPush();
+      initShoppingList();
+    });
+  }
+
+  // Botón Ocultar Tachados
+  const hideCheckedBtn = document.getElementById('toggle-hide-checked');
+  const container = document.getElementById('shopping-list-container');
+  if (hideCheckedBtn && container) {
+    // Configurar estado inicial del botón
+    const isHidden = localStorage.getItem('dieta_hide_checked') === 'true';
+    if (isHidden) {
+      hideCheckedBtn.classList.add('active');
+      hideCheckedBtn.innerText = '👁️ Mostrar Todo';
+    } else {
+      hideCheckedBtn.classList.remove('active');
+      hideCheckedBtn.innerText = '👁️ Ocultar Tachados';
+    }
+    
+    hideCheckedBtn.addEventListener('click', () => {
+      const currentlyHidden = container.classList.contains('hide-checked-active');
+      if (currentlyHidden) {
+        container.classList.remove('hide-checked-active');
+        hideCheckedBtn.classList.remove('active');
+        hideCheckedBtn.innerText = '👁️ Ocultar Tachados';
+        localStorage.setItem('dieta_hide_checked', 'false');
+      } else {
+        container.classList.add('hide-checked-active');
+        hideCheckedBtn.classList.add('active');
+        hideCheckedBtn.innerText = '👁️ Mostrar Todo';
+        localStorage.setItem('dieta_hide_checked', 'true');
+      }
     });
   }
 
@@ -1732,6 +1930,7 @@ function getPendingShoppingList() {
   let pendingText = "*📋 NutriFamilia - Lista de Compra Pendiente*\n\n";
   let count = 0;
   
+  // Categorías estándar
   Object.keys(NUTRITION_DATA.compra).forEach(cat => {
     const items = NUTRITION_DATA.compra[cat];
     const catPending = [];
@@ -1748,6 +1947,20 @@ function getPendingShoppingList() {
       pendingText += `*${cat.toUpperCase()}:*\n${catPending.join('\n')}\n\n`;
     }
   });
+  
+  // Artículos personalizados (extras)
+  const customItems = JSON.parse(localStorage.getItem('dieta_custom_shopping_items')) || [];
+  const customPending = [];
+  customItems.forEach(item => {
+    if (!item.checked) {
+      customPending.push(`• ${item.text}`);
+      count++;
+    }
+  });
+  
+  if (customPending.length > 0) {
+    pendingText += `*EXTRAS Y VARIOS:*\n${customPending.join('\n')}\n\n`;
+  }
   
   if (count === 0) {
     return "¡Enhorabuena! Has completado todas las compras de la semana. 🎉🍏";
@@ -1963,3 +2176,171 @@ function showMercadonaModal(selectedItems) {
   
   modal.style.display = 'flex';
 }
+
+// ─── CALCULADORA UNIVERSAL DE RACIONES ───────────
+function initUniversalCalculator() {
+  const modal = document.getElementById('calc-universal-modal');
+  const openBtn = document.getElementById('open-calc-universal');
+  const closeBtn1 = document.getElementById('close-calc-universal');
+  const closeBtn2 = document.getElementById('close-calc-universal-btn');
+  
+  if (!modal) return;
+  
+  const openModal = () => {
+    modal.style.display = 'flex';
+    
+    // Cargar tara guardada
+    const savedCustomTara = localStorage.getItem('dieta_calc_univ_custom_tara');
+    if (savedCustomTara) {
+      document.getElementById('calc-univ-custom-tara').value = savedCustomTara;
+    }
+    
+    // Cargar reparto personalizado si existe
+    const savedCustomReparto = JSON.parse(localStorage.getItem('dieta_calc_univ_custom_reparto'));
+    if (savedCustomReparto) {
+      document.getElementById('calc-univ-pct-padre').value = savedCustomReparto.padre || 30;
+      document.getElementById('calc-univ-pct-madre').value = savedCustomReparto.madre || 20;
+      document.getElementById('calc-univ-pct-luis').value = savedCustomReparto.luis || 25;
+      document.getElementById('calc-univ-pct-natalia').value = savedCustomReparto.natalia || 25;
+    }
+    
+    // Enfocar el input de peso
+    const weightInput = document.getElementById('calc-univ-weight');
+    if (weightInput) {
+      weightInput.value = '';
+      weightInput.focus();
+    }
+  };
+  
+  const closeModal = () => {
+    modal.style.display = 'none';
+  };
+  
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn1) closeBtn1.addEventListener('click', closeModal);
+  if (closeBtn2) closeBtn2.addEventListener('click', closeModal);
+  
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Mostrar/ocultar campos condicionales
+  const taraSelect = document.getElementById('calc-univ-tara-select');
+  const customTaraGroup = document.getElementById('calc-univ-custom-tara-group');
+  if (taraSelect && customTaraGroup) {
+    taraSelect.addEventListener('change', () => {
+      customTaraGroup.style.display = taraSelect.value === 'custom' ? 'flex' : 'none';
+    });
+  }
+  
+  const repartoSelect = document.getElementById('calc-univ-reparto-select');
+  const customRepartoGroup = document.getElementById('calc-univ-custom-reparto-group');
+  if (repartoSelect && customRepartoGroup) {
+    repartoSelect.addEventListener('change', () => {
+      customRepartoGroup.style.display = repartoSelect.value === 'custom' ? 'block' : 'none';
+    });
+  }
+  
+  // Realizar el cálculo
+  const calcBtn = document.getElementById('calc-univ-btn-action');
+  const resultsContainer = document.getElementById('calc-univ-results');
+  
+  if (calcBtn && resultsContainer) {
+    const runCalculation = () => {
+      const totalWeightInput = parseFloat(document.getElementById('calc-univ-weight').value);
+      if (isNaN(totalWeightInput) || totalWeightInput <= 0) {
+        alert('Por favor, introduce un peso cocinado válido mayor que 0.');
+        return;
+      }
+      
+      // Determinar tara
+      let taraValue = 0;
+      if (taraSelect.value === 'custom') {
+        const customTaraVal = parseFloat(document.getElementById('calc-univ-custom-tara').value);
+        taraValue = isNaN(customTaraVal) ? 0 : customTaraVal;
+        localStorage.setItem('dieta_calc_univ_custom_tara', taraValue);
+      } else {
+        taraValue = parseFloat(taraSelect.value);
+      }
+      
+      const netWeight = totalWeightInput - taraValue;
+      if (netWeight <= 0) {
+        alert('El peso cocinado es menor o igual que la tara del recipiente. Introduce un peso mayor.');
+        return;
+      }
+      
+      // Determinar reparto (%)
+      let reparto = {};
+      const repartoType = repartoSelect.value;
+      
+      if (repartoType === 'familia') {
+        reparto = { padre: 30, madre: 20, luis: 25, natalia: 25 };
+      } else if (repartoType === 'adultos') {
+        reparto = { padre: 45, madre: 30, luis: 25, natalia: 0 };
+      } else if (repartoType === 'deportistas') {
+        reparto = { padre: 55, madre: 0, luis: 45, natalia: 0 };
+      } else if (repartoType === 'custom') {
+        const pPadre = parseFloat(document.getElementById('calc-univ-pct-padre').value) || 0;
+        const pMadre = parseFloat(document.getElementById('calc-univ-pct-madre').value) || 0;
+        const pLuis = parseFloat(document.getElementById('calc-univ-pct-luis').value) || 0;
+        const pNatalia = parseFloat(document.getElementById('calc-univ-pct-natalia').value) || 0;
+        
+        const sum = pPadre + pMadre + pLuis + pNatalia;
+        const errorEl = document.getElementById('calc-univ-pct-error');
+        const sumValEl = document.getElementById('calc-univ-pct-sum-val');
+        
+        if (sumValEl) sumValEl.innerText = sum;
+        
+        if (Math.abs(sum - 100) > 0.01) {
+          if (errorEl) errorEl.style.display = 'block';
+          return;
+        } else {
+          if (errorEl) errorEl.style.display = 'none';
+        }
+        
+        reparto = { padre: pPadre, madre: pMadre, luis: pLuis, natalia: pNatalia };
+        localStorage.setItem('dieta_calc_univ_custom_reparto', JSON.stringify(reparto));
+      }
+      
+      // Mostrar resultados
+      resultsContainer.innerHTML = '';
+      resultsContainer.style.display = 'grid';
+      
+      Object.keys(reparto).forEach(mId => {
+        const pct = reparto[mId];
+        if (pct <= 0) return; // Omitir si es 0%
+        
+        const member = NUTRITION_DATA.miembros[mId];
+        const portionWeight = ((netWeight * pct) / 100).toFixed(1);
+        
+        const box = document.createElement('div');
+        box.className = 'calc-result-box';
+        box.style.cssText = 'background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.75rem; text-align:center; display:flex; flex-direction:column; gap:0.25rem;';
+        box.innerHTML = `
+          <span style="font-weight:600; color:var(--text-secondary); font-size:0.85rem;">${member ? member.nombre : mId}</span>
+          <span style="font-size:1.15rem; font-weight:700; color:var(--primary);">${portionWeight} g</span>
+          <span style="font-size:0.75rem; color:var(--text-muted); font-style:italic;">(${pct}%)</span>
+        `;
+        resultsContainer.appendChild(box);
+      });
+    };
+    
+    calcBtn.addEventListener('click', runCalculation);
+    document.getElementById('calc-univ-weight').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') runCalculation();
+    });
+    document.getElementById('calc-univ-custom-tara').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') runCalculation();
+    });
+  }
+}
+
+// ─── PWA SERVICE WORKER REGISTRATION ──────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker registrado con éxito:', reg.scope))
+      .catch(err => console.error('Error al registrar Service Worker:', err));
+  });
+}
+

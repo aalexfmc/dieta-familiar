@@ -6,6 +6,10 @@
   <title>Plan Nutricional Familiar</title>
   <meta name="description" content="Dashboard nutricional interactivo familiar con recetas por porciones, calculadora de raciones para cocina por lotes (batch cooking) y lista de la compra.">
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon.svg">
 </head>
 <body>
 
@@ -169,7 +173,8 @@
         <div class="search-container" style="max-width: 380px; width: 100%;">
           <input type="text" id="search-menu-input" placeholder="🔍 Filtrar recetas por ingrediente..." class="search-input">
         </div>
-        <div class="toggle-container" style="margin-bottom: 0; display: flex; gap: 0.5rem;">
+        <div class="toggle-container" style="margin-bottom: 0; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+          <button id="open-calc-universal" class="btn-secondary" style="border-color: var(--primary); color: var(--primary); background: rgba(14, 165, 233, 0.05); display: flex; align-items: center; gap: 0.25rem;" title="Abrir Calculadora de Olla Universal">🧮 Calcular Olla</button>
           <button id="toggle-mode-individual" class="toggle-btn">🍽️ Platos Individuales</button>
           <button id="toggle-mode-lote" class="toggle-btn active">🥘 En Familia</button>
         </div>
@@ -196,6 +201,7 @@
           <p>Los ingredientes que necesitas para los 6 días de cocina casera en el hogar.</p>
         </div>
         <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button id="toggle-hide-checked" class="btn-secondary" style="border-color: rgba(14, 165, 233, 0.3); color: var(--primary); background: rgba(14, 165, 233, 0.03);" title="Ocultar o mostrar los elementos marcados en la lista">👁️ Ocultar Tachados</button>
           <button id="mercadona-order-btn" class="btn-secondary" style="border-color: rgba(16, 185, 129, 0.3); color: var(--success); background: rgba(16, 185, 129, 0.03);" title="Hacer pedido de Mercadona con alimentos seleccionados">🛒 Pedir Mercadona</button>
           <button id="copy-shopping-list" class="btn-secondary" title="Copiar al portapapeles los ingredientes que te faltan comprar">📋 Copiar Pendientes</button>
           <button id="whatsapp-shopping-list" class="btn-secondary" style="border-color: rgba(16, 185, 129, 0.3); color: var(--success); background: rgba(16, 185, 129, 0.03);" title="Enviar lista de ingredientes pendientes por WhatsApp">💬 Compartir WhatsApp</button>
@@ -331,6 +337,99 @@
     </div>
   </div>
 
+  <!-- MODAL CALCULADORA UNIVERSAL -->
+  <div id="calc-universal-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content glassmorphic" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3>🧮 Calculadora Universal de Raciones</h3>
+        <button id="close-calc-universal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.4;">
+          Introduce el peso total cocinado del plato familiar. Puedes restar el peso del recipiente (tara) y elegir el reparto adecuado para la porción de cada miembro.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Peso Cocinado Input -->
+          <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label for="calc-univ-weight" style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-align: left;">Peso Cocinado Total (g):</label>
+            <input type="number" id="calc-univ-weight" placeholder="Ej: 1800" min="0" style="background: var(--bg-input); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-primary); padding: 0.6rem 0.75rem; font-size: 0.95rem; width: 100%; outline: none; transition: border-color 0.2s;">
+          </div>
+          
+          <!-- Recipiente / Tara Dropdown -->
+          <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label for="calc-univ-tara-select" style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-align: left;">Recipiente (Tara a restar):</label>
+            <select id="calc-univ-tara-select" style="background: var(--bg-input); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-primary); padding: 0.6rem 0.75rem; font-size: 0.95rem; width: 100%; outline: none; cursor: pointer;">
+              <option value="0">Ninguno (Pesar neto - 0 g)</option>
+              <option value="1450">Olla Express grande (1450 g)</option>
+              <option value="920">Bandeja Horno gris (920 g)</option>
+              <option value="780">Sartén Tefal grande (780 g)</option>
+              <option value="450">Cacerola mediana (450 g)</option>
+              <option value="custom">Otra tara (Introducir manualmente...)</option>
+            </select>
+          </div>
+          
+          <!-- Custom Tara Input (conditional) -->
+          <div id="calc-univ-custom-tara-group" class="form-group" style="display: none; flex-direction: column; gap: 0.4rem;">
+            <label for="calc-univ-custom-tara" style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-align: left;">Especificar Peso de Tara (g):</label>
+            <input type="number" id="calc-univ-custom-tara" placeholder="Ej: 1100" min="0" style="background: var(--bg-input); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-primary); padding: 0.6rem 0.75rem; font-size: 0.95rem; width: 100%; outline: none;">
+          </div>
+          
+          <!-- Tipo de Reparto -->
+          <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label for="calc-univ-reparto-select" style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-align: left;">Tipo de Reparto:</label>
+            <select id="calc-univ-reparto-select" style="background: var(--bg-input); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-primary); padding: 0.6rem 0.75rem; font-size: 0.95rem; width: 100%; outline: none; cursor: pointer;">
+              <option value="familia">Toda la Familia (Papá 30%, Mamá 20%, Luis 25%, Natalia 25%)</option>
+              <option value="adultos">Solo Adultos (Papá 45%, Mamá 30%, Luis 25%)</option>
+              <option value="deportistas">Solo Padre y Luis (Papá 55%, Luis 45%)</option>
+              <option value="custom">Reparto Personalizado (%)</option>
+            </select>
+          </div>
+          
+          <!-- Custom Reparto Inputs (conditional) -->
+          <div id="calc-univ-custom-reparto-group" style="display: none; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 0.75rem; border-radius: var(--radius-sm);">
+            <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:0.5rem; text-align: left;">Introduce el porcentaje (%) para cada miembro (debe sumar 100%):</p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+              <div style="display:flex; align-items:center; gap:0.4rem;">
+                <span style="font-size:0.85rem; width:50px;">Papá:</span>
+                <input type="number" id="calc-univ-pct-padre" value="30" min="0" max="100" style="background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-sm); color:var(--text-primary); padding:0.4rem; font-size:0.9rem; width:60px; outline:none;">
+                <span>%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.4rem;">
+                <span style="font-size:0.85rem; width:50px;">Mamá:</span>
+                <input type="number" id="calc-univ-pct-madre" value="20" min="0" max="100" style="background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-sm); color:var(--text-primary); padding:0.4rem; font-size:0.9rem; width:60px; outline:none;">
+                <span>%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.4rem;">
+                <span style="font-size:0.85rem; width:50px;">Luis:</span>
+                <input type="number" id="calc-univ-pct-luis" value="25" min="0" max="100" style="background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-sm); color:var(--text-primary); padding:0.4rem; font-size:0.9rem; width:60px; outline:none;">
+                <span>%</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.4rem;">
+                <span style="font-size:0.85rem; width:50px;">Natalia:</span>
+                <input type="number" id="calc-univ-pct-natalia" value="25" min="0" max="100" style="background:var(--bg-input); border:1px solid var(--border-color); border-radius:var(--radius-sm); color:var(--text-primary); padding:0.4rem; font-size:0.9rem; width:60px; outline:none;">
+                <span>%</span>
+              </div>
+            </div>
+            <div id="calc-univ-pct-error" style="color:var(--danger); font-size:0.75rem; margin-top:0.4rem; display:none; text-align: left;">La suma de los porcentajes debe ser exactamente 100% (actual: <span id="calc-univ-pct-sum-val">100</span>%).</div>
+          </div>
+          
+          <!-- Botón de Acción -->
+          <button id="calc-univ-btn-action" class="btn-primary" style="background: var(--gradient-main); border: none; padding: 0.65rem; border-radius: var(--radius-sm); color: white; font-weight: 600; cursor: pointer; transition: transform 0.1s; width: 100%;">📊 Calcular Raciones</button>
+          
+          <!-- Resultados -->
+          <div id="calc-univ-results" class="calc-results" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+            <!-- Dinámico -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-top: 1.5rem; text-align: right;">
+        <button id="close-calc-universal-btn" class="btn-primary" style="background: var(--gradient-main); border: none; padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); color: white; cursor: pointer; font-weight: 500;">Listo</button>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
+
