@@ -275,6 +275,47 @@ Reglas de uso:
 - Padre y Luis usan extras de entrenamiento/carrera solo cuando toca.
 - Natalia no recorta hidratos en baloncesto ni usa los macros como limite.
 
+## 2026-06-16 - Bloque personal diario V2 mas facil
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex reviso la web publicada y vio que el bloque personal seguia mostrando pan, tomate, AOVE, yogures, cereales y frutos secos como base.
+- Eso no conseguia el objetivo: necesitaba ser mas facil de cumplir, con poca preparacion y cosas mas apetecibles.
+- La web tambien mostraba `Distribucion Flexible undefined`, asi que se anade una distribucion flexible explicita en cada perfil.
+
+Resumen practico:
+
+- El bloque personal diario pasa a V2.
+- Padre queda como cafe fijo + pack salado crujiente + pack dulce activo + fruta.
+- Madre queda como cafe fijo + infusion/fruta + pack dulce controlado + pack salado saciante si hay hambre real o la cena queda lejos.
+- Luis queda como cafe fijo + pack dulce potente + pack salado crujiente, con opcion de usar solo un pack en descanso si no tiene hambre.
+- Natalia queda flexible con 1-2 packs segun hambre, horario y baloncesto.
+- Se elimina como base el pan con tomate/AOVE, Corn Flakes pesados, yogur grande obligatorio y frutos secos libres.
+- Se actualiza la lista de compra: menos pan, menos jamon, yogures opcionales, Corn Flakes opcionales y frutos secos no como base.
+
+Impacto en macros:
+
+- Se recalcula la tabla de `Totales diarios recalculados V2`.
+- Padre sin batido queda en media aproximada de 2195 kcal / 158P / 264C / 53F.
+- Padre con 2 batidos en 6 dias queda en media aproximada de 2272 kcal / 169P / 269C / 55F.
+- Madre queda en media aproximada de 1611 kcal / 120P / 178C / 43F.
+- Luis sin batido queda en media aproximada de 2102 kcal / 155P / 247C / 52F.
+- Luis con 3 batidos en 6 dias queda en media aproximada de 2217 kcal / 171P / 254C / 55F.
+- Natalia se mantiene orientativa y no se recalcula como limite.
+
+Impacto en adherencia:
+
+- Menos preparacion.
+- Menos pesajes pequenos.
+- Mas sabor y formatos cerrados.
+- Menos riesgo de picoteo con frutos secos o cereales.
+- Mejor encaje con lo que la web debe mostrar: bloques simples y accionables.
+
 ## 2026-06-15 - Modulos de actividad por tipo de dia
 
 Archivos tocados:

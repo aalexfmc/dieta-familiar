@@ -137,35 +137,41 @@ Valores usados a partir de fichas/etiquetas de Mercadona cuando estan disponible
 
 ## Bloque personal diario
 
+Nueva regla V2: el bloque personal diario debe ser facil de cumplir. La base ya no es pan con tomate, AOVE, Corn Flakes pesados o frutos secos sueltos. La base pasa a ser cafe fijo cuando toque + packs completos de 0 elaboracion.
+
 ### Padre
 
 - Fijo de desayuno: cafe con leche semidesnatada 150 ml.
-- Total flexible para repartir entre desayuno, media manana, almuerzo o merienda: pan integral 80 g + jamon serrano 60 g + tomate + AOVE 10 g + 1 fruta + 2 yogures +Proteinas pequenos de 120 g + Corn Flakes 15 g + 1 fruta.
-- Reparto recomendado: si desayuna poco, tomar solo cafe con leche y mover el pan/jamon/fruta a media manana; dejar yogures + Corn Flakes + fruta para merienda.
+- Bloque facil recomendado: 1 pack salado crujiente + 1 pack dulce activo + 1 fruta.
+- Distribucion flexible: cafe por la manana; pack salado en almuerzo o media manana; pack dulce en merienda o alrededor del gimnasio. Si hay carrera, cambiar el pack dulce por el extra carrera o anadir extra carrera segun hambre/rendimiento.
+- Equivalencia aproximada del bloque facil sin batido: 790 kcal / 45P / 97C / 24F.
 - Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. No contarlo como cena, pero en Padre V1 si cuenta dentro del objetivo del dia. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
 
 ### Madre
 
 - Fijo de desayuno: cafe con leche semidesnatada 150 ml.
 - Fijo de media manana: infusion + 1 fruta, porque ella ya lo tiene como habito.
-- Total flexible para repartir entre desayuno, almuerzo o merienda: pan integral 45 g + jamon serrano 40 g + tomate + AOVE 5 g + 1 fruta + 2 yogures +Proteinas pequenos de 120 g + 1 fruta + frutos secos naturales 15 g.
-- Reparto recomendado: si no quiere desayunar fuerte, cafe con leche por la manana, infusion + fruta a media manana, y el pan/jamon o los yogures/frutos secos como merienda saciante antes del momento de picoteo.
-- Si llega con hambre real: anadir 1 huevo cocido, 1 lata de atun, verdura extra o 1 fruta. No subir frutos secos sin medir porque se disparan facil.
+- Bloque facil recomendado: 1 pack dulce controlado + 1 pack salado saciante.
+- Distribucion flexible: cafe por la manana; infusion + fruta a media manana; pack dulce o salado antes del momento de picoteo; el otro pack se usa solo si aparece hambre real o si la cena queda lejos.
+- Equivalencia aproximada del bloque facil completo: 639 kcal / 35P / 75C / 21F.
+- Si llega con hambre real: priorizar el pack salado saciante o una fruta extra. No usar frutos secos libres.
 
 Nota: el bote de 500 g se mantiene solo cuando encaja de verdad. Para la familia, el formato pequeno de 120 g es mejor porque evita medias raciones raras y no convierte la merienda en una comida enorme.
 
 ### Luis
 
 - Fijo de desayuno: cafe con leche semidesnatada 150 ml.
-- Total flexible para repartir entre desayuno, media manana, almuerzo o merienda: yogur +Proteinas 500 g + Corn Flakes 10 g + chocolate 85% 24 g + frutos rojos 100 g + 1 platano + 1 paquete individual de tortitas campestres.
-- Reparto recomendado: cafe con leche por la manana; yogur con Corn Flakes, chocolate y frutos rojos cuando le apetezca; platano y tortitas alrededor del entreno o como snack.
+- Bloque facil recomendado: 1 pack dulce potente + 1 pack salado crujiente.
+- Distribucion flexible: cafe por la manana; pack dulce como pre-gym o merienda; pack salado como almuerzo o cena tardia si no ha llegado a proteina. En descanso puede elegir solo uno de los dos packs si no tiene hambre.
+- Equivalencia aproximada del bloque facil sin batido: 815 kcal / 46P / 104C / 23F.
 - Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. En Luis V1 cuenta dentro del objetivo del dia, no como extra libre. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
 
 ### Natalia
 
 - No tiene fijo de cafe con leche.
-- Total flexible orientativo usado para calculo: leche semidesnatada 250 ml + Corn Flakes 40 g + 1 fruta + bocadillo pequeno de pan 60 g + jamon 30 g + 1 fruta.
-- Alternativas equivalentes: tostadas con jamon/tomate + fruta, cereales con leche, yogur con fruta, bocadillo pequeno o tortitas.
+- Bloque flexible orientativo: elegir 1-2 packs al dia segun hambre, horario y baloncesto.
+- Distribucion flexible: pack dulce normal como desayuno o merienda; pack salado ocasional si le apetece; pack baloncesto antes o despues de entrenar/partido.
+- Alternativas equivalentes: bocadillo pequeno, cereales con leche, yogur con fruta, fruta extra o tortitas.
 - En dias de baloncesto: no recortar hidratos.
 
 ## Packs 0 elaboracion
@@ -236,8 +242,8 @@ Reglas:
 Regla de cocina: si una racion parece rara en el plato, se corrige aunque los macros cuadren. El plan debe verse como comida normal, no como una pila absurda de un ingrediente. Hay que tener en cuenta la densidad: 30 g de cereal abultan mucho mas que 30 g de yogur, y 70 g de fideos secos en sopa pueden convertir una cena en una pasta espesa.
 
 - Cafe con leche: Padre, Madre y Luis lo toman como fijo de desayuno. Usar 150 ml de leche semidesnatada por persona y contarla dentro del dia.
-- Bloque flexible: todo lo que no sea cafe con leche puede moverse entre desayuno, media manana, almuerzo o merienda. No cambia macros si se respeta el total diario.
-- Yogur con cereales: en formato pequeno, usar el cereal como topping, no como base. Padre queda en 240 g yogur + 15 g Corn Flakes; Luis queda en 500 g yogur + 10 g Corn Flakes. Pueden tomarlo en desayuno o merienda.
+- Bloque flexible V2: todo lo que no sea cafe con leche o infusion de Madre se resuelve con packs completos. No hay medias raciones ni gramos pequenos de cereal.
+- Packs: si un pack parece poco saciante, se cambia por otro pack mas saciante; no se arregla picoteando frutos secos, pan o cereales sin medir.
 - Cenas: evitar doble hidrato alto. Si ya hay fideos, pasta o patata, el pan nocturno baja un poco.
 - Sopas: deben quedar caldosas. Si al reposar se espesan mucho, anadir agua/caldo y no subir mas fideos.
 - Platos secos: si un plato queda seco, arreglar con tomate triturado, caldo, gazpacho, limon/vinagre o especias, no metiendo mas pan/arroz por defecto.
@@ -247,8 +253,10 @@ Regla de cocina: si una racion parece rara en el plato, se corrige aunque los ma
 
 Ajustes aplicados tras revisar proporcion plato a plato:
 
-- Padre: Corn Flakes de la merienda bajan de 40 g a 15 g para que el yogur siga siendo yogur, no una masa.
-- Madre: su bloque V1 incluye 2 yogures pequenos + fruta + 15 g frutos secos. Es mas saciante y proporcionado que medio kilo de yogur o cereal excesivo.
+- Padre: bloque personal pasa a pack salado crujiente + pack dulce activo para reducir preparacion.
+- Madre: bloque personal pasa a pack dulce controlado + pack salado saciante. Se eliminan frutos secos libres como base.
+- Luis: bloque personal pasa a pack dulce potente + pack salado crujiente. En descanso puede usar solo un pack si no tiene hambre.
+- Natalia: bloque personal queda flexible por apetito y baloncesto, sin usar macros como limite.
 - Guisantes con jamon: se baja algo el pan nocturno porque ya hay guisantes y huevos.
 - Sopa de pollo: se bajan fideos y pan para que sea cena ligera real y no una pasta espesa con caldo.
 - Tortilla con gazpacho: se baja pan en todos, manteniendo huevos y jamon.
@@ -781,18 +789,18 @@ Sal y especias: 1/2 cucharilla de postre rasa de sal para patata y judias, 1/2 c
 5. Cocer huevos aparte: agua fria, potencia 9 hasta hervir y 10-11 min de coccion.
 6. Servir el plato comun segun porcentaje y anadir huevos/pan.
 
-## Totales diarios recalculados V1
+## Totales diarios recalculados V2
 
-Incluyen bloque personal diario base, comida y cena de los 6 dias de casa. No incluyen la comida fuera ni la cena fuera semanal. En Padre y Luis, la tabla principal no incluye batido; debajo queda la tabla con batido.
+Incluyen bloque personal diario facil V2, comida y cena de los 6 dias de casa. No incluyen la comida fuera ni la cena fuera semanal. En Padre y Luis, la tabla principal no incluye batido; debajo queda la tabla con batido.
 
-Nota sobre Packs 0 elaboracion: estos totales V1 siguen siendo la foto base del plan. Si se cambia el bloque personal por un pack distinto, usar la tabla de macros del pack para ajustar el dia. No hace falta recalcular toda la semana por elegir un pack puntual.
+Nota sobre Packs 0 elaboracion: estos totales V2 usan los packs recomendados como foto base. Si se cambia un pack por otro, usar la tabla de macros del pack para ajustar el dia. No hace falta recalcular toda la semana por elegir un pack puntual.
 
 Valores clave usados para el calculo V1:
 
 - Cafe con leche: 150 ml leche semidesnatada.
 - Batido Padre/Luis: 250 ml leche semidesnatada + 1 scoop proteina = 230 kcal / 32P / 14C / 6F aprox.
 - Fruta media: 80 kcal.
-- Pack individual tortitas campestres: 140 kcal aprox.
+- Pack individual tortitas campestres: 145 kcal segun etiqueta.
 - Verduras/frescos sin etiqueta clara: estimacion prudente.
 - Natalia: datos orientativos, no objetivo restrictivo.
 
@@ -800,41 +808,41 @@ Valores clave usados para el calculo V1:
 
 | Dia | Padre kcal/P/C/F | Madre kcal/P/C/F | Luis kcal/P/C/F | Natalia kcal/P/C/F |
 |---|---:|---:|---:|---:|
-| 1 | 2148 / 171 / 269 / 42 | 1689 / 141 / 184 / 43 | 2060 / 174 / 236 / 46 | 1700 / 114 / 234 / 34 |
-| 2 | 2327 / 177 / 259 / 62 | 1761 / 138 / 169 / 57 | 2214 / 179 / 223 / 66 | 1779 / 115 / 221 / 47 |
-| 3 | 2265 / 155 / 281 / 59 | 1712 / 118 / 193 / 53 | 2156 / 156 / 247 / 62 | 1739 / 96 / 245 / 43 |
-| 4 | 2109 / 171 / 298 / 23 | 1567 / 127 / 203 / 26 | 2009 / 172 / 266 / 27 | 1599 / 103 / 255 / 17 |
-| 5 | 2294 / 170 / 311 / 40 | 1739 / 134 / 216 / 38 | 2161 / 170 / 271 / 43 | 1648 / 95 / 257 / 29 |
-| 6 | 2031 / 176 / 256 / 33 | 1559 / 143 / 165 / 36 | 1918 / 179 / 218 / 36 | 1557 / 114 / 218 / 25 |
+| 1 | 2147 / 159 / 254 / 52 | 1629 / 127 / 174 / 44 | 2076 / 157 / 240 / 51 | 1700 / 114 / 234 / 34 |
+| 2 | 2326 / 165 / 244 / 72 | 1701 / 124 / 159 / 58 | 2230 / 162 / 227 / 71 | 1779 / 115 / 221 / 47 |
+| 3 | 2264 / 143 / 266 / 69 | 1652 / 104 / 183 / 54 | 2172 / 139 / 251 / 67 | 1739 / 96 / 245 / 43 |
+| 4 | 2108 / 159 / 283 / 33 | 1507 / 113 / 193 / 27 | 2025 / 155 / 270 / 32 | 1599 / 103 / 255 / 17 |
+| 5 | 2293 / 158 / 296 / 50 | 1679 / 120 / 206 / 39 | 2177 / 153 / 275 / 48 | 1648 / 95 / 257 / 29 |
+| 6 | 2030 / 164 / 241 / 43 | 1499 / 129 / 155 / 37 | 1934 / 162 / 222 / 41 | 1557 / 114 / 218 / 25 |
 
 ### Padre/Luis si toman batido ese dia
 
 | Dia | Padre con batido kcal/P/C/F | Luis con batido kcal/P/C/F |
 |---|---:|---:|
-| 1 | 2378 / 203 / 283 / 48 | 2290 / 206 / 249 / 52 |
-| 2 | 2557 / 209 / 273 / 68 | 2444 / 210 / 236 / 72 |
-| 3 | 2495 / 187 / 295 / 65 | 2386 / 187 / 261 / 68 |
-| 4 | 2339 / 203 / 312 / 29 | 2239 / 204 / 279 / 33 |
-| 5 | 2524 / 202 / 325 / 46 | 2391 / 202 / 285 / 49 |
-| 6 | 2261 / 208 / 269 / 39 | 2148 / 211 / 231 / 42 |
+| 1 | 2377 / 191 / 268 / 58 | 2306 / 189 / 254 / 57 |
+| 2 | 2556 / 197 / 258 / 78 | 2460 / 194 / 241 / 77 |
+| 3 | 2494 / 175 / 280 / 75 | 2402 / 171 / 265 / 73 |
+| 4 | 2338 / 191 / 297 / 39 | 2255 / 187 / 284 / 38 |
+| 5 | 2523 / 190 / 310 / 56 | 2407 / 185 / 289 / 54 |
+| 6 | 2260 / 196 / 255 / 49 | 2164 / 194 / 236 / 47 |
 
 ### Medias de 6 dias de casa
 
 | Persona | Media kcal/P/C/F | Lectura |
 |---|---:|---|
-| Padre sin batido | 2196 / 170 / 279 / 43 | Casa queda ligera para permitir comida/cena fuera y dias de carrera con extras. |
-| Padre con 2 batidos en 6 dias | 2272 / 181 / 284 / 45 | Sigue por debajo de la media objetivo porque faltan salidas y extras de carrera. |
-| Madre | 1671 / 134 / 188 / 42 | Proteina bien, kcal prudentes y margen para salida semanal sin hacer dieta carcel. |
-| Luis sin batido | 2086 / 172 / 243 / 47 | Correcto en descanso; en gym conviene batido o extra de hidrato si rinde peor. |
-| Luis con 3 batidos en 6 dias | 2201 / 187 / 250 / 50 | Cerca de V1, con proteina alta y kcal razonables. |
+| Padre sin batido | 2195 / 158 / 264 / 53 | Casa queda ligera; con batidos y extras de carrera se acerca al objetivo. |
+| Padre con 2 batidos en 6 dias | 2272 / 169 / 269 / 55 | Mas facil de cumplir que V1, menos preparacion y mejor sabor. |
+| Madre | 1611 / 120 / 178 / 43 | Base prudente y saciante; si hay hambre real se usa pack salado o fruta extra. |
+| Luis sin batido | 2102 / 155 / 247 / 52 | Correcto en descanso; en gym conviene batido o pack dulce potente. |
+| Luis con 3 batidos en 6 dias | 2217 / 171 / 254 / 55 | Cerca de V1, mas apetecible y sin yogur/cereal pesado. |
 | Natalia | 1671 / 106 / 238 / 32 | Solo orientativo; subir raciones en basket, crecimiento o hambre. |
 
 Lectura V1:
 
 - Padre: el objetivo sigue siendo 2600 kcal/dia de media semanal incluyendo batidos. Los 6 dias de casa quedan intencionadamente por debajo porque faltan 1 comida fuera, 1 cena fuera y posibles extras de carrera.
 - Padre en carrera: si corre 90 min o trail y ese dia no hay salida, anadir 300-500 kcal faciles de hidrato: mas arroz, patata, pan, fruta o cereal.
-- Madre: no recortar mas de entrada. La palanca principal son pasos y adherencia. Si los dias 4 o 6 tiene hambre real, anadir 1 fruta extra, 1 huevo cocido o 5-10 g AOVE.
-- Luis: en dias de gimnasio, si no toma batido y nota bajon, anadir batido o un extra de hidrato. En descanso puede quedarse con la version sin batido.
+- Madre: no recortar mas de entrada. La palanca principal son pasos y adherencia. Si los dias 4 o 6 tiene hambre real, usar pack salado saciante o 1 fruta extra.
+- Luis: en dias de gimnasio, si no toma batido y nota bajon, anadir batido o pack dulce potente. En descanso puede quedarse con un solo pack si no tiene hambre.
 - Natalia: no usar la tabla para limitar. Es una referencia de compra y cocina; con baloncesto o hambre se sube pan, pasta, arroz, patata, fruta o leche.
 
 ## Salidas semanales
@@ -852,16 +860,16 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 - Tacos vacuno marinado para guisar: 1 bandeja de 600 g.
 - Huevos L: 2 paquetes de 12.
 - Atun natural: 1 pack de 6 latas para cenas. Anadir 1 pack extra si se usan packs salados con atun varias veces.
-- Jamon serrano: 700-900 g total para desayunos y cenas.
+- Jamon serrano: 400-600 g total para cenas/recetas. Ya no es base obligatoria del bloque personal diario.
 
 ### Hidratos
 
 - Arroz vaporizado: 1 paquete de 1 kg.
 - Macarron/pasta: 2 paquetes de 1 kg o 4 de 500 g.
 - Patata: 5-6 kg.
-- Pan integral/pan normal: segun consumo, aprox. 5-6 barras o equivalente semanal.
+- Pan integral/pan normal: segun consumo de comidas/cenas, aprox. 3-4 barras o equivalente semanal. Ya no es base obligatoria de desayuno/merienda.
 - Tortitas campestres: 2 paquetes grandes.
-- Corn Flakes: 1 caja de 500 g.
+- Corn Flakes: opcional, 1 caja solo si Natalia los usa o se quieren como alternativa puntual.
 
 ### Legumbres y verduras
 
@@ -875,8 +883,8 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 
 ### Desayuno, meriendas y extras
 
-- Yogur +Proteinas 500 g: 7 botes para Luis si mantiene el desayuno diario.
-- Yogur +Proteinas natural pack 4 x 120 g: 8 packs para Padre y Madre si Padre toma 2 unidades/dia y Madre 2 unidades/dia durante 7 dias (28 unidades previstas + 4 de margen).
+- Yogur +Proteinas 500 g: opcional, 2-4 botes si alguien lo prefiere algun dia. Ya no es base diaria de Luis.
+- Yogur +Proteinas natural pack 4 x 120 g: opcional, 2-4 packs si se quieren alternar con natillas/batidos. Ya no son base diaria de Padre/Madre.
 - Natillas chocolate +Proteinas pack 4 x 120 g: 1-2 packs si se usan meriendas dulces cerradas.
 - Bebida lactea stracciatella +Proteinas 280 g: 4-8 botellas segun uso de Padre/Luis/Natalia.
 - Leche semidesnatada: 6-7 bricks de 1 L si Padre, Madre y Luis toman cafe con leche a diario y Padre/Luis toman 250 ml extra con proteina en 3-4 noches de entrenamiento.
@@ -884,8 +892,8 @@ Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida susti
 - Creatina: 3-5 g diarios por persona que la use. No aporta kcal ni macros.
 - Fruta: 35-45 piezas/semana.
 - Frutos rojos congelados: 1-2 bolsas segun uso de Luis.
-- Frutos secos naturales / nueces: 1 paquete de 200 g aprox. para 15 g/dia de Madre y margen.
-- Chocolate 85%: 1 paquete.
+- Frutos secos naturales / nueces: no comprar como base si hay riesgo de picoteo. Mejor barritas o pack individual cerrado.
+- Chocolate 85%: opcional. Ya no es base diaria.
 - Tortitas de maiz con chocolate: 1-2 paquetes si se usan packs dulces.
 - Barritas muesli chocolate: 1 caja.
 - Barritas cereales y frutos secos: 1 caja.
