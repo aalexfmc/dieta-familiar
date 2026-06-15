@@ -1107,88 +1107,6 @@ function renderProfileDetails() {
   
   const kcalText = member.kcal === 'Flexible' && !selectedActivityType ? 'Flex' : kcalVal;
 
-  macrosList.innerHTML = `
-    ${overrideBadgeHTML}
-    <h4>Objetivos Nutricionales</h4>
-    
-    <div class="macros-chart-container">
-      <svg width="200" height="200" viewBox="0 0 200 200" class="macros-svg">
-        <!-- Tracks -->
-        <circle cx="100" cy="100" r="80" class="track-circle" />
-        <circle cx="100" cy="100" r="62" class="track-circle" />
-        <circle cx="100" cy="100" r="44" class="track-circle" />
-        
-        <!-- Fills -->
-        <circle cx="100" cy="100" r="80" class="fill-circle hc" stroke-dasharray="${circumferenceH}" stroke-dashoffset="${circumferenceH}" transform="rotate(-90 100 100)" />
-        <circle cx="100" cy="100" r="62" class="fill-circle prot" stroke-dasharray="${circumferenceP}" stroke-dashoffset="${circumferenceP}" transform="rotate(-90 100 100)" />
-        <circle cx="100" cy="100" r="44" class="fill-circle fat" stroke-dasharray="${circumferenceG}" stroke-dashoffset="${circumferenceG}" transform="rotate(-90 100 100)" />
-        
-        <!-- Center Text -->
-        <text x="100" y="98" class="chart-kcal-val">${kcalText}</text>
-        <text x="100" y="118" class="chart-kcal-lbl">kcal / día</text>
-      </svg>
-    </div>
-    
-    <div class="macros-meters-list">
-      <!-- Renders bars below -->
-    </div>
-  `;
-  
-  // Animate SVG rings
-  setTimeout(() => {
-    const circleH = macrosList.querySelector('.fill-circle.hc');
-    const circleP = macrosList.querySelector('.fill-circle.prot');
-    const circleG = macrosList.querySelector('.fill-circle.fat');
-    if (circleH) circleH.style.strokeDashoffset = offsetH;
-    if (circleP) circleP.style.strokeDashoffset = offsetP;
-    if (circleG) circleG.style.strokeDashoffset = offsetG;
-  }, 50);
-
-  const metersList = macrosList.querySelector('.macros-meters-list');
-  const labelMap = { kcal: 'Calorías (kcal)', p: 'Proteína (g)', h: 'Carbohidratos (g)', g: 'Grasas (g)' };
-  
-  Object.keys(activeMacros).forEach(key => {
-    const valText = activeMacros[key];
-    const valNum = activeMacrosNum[key] || 0;
-    const maxVal = maxValues[key] || 100;
-    const percentage = valNum ? Math.min((valNum / maxVal) * 100, 100) : 0;
-    
-    const barColor = key === 'kcal' ? 'var(--primary)' : (key === 'p' ? '#f43f5e' : (key === 'h' ? '#38bdf8' : '#f59e0b'));
-    
-    const meter = document.createElement('div');
-    meter.className = 'macro-meter';
-    meter.innerHTML = `
-      <div class="macro-meter-header">
-        <span class="macro-meter-lbl">${labelMap[key]}</span>
-        <span class="macro-meter-val" style="font-weight: 600;">${valText}</span>
-      </div>
-      <div class="macro-meter-bar-container">
-        <div class="macro-meter-bar" data-pct="${percentage}" style="width: 0%; background-color: ${barColor};"></div>
-      </div>
-    `;
-    metersList.appendChild(meter);
-  });
-
-  setTimeout(() => {
-    macrosList.querySelectorAll('.macro-meter-bar').forEach(bar => {
-      const pct = bar.getAttribute('data-pct');
-      if (pct) bar.style.width = `${pct}%`;
-    });
-  }, 50);
-  
-  // Clear override button listener
-  const clearOverrideBtn = document.getElementById('clear-activity-override');
-  if (clearOverrideBtn) {
-    clearOverrideBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      selectedActivityType = null;
-      renderProfileDetails();
-    });
-  }
-  
-  // Comidas Fijas
-  const mealsContainer = document.getElementById('profile-meals-container');
-  
   // Build activity modules HTML if the member has them
   let activityHTML = '';
   if (member.modulos_actividad) {
@@ -1278,16 +1196,131 @@ function renderProfileDetails() {
     </div>
   `;
 
+  // Build macros details accordion if individual mode
+  let macrosDetailsHTML = '';
+  if (currentUser !== 'global') {
+    macrosDetailsHTML = `
+      <details class="clean-details" style="margin-top: 1.5rem;" id="profile-macros-details">
+        <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
+          📊 Objetivos Nutricionales y Distribución
+        </summary>
+        <div class="details-content" style="padding-top: 0.5rem;" id="profile-macros-details-content">
+          ${overrideBadgeHTML}
+          <div class="macros-chart-container" style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+            <svg width="200" height="200" viewBox="0 0 200 200" class="macros-svg">
+              <!-- Tracks -->
+              <circle cx="100" cy="100" r="80" class="track-circle" />
+              <circle cx="100" cy="100" r="62" class="track-circle" />
+              <circle cx="100" cy="100" r="44" class="track-circle" />
+              
+              <!-- Fills -->
+              <circle cx="100" cy="100" r="80" class="fill-circle hc" stroke-dasharray="${circumferenceH}" stroke-dashoffset="${circumferenceH}" transform="rotate(-90 100 100)" />
+              <circle cx="100" cy="100" r="62" class="fill-circle prot" stroke-dasharray="${circumferenceP}" stroke-dashoffset="${circumferenceP}" transform="rotate(-90 100 100)" />
+              <circle cx="100" cy="100" r="44" class="fill-circle fat" stroke-dasharray="${circumferenceG}" stroke-dashoffset="${circumferenceG}" transform="rotate(-90 100 100)" />
+              
+              <!-- Center Text -->
+              <text x="100" y="98" class="chart-kcal-val">${kcalText}</text>
+              <text x="100" y="118" class="chart-kcal-lbl">kcal / día</text>
+            </svg>
+          </div>
+          <div class="macros-meters-list">
+            <!-- Renderizado dinámico de barras -->
+          </div>
+        </div>
+      </details>
+    `;
+  }
+
+  // Comidas Fijas
+  const mealsContainer = document.getElementById('profile-meals-container');
   mealsContainer.innerHTML = `
     ${timelineHTML}
-    <div class="tip-box">
-      <h5>💡 Pautas de Control y Actividad</h5>
-      <p>${member.ajustes}</p>
-    </div>
     ${activityHTML}
     ${packsHTML}
+    ${macrosDetailsHTML}
   `;
   
+  // Render sidebar or details content macros
+  if (currentUser === 'global') {
+    macrosList.innerHTML = `
+      ${overrideBadgeHTML}
+      <h4>Objetivos Nutricionales</h4>
+      
+      <div class="macros-chart-container">
+        <svg width="200" height="200" viewBox="0 0 200 200" class="macros-svg">
+          <!-- Tracks -->
+          <circle cx="100" cy="100" r="80" class="track-circle" />
+          <circle cx="100" cy="100" r="62" class="track-circle" />
+          <circle cx="100" cy="100" r="44" class="track-circle" />
+          
+          <!-- Fills -->
+          <circle cx="100" cy="100" r="80" class="fill-circle hc" stroke-dasharray="${circumferenceH}" stroke-dashoffset="${circumferenceH}" transform="rotate(-90 100 100)" />
+          <circle cx="100" cy="100" r="62" class="fill-circle prot" stroke-dasharray="${circumferenceP}" stroke-dashoffset="${circumferenceP}" transform="rotate(-90 100 100)" />
+          <circle cx="100" cy="100" r="44" class="fill-circle fat" stroke-dasharray="${circumferenceG}" stroke-dashoffset="${circumferenceG}" transform="rotate(-90 100 100)" />
+          
+          <!-- Center Text -->
+          <text x="100" y="98" class="chart-kcal-val">${kcalText}</text>
+          <text x="100" y="118" class="chart-kcal-lbl">kcal / día</text>
+        </svg>
+      </div>
+      
+      <div class="macros-meters-list">
+        <!-- Renders bars below -->
+      </div>
+    `;
+  } else {
+    macrosList.innerHTML = ''; // Limpiar el de la barra lateral en modo individual
+  }
+
+  const activeContainer = (currentUser === 'global')
+    ? macrosList
+    : document.getElementById('profile-macros-details-content');
+
+  if (activeContainer) {
+    const metersList = activeContainer.querySelector('.macros-meters-list');
+    if (metersList) {
+      metersList.innerHTML = '';
+      const labelMap = { kcal: 'Calorías (kcal)', p: 'Proteína (g)', h: 'Carbohidratos (g)', g: 'Grasas (g)' };
+      
+      Object.keys(activeMacros).forEach(key => {
+        const valText = activeMacros[key];
+        const valNum = activeMacrosNum[key] || 0;
+        const maxVal = maxValues[key] || 100;
+        const percentage = valNum ? Math.min((valNum / maxVal) * 100, 100) : 0;
+        
+        const barColor = key === 'kcal' ? 'var(--primary)' : (key === 'p' ? '#f43f5e' : (key === 'h' ? '#38bdf8' : '#f59e0b'));
+        
+        const meter = document.createElement('div');
+        meter.className = 'macro-meter';
+        meter.innerHTML = `
+          <div class="macro-meter-header">
+            <span class="macro-meter-lbl">${labelMap[key]}</span>
+            <span class="macro-meter-val" style="font-weight: 600;">${valText}</span>
+          </div>
+          <div class="macro-meter-bar-container">
+            <div class="macro-meter-bar" data-pct="${percentage}" style="width: 0%; background-color: ${barColor};"></div>
+          </div>
+        `;
+        metersList.appendChild(meter);
+      });
+    }
+
+    // Animate SVG rings
+    setTimeout(() => {
+      const circleH = activeContainer.querySelector('.fill-circle.hc');
+      const circleP = activeContainer.querySelector('.fill-circle.prot');
+      const circleG = activeContainer.querySelector('.fill-circle.fat');
+      if (circleH) circleH.style.strokeDashoffset = offsetH;
+      if (circleP) circleP.style.strokeDashoffset = offsetP;
+      if (circleG) circleG.style.strokeDashoffset = offsetG;
+      
+      activeContainer.querySelectorAll('.macro-meter-bar').forEach(bar => {
+        const pct = bar.getAttribute('data-pct');
+        if (pct) bar.style.width = `${pct}%`;
+      });
+    }, 50);
+  }
+
   // Attach click listeners to activity cards
   mealsContainer.querySelectorAll('.activity-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -1300,6 +1333,16 @@ function renderProfileDetails() {
       renderProfileDetails();
     });
   });
+
+  // Clear override button listener (works for both sidebar or details container)
+  const clearOverrideBtn = document.getElementById('clear-activity-override');
+  if (clearOverrideBtn) {
+    clearOverrideBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectedActivityType = null;
+      renderProfileDetails();
+    });
+  }
 }
 
 // MENÚ DIARIO

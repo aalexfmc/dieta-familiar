@@ -40,9 +40,9 @@ Distribucion por tipo de dia:
 
 | Tipo de dia Padre | kcal objetivo | Uso practico |
 |---|---:|---|
-| Carrera 90 min / 10-20 km | 2800 | Mantener mas pan/arroz/patata/fruta alrededor de la carrera. |
+| Carrera 90 min / 10-20 km | 2800 | Mantener mas hidrato facil alrededor de la carrera: tortitas campestres, platano, arroz, patata, Corn Flakes o barrita. Evitar pan integral solo como modulo. |
 | Gimnasio | 2600 | Mantener comida normal + batido si lo toma. |
-| Descanso/oficina | 2350-2450 | Recortar principalmente pan, arroz, pasta, patata o fruta extra. |
+| Descanso/oficina | 2350-2450 | Recortar principalmente extras de hidrato: tortitas, arroz, pasta, patata, Corn Flakes, barritas o fruta extra. |
 
 Media semanal esperada con 2 carrera + 2 gimnasio + 3 descanso: 2550-2620 kcal/dia.
 
@@ -73,7 +73,7 @@ Distribucion por tipo de dia:
 | Tipo de dia Luis | kcal objetivo | Uso practico |
 |---|---:|---|
 | Gimnasio fuerza | 2350-2400 | Mantener hidratos alrededor del entreno y contar el batido dentro del dia. |
-| Descanso/oficina | 2050-2150 | Recortar sobre todo tortitas, pan, arroz, pasta, patata, cereales o fruta extra. |
+| Descanso/oficina | 2050-2150 | Recortar sobre todo tortitas, arroz, pasta, patata, cereales, barritas o fruta extra. |
 
 Media semanal esperada con 3-4 dias de gym y 3-4 dias de descanso: 2200-2300 kcal/dia.
 
