@@ -717,8 +717,42 @@ const NUTRITION_DATA = {
   }
 };
 
+const MEMBER_TIMELINES = {
+  padre: [
+    { fase: "Desayuno", icono: "☕", titulo: "Café con leche", desc: "150 ml de leche semidesnatada" },
+    { fase: "Almuerzo", icono: "🥪", titulo: "Pack Salado Crujiente", desc: "1 pack de tortitas campestres + 1 lata de atún al natural + 1 mini brik de gazpacho" },
+    { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~27%" },
+    { fase: "Merienda", icono: "🍌", titulo: "Pack Dulce Activo + Fruta", desc: "1 botella bebida stracciatella +Proteínas + 1 pack tortitas chocolate + 1 fruta" },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~27-30% + extras según día" },
+    { fase: "Post-Entreno", icono: "🥤", titulo: "Módulo Actividad (Entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio o carrera larga" }
+  ],
+  madre: [
+    { fase: "Desayuno", icono: "☕", titulo: "Café con leche", desc: "150 ml de leche semidesnatada" },
+    { fase: "Media mañana", icono: "🍵", titulo: "Infusión + Fruta", desc: "Infusión al gusto + 1 pieza de fruta (hábito diario)" },
+    { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~22-25%" },
+    { fase: "Merienda / Snacks", icono: "🍫", titulo: "Pack Dulce Controlado", desc: "1 natillas chocolate +Proteínas + 1 barrita de cereales y frutos secos" },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~20-29%" }
+  ],
+  luis: [
+    { fase: "Desayuno", icono: "☕", titulo: "Café con leche", desc: "150 ml de leche semidesnatada" },
+    { fase: "Almuerzo", icono: "🥪", titulo: "Pack Salado Crujiente", desc: "1 pack de tortitas campestres + 1 lata de atún al natural + 1 mini brik de gazpacho" },
+    { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~26-33%" },
+    { fase: "Merienda / Pre-Gym", icono: "🍌", titulo: "Pack Dulce Potente", desc: "1 botella bebida stracciatella +Proteínas + 1 pack tortitas chocolate + 1 plátano" },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~26-30% + extras según día" },
+    { fase: "Post-Gym", icono: "🥤", titulo: "Módulo Actividad (Entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio" }
+  ],
+  natalia: [
+    { fase: "Desayuno", icono: "🥣", titulo: "Bloque Flexible", desc: "1 vaso de leche semidesnatada + Corn Flakes + fruta o bocadillo de jamón" },
+    { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~20%" },
+    { fase: "Merienda / Snacks", icono: "🥨", titulo: "Pack Dulce o Salado", desc: "Elegir 1-2 packs (palitos con frutos secos, barritas, fruta o yogures) según hambre" },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~17-23%" },
+    { fase: "Baloncesto", icono: "🏀", titulo: "Extra Entrenamiento", desc: "1 plátano + barrita chocolate + tortitas campestres en días de baloncesto" }
+  ]
+};
+
 let currentTab = 'resumen';
-let activeMember = 'padre';
+let currentUser = localStorage.getItem('dieta_current_user') || 'padre';
+let activeMember = currentUser;
 let activeDay = 1;
 let menuViewMode = 'lote'; // 'lote' o 'individual'
 let batchMultiplier = 1; // Multiplicador de raciones para cocina por lotes
@@ -804,6 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initTabs();
   initDashboard();
+  initUserSelector();
 
   // Descargar estado de la nube antes de renderizar las secciones que dependen de localStorage
   syncPull().then(() => {
@@ -816,6 +851,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initUniversalCalculator();
   });
 });
+
+function initUserSelector() {
+  const select = document.getElementById('header-user-select');
+  if (select) {
+    select.value = currentUser;
+    select.addEventListener('change', (e) => {
+      currentUser = e.target.value;
+      localStorage.setItem('dieta_current_user', currentUser);
+      activeMember = currentUser;
+      
+      initDashboard();
+      initProfiles();
+      renderProfileDetails();
+      renderMenuDay();
+    });
+  }
+
+  const savedUser = localStorage.getItem('dieta_current_user');
+  const modal = document.getElementById('user-welcome-modal');
+  if (!savedUser && modal) {
+    modal.style.display = 'flex';
+    
+    const cards = modal.querySelectorAll('.welcome-user-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const selectedUser = card.getAttribute('data-user');
+        currentUser = selectedUser;
+        localStorage.setItem('dieta_current_user', currentUser);
+        
+        if (select) select.value = currentUser;
+        activeMember = currentUser;
+        modal.style.display = 'none';
+        
+        initDashboard();
+        initProfiles();
+        renderProfileDetails();
+        renderMenuDay();
+      });
+    });
+  }
+}
 
 // PESTAÑAS (TABS)
 function initTabs() {
@@ -868,15 +944,15 @@ function initDashboard() {
   Object.keys(NUTRITION_DATA.miembros).forEach(key => {
     const member = NUTRITION_DATA.miembros[key];
     const card = document.createElement('div');
-    card.className = `summary-card ${member.id}`;
+    const isCurrent = currentUser === member.id;
+    card.className = `summary-card ${member.id} ${isCurrent ? 'active-user-card' : ''}`;
     
-    // Inicial para Avatar
     const initial = member.nombre.charAt(0);
     
     card.innerHTML = `
       <div class="card-header-flex">
         <div>
-          <h3 class="card-name">${member.nombre}</h3>
+          <h3 class="card-name">${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''}</h3>
           <span class="card-subtitle">${member.objetivo}</span>
         </div>
         <div class="card-avatar">${initial}</div>
@@ -919,7 +995,8 @@ function initProfiles() {
     const member = NUTRITION_DATA.miembros[key];
     const btn = document.createElement('button');
     btn.className = `profile-select-btn ${member.id} ${activeMember === member.id ? 'active' : ''}`;
-    btn.innerHTML = `<span class="dot"></span> ${member.nombre}`;
+    const isCurrent = currentUser === member.id;
+    btn.innerHTML = `<span class="dot"></span> ${member.nombre} ${isCurrent ? '<span class="user-badge-you" style="font-size: 0.6rem; padding: 0.1rem 0.3rem; margin-left: 0.35rem; border-radius: 3px;">Tú</span>' : ''}`;
     
     btn.addEventListener('click', () => {
       activeMember = member.id;
@@ -1072,7 +1149,7 @@ function renderProfileDetails() {
     activityHTML = `
       <div class="activity-modules-section">
         <h4>⚡ Tipo de Día — Módulos de Actividad</h4>
-        <p class="activity-intro">La comida y la cena familiares no cambian. Haz clic en un tipo de día para ver cómo cambian sus objetivos en el panel lateral.</p>
+        <p class="activity-intro">La comida y la cena familiares no cambian. Haz clic en un tipo de día para ver qué módulo o comida extra añadir a tu plan diario.</p>
         <div class="activity-cards">
           ${member.modulos_actividad.map(m => `
             <div class="activity-card activity-${m.tipo} ${selectedActivityType === m.tipo ? 'active' : ''}" data-type="${m.tipo}">
@@ -1080,7 +1157,6 @@ function renderProfileDetails() {
                 <span class="activity-icon">${m.icono}</span>
                 <div class="activity-card-title">
                   <h5>${m.titulo}</h5>
-                  <span class="activity-kcal-badge">${m.kcal_objetivo} kcal</span>
                 </div>
               </div>
               <div class="activity-card-body">
@@ -1090,10 +1166,6 @@ function renderProfileDetails() {
                 </div>
                 ${m.extra_opcional ? `<div class="activity-module-row"><span class="activity-label">➕ Opcional</span><span>${m.extra_opcional}</span></div>` : ''}
                 ${m.extras_hidrato ? `<div class="activity-module-row"><span class="activity-label">🍞 Extra hidrato</span><span>${m.extras_hidrato}</span></div>` : ''}
-                ${m.impacto ? `<div class="activity-module-row"><span class="activity-label">📊 Impacto</span><span class="activity-impact">${m.impacto}</span></div>` : ''}
-                <div class="activity-result">
-                  <span>Resultado esperado: <strong>${m.resultado}</strong></span>
-                </div>
                 ${m.nota ? `<div class="activity-nota"><em>💡 ${m.nota}</em></div>` : ''}
               </div>
             </div>
@@ -1118,7 +1190,6 @@ function renderProfileDetails() {
                 <span class="pack-momento">${p.momento}</span>
               </div>
               <div class="pack-products">🛒 ${p.productos}</div>
-              <div class="pack-macros">📊 ${p.macros}</div>
               <div class="pack-comment">💡 ${p.comentario}</div>
             </div>
           `).join('')}
@@ -1127,17 +1198,32 @@ function renderProfileDetails() {
     `;
   }
   
+  const timelineData = MEMBER_TIMELINES[activeMember] || [];
+  const timelineHTML = `
+    <div class="meal-block" style="border: none; padding: 0; background: transparent;">
+      <h4>📅 Tu Línea de Tiempo del Día</h4>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        ${timelineData.map(item => `
+          <div class="timeline-item">
+            <div class="timeline-badge">${item.icono}</div>
+            <div class="timeline-panel">
+              <div class="timeline-header-flex">
+                <span class="timeline-fase">${item.fase}</span>
+                <span class="timeline-title">${item.titulo}</span>
+              </div>
+              <p class="timeline-desc">${item.desc}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
   mealsContainer.innerHTML = `
-    <div class="meal-block">
-      <h4>🍳 Bloque Personal Diario</h4>
-      <p>${member.desayuno}</p>
-    </div>
-    <div class="meal-block">
-      <h4>🍇 Distribución Flexible</h4>
-      <p>${member.merienda}</p>
-    </div>
+    ${timelineHTML}
     <div class="tip-box">
-      <h5>💡 Ajustes y Calibración V1</h5>
+      <h5>💡 Pautas de Control y Actividad</h5>
       <p>${member.ajustes}</p>
     </div>
     ${activityHTML}
@@ -1211,12 +1297,6 @@ function renderMemberMenuTable() {
             </div>
           </div>
         </div>
-      </td>
-      <td style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; white-space: nowrap; text-align: right;">
-        <strong style="color:var(--primary); font-size: 0.95rem;">${totalMacros.kcal} kcal</strong><br>
-        <span style="font-size: 0.75rem; color: var(--text-secondary);">
-          P: ${totalMacros.p}g | H: ${totalMacros.h}g | G: ${totalMacros.g}g
-        </span>
       </td>
     `;
     tableBody.appendChild(tr);
@@ -1606,9 +1686,10 @@ function renderMeal(mealData, cardEl, label) {
     Object.keys(mealData.individual).forEach(mId => {
       const member = NUTRITION_DATA.miembros[mId];
       const memberPortion = mealData.individual[mId];
+      const isCurrent = currentUser === mId;
       
       const tr = document.createElement('tr');
-      tr.className = mId;
+      tr.className = `${mId} ${isCurrent ? 'active-user-row' : ''}`;
       
       let tds = ingredKeys.map(k => {
         let val = memberPortion[k] || '-';
@@ -1622,7 +1703,7 @@ function renderMeal(mealData, cardEl, label) {
       }
       
       tr.innerHTML = `
-        <td class="name-cell"><span class="dot"></span> ${member.nombre} ${extraText}</td>
+        <td class="name-cell"><span class="dot"></span> ${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''} ${extraText}</td>
         ${tds}
       `;
       tbody.appendChild(tr);
@@ -1649,9 +1730,10 @@ function renderMeal(mealData, cardEl, label) {
     let repartoItems = Object.keys(mealData.lote.reparto).map(mId => {
       const member = NUTRITION_DATA.miembros[mId];
       const pct = mealData.lote.reparto[mId];
+      const isCurrent = currentUser === mId;
       return `
-        <div class="reparto-item">
-          <span class="reparto-name">${member.nombre} <span class="reparto-pct">${pct}%</span></span>
+        <div class="reparto-item ${isCurrent ? 'active-user-reparto' : ''}">
+          <span class="reparto-name">${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''} <span class="reparto-pct">${pct}%</span></span>
           <span class="reparto-val" id="reparto-val-${label.toLowerCase()}-${mId}">${pct}%</span>
         </div>
       `;
@@ -1663,7 +1745,8 @@ function renderMeal(mealData, cardEl, label) {
       let extRows = Object.keys(mealData.lote.extras).map(mId => {
         const member = NUTRITION_DATA.miembros[mId];
         const scaledExtra = scaleStringNumbers(mealData.lote.extras[mId], batchMultiplier);
-        return `<div><strong>${member.nombre}:</strong> ${scaledExtra}</div>`;
+        const isCurrent = currentUser === mId;
+        return `<div class="${isCurrent ? 'active-user-extra-row' : ''}"><strong>${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''}:</strong> ${scaledExtra}</div>`;
       }).join('');
       
       extrasSection = `
@@ -1749,11 +1832,12 @@ function renderMeal(mealData, cardEl, label) {
           const member = NUTRITION_DATA.miembros[mId];
           const pct = mealData.lote.reparto[mId];
           const portionWeight = ((totalWeight * pct) / 100).toFixed(1);
+          const isCurrent = currentUser === mId;
           
           const box = document.createElement('div');
-          box.className = 'calc-result-box';
+          box.className = `calc-result-box ${isCurrent ? 'active-user-calc-result' : ''}`;
           box.innerHTML = `
-            <span class="calc-result-name">${member.nombre}</span>
+            <span class="calc-result-name">${member.nombre} ${isCurrent ? '<span class="user-badge-you">Tú</span>' : ''}</span>
             <span class="calc-result-val">${portionWeight} g</span>
           `;
           calcResults.appendChild(box);

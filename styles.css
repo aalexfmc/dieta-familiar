@@ -2313,6 +2313,231 @@ body.light-theme .modal-body::-webkit-scrollbar-thumb {
   line-height: 1.4;
 }
 
+/* Selector de Usuario Activo en Header */
+.header-user-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: 'Outfit', sans-serif;
+  margin-right: 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+.header-user-selector span {
+  white-space: nowrap;
+}
+
+.user-select-dropdown {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  padding-right: 0.25rem;
+}
+
+.user-select-dropdown option {
+  background: var(--bg-body);
+  color: var(--text-primary);
+}
+
+/* Tarjetas de Selección en la Bienvenida */
+.welcome-user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+}
+
+.welcome-user-card:hover {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.welcome-user-card .avatar {
+  font-size: 2rem;
+}
+
+.welcome-user-card .name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Destacado de usuario activo */
+.active-user-card {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15) !important;
+  background: rgba(139, 92, 246, 0.03) !important;
+  position: relative;
+}
+
+.user-badge-you {
+  background: var(--gradient-main);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  margin-left: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.active-user-row {
+  background: rgba(139, 92, 246, 0.06) !important;
+  font-weight: 600;
+}
+
+.active-user-row td.name-cell {
+  border-left: 3px solid var(--primary) !important;
+}
+
+.active-user-reparto {
+  background: rgba(139, 92, 246, 0.08) !important;
+  border: 1px solid rgba(139, 92, 246, 0.25) !important;
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+}
+
+.active-user-extra-row {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.6rem;
+  font-weight: 600;
+}
+
+.active-user-calc-result {
+  background: rgba(139, 92, 246, 0.08) !important;
+  border: 1px dashed var(--primary) !important;
+}
+
+/* Ocultar barra lateral de macros en perfiles */
+.profile-sidebar {
+  display: none !important;
+}
+.profile-grid {
+  grid-template-columns: 1fr !important;
+}
+
+/* Timeline Estilos Premium */
+.timeline-container {
+  position: relative;
+  padding: 1rem 0;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.timeline-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.timeline-item:hover .timeline-badge {
+  border-color: var(--primary);
+  transform: scale(1.1);
+}
+
+.timeline-panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  text-align: left;
+}
+
+.timeline-item:hover .timeline-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.timeline-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+.timeline-fase {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.timeline-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.timeline-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
 
 
 

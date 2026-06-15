@@ -25,6 +25,17 @@
     </div>
     
     <div class="header-actions">
+      <!-- Selector de usuario activo (Quién eres) -->
+      <div class="header-user-selector">
+        <span>👤 Soy:</span>
+        <select id="header-user-select" class="user-select-dropdown">
+          <option value="padre">Papá</option>
+          <option value="madre">Mamá</option>
+          <option value="luis">Luis</option>
+          <option value="natalia">Natalia</option>
+        </select>
+      </div>
+      
       <nav class="nav-tabs">
         <button class="tab-btn active" data-tab="resumen">
           <span>📊</span> Resumen
@@ -143,9 +154,8 @@
                 <thead>
                   <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
                     <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 10%;">Día</th>
-                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 40%;">Comida</th>
-                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 40%;">Cena</th>
-                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); text-align: right; width: 10%;">Total</th>
+                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 45%;">Comida</th>
+                    <th style="padding: 0.75rem 0.5rem; color: var(--text-secondary); width: 45%;">Cena</th>
                   </tr>
                 </thead>
                 <tbody id="profile-menu-table-body">
@@ -425,6 +435,38 @@
       </div>
       <div class="modal-footer" style="margin-top: 1.5rem; text-align: right;">
         <button id="close-calc-universal-btn" class="btn-primary" style="background: var(--gradient-main); border: none; padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); color: white; cursor: pointer; font-weight: 500;">Listo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL SELECCIÓN USUARIO INICIAL (QUIÉN ERES) -->
+  <div id="user-welcome-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content glassmorphic" style="max-width: 450px; text-align: center;">
+      <div class="modal-header" style="justify-content: center; border-bottom: none; padding-bottom: 0.5rem;">
+        <h3 style="font-size: 1.35rem; font-family: 'Outfit', sans-serif;">👋 ¡Bienvenido a NutriFamilia!</h3>
+      </div>
+      <div class="modal-body" style="padding: 1rem 0;">
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.5;">
+          Selecciona quién eres para personalizar la aplicación y enfocar el menú y perfiles en ti:
+        </p>
+        <div class="welcome-user-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0 0.5rem;">
+          <button class="welcome-user-card" data-user="padre">
+            <span class="avatar">👨</span>
+            <span class="name">Papá</span>
+          </button>
+          <button class="welcome-user-card" data-user="madre">
+            <span class="avatar">👩</span>
+            <span class="name">Mamá</span>
+          </button>
+          <button class="welcome-user-card" data-user="luis">
+            <span class="avatar">👦</span>
+            <span class="name">Luis</span>
+          </button>
+          <button class="welcome-user-card" data-user="natalia">
+            <span class="avatar">👧</span>
+            <span class="name">Natalia</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
