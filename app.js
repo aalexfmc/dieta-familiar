@@ -5,45 +5,47 @@ const NUTRITION_DATA = {
     padre: {
       nombre: "Papá",
       id: "padre",
-      objetivo: "Definición suave con rendimiento",
-      kcal: 2700,
-      macros: { kcal: "2700", p: "170 g", h: "335 g", g: "75 g" },
-      macros_num: { kcal: 2700, p: 170, h: 335, g: 75 },
-      desayuno: "Pan integral 100 g + jamón serrano 60 g + tomate + AOVE 10 g + 1 fruta.",
-      merienda: "2 yogures +Proteínas pequeños de 120 g + Corn Flakes 15 g + 1 fruta.",
-      ajustes: "En días de trail duro, añadir +60-100 g pan, +1 plátano o +40-60 g arroz/pasta.<br><strong>Noche con entreno:</strong> batido post-entreno extra de 250 ml leche semidesnatada + 1 scoop proteína + creatina (aporta +220-240 kcal, +30-35g Proteína, +12-15g HC y +4-5g Grasa). No compensar quitando cena salvo estancamiento."
+      objetivo: "Definición suave con rendimiento - V1 calibración",
+      kcal: 2600,
+      macros: { kcal: "2600 media", p: "170 g", h: "Variable según entreno", g: "70-80 g" },
+      macros_num: { kcal: 2600, p: 170, h: 280, g: 75 },
+      calibracion: { carrera: 2800, gimnasio: 2600, descanso: "2350-2450" },
+      desayuno: "<strong>Fijo:</strong> Café con leche semidesnatada 150 ml.<br><strong>Bloque flexible:</strong> Pan integral 80 g + jamón serrano 60 g + tomate + AOVE 10 g + 1 fruta + 2 yogures +Proteínas pequeños 120 g + Corn Flakes 15 g + 1 fruta.",
+      merienda: "Se reparte libremente entre desayuno, media mañana, comida o merienda según convenga.",
+      ajustes: "<strong>Calibración V1:</strong> Carrera 2800 kcal · Gimnasio 2600 kcal · Descanso 2350-2450 kcal.<br><strong>Noche con entreno:</strong> 250 ml leche semidesnatada + 1 scoop proteína + creatina (cuenta en el total diario V1). 2 batidos en 6 días."
     },
     madre: {
       nombre: "Mamá",
       id: "madre",
-      objetivo: "Pérdida grasa sostenible",
+      objetivo: "Pérdida grasa sostenible + pasos V1",
       kcal: 1800,
       macros: { kcal: "1800", p: "130 g", h: "185 g", g: "60 g" },
       macros_num: { kcal: 1800, p: 130, h: 185, g: 60 },
-      desayuno: "Pan integral 60 g + jamón serrano 40 g + tomate + AOVE 5 g + 1 fruta. <br><strong>Media mañana:</strong> infusión + 1 fruta.",
-      merienda: "1 yogur +Proteínas pequeño de 120 g + 1 fruta. <br><strong>Si llegas con hambre real:</strong> subir a 2 yogures pequeños o añadir 1 huevo cocido / 1 lata de atún / 10-15 g frutos secos.<br><strong>Nota familiar:</strong> el bote grande de 500g se mantiene solo cuando encaja de verdad. Para la familia, el formato pequeño de 120g es mejor porque evita medias raciones raras y no convierte la merienda en una comida enorme.",
-      ajustes: "Si tienes hambre, añadir 10-15 g frutos secos o 5-10 g AOVE, no picoteo libre."
+      desayuno: "<strong>Fijo:</strong> Café con leche semidesnatada 150 ml.<br><strong>Media mañana fija:</strong> infusión + 1 fruta.<br><strong>Bloque flexible:</strong> Pan integral 45 g + jamón serrano 40 g + tomate + AOVE 5 g + 1 fruta + 2 yogures +Proteínas pequeños 120 g + 1 fruta + frutos secos naturales 15 g.",
+      merienda: "Se reparte libremente entre desayuno, media mañana, comida o merienda según convenga.",
+      ajustes: "Pasos V1: priorizar actividad diaria + no picoteo libre. Si tienes hambre, añadir 10-15 g frutos secos o 5-10 g AOVE."
     },
     luis: {
       nombre: "Luis",
       id: "luis",
-      objetivo: "Definición / recomposición",
-      kcal: 2350,
-      macros: { kcal: "2350", p: "160 g", h: "280 g", g: "65 g" },
-      macros_num: { kcal: 2350, p: 160, h: 280, g: 65 },
-      desayuno: "Yogur +Proteínas 500 g + Corn Flakes 20 g + chocolate 85% 24 g + frutos rojos 100 g.",
-      merienda: "1 plátano + 1 paquete individual de tortitas campestres (snack extra).",
-      ajustes: "En gimnasio fuerte, añadir +1 paquete de tortitas o +1 fruta + 40-60 g pan.<br><strong>Noche con entreno:</strong> batido post-entreno extra de 250 ml leche semidesnatada + 1 scoop proteína + creatina (aporta +220-240 kcal, +30-35g Proteína, +12-15g HC y +4-5g Grasa). No es obligatorio tomarlo en días sin entrenamiento si llegas a la proteína normal."
+      objetivo: "Definición / recomposición - V1 calibración",
+      kcal: 2250,
+      macros: { kcal: "2250 media", p: "150-160 g", h: "Variable según entreno", g: "60-70 g" },
+      macros_num: { kcal: 2250, p: 155, h: 245, g: 65 },
+      calibracion: { gimnasio: "2350-2400", descanso: "2050-2150" },
+      desayuno: "<strong>Fijo:</strong> Café con leche semidesnatada 150 ml.<br><strong>Bloque flexible:</strong> Yogur +Proteínas 500 g + Corn Flakes 10 g + chocolate 85% 24 g + frutos rojos 100 g + 1 plátano + 1 paquete tortitas campestres.",
+      merienda: "Se reparte libremente entre desayuno, media mañana, comida o merienda según convenga.",
+      ajustes: "<strong>Calibración V1:</strong> Gimnasio 2350-2400 kcal · Descanso 2050-2150 kcal.<br><strong>Noche con entreno:</strong> 250 ml leche semidesnatada + 1 scoop proteína + creatina (cuenta en el total diario V1). 3 batidos en 6 días."
     },
     natalia: {
       nombre: "Natalia",
       id: "natalia",
-      objetivo: "Rendimiento y crecimiento (Flexible)",
+      objetivo: "Rendimiento y crecimiento",
       kcal: "Flexible",
       macros: { kcal: "Flexible", p: "Flexible", h: "Generoso si entrena", g: "Flexible" },
-      macros_num: { kcal: 2000, p: 110, h: 300, g: 45 }, // Estimado para gráficos
-      desayuno: "Tostadas con jamón/tomate o cereales con leche + fruta (orientativo).",
-      merienda: "Fruta, bocadillo pequeño, yogur, tortitas o similar (orientativo).",
+      macros_num: { kcal: 1670, p: 106, h: 238, g: 32 }, // Orientativo V1 para gráficos
+      desayuno: "<strong>Flexible orientativo:</strong> Leche semidesnatada 250 ml + Corn Flakes 40 g + 1 fruta + bocadillo pequeño pan 60 g + jamón 30 g + 1 fruta.",
+      merienda: "Se reparte libremente (no tiene café fijo).",
       ajustes: "En días de baloncesto: no recortar hidratos. No usar lenguaje de dieta restrictiva bajo ningún concepto."
     }
   },
@@ -98,16 +100,15 @@ const NUTRITION_DATA = {
       "Gazpacho: 4-5 botellas de 1 L."
     ],
     "Desayuno, Meriendas y Extras": [
-      "Yogur +Proteínas 500 g: 7 botes para Luis (desayuno diario).",
-      "Yogur +Proteínas natural 120 g (pack 4): 6 packs (para Papá y Mamá: 21 botes total + 3 de margen).",
-      "Leche semidesnatada: 3-4 bricks de 1 L (para batidos post-entreno de Papá y Luis).",
-      "Proteína en polvo: no se compra si ya hay (1 scoop/entreno).",
-      "Creatina: 3-5 g diarios (no aporta kcal ni macros).",
+      "Yogur +Proteínas 500 g: 7 botes.",
+      "Yogur +Proteínas pack 4x120 g: 8 packs.",
+      "Leche semidesnatada: 6-7 bricks de 1 L.",
       "Fruta variada: 35-45 piezas/semana.",
       "Frutos rojos congelados: 1-2 bolsas.",
+      "Frutos secos naturales/nueces: 1 paquete de 200 g.",
       "Chocolate 85%: 1 paquete.",
-      "Aceite de Oliva Virgen Extra (AOVE): 1 botella.",
-      "Ketchup zero / mostaza / especias."
+      "AOVE: 1 botella.",
+      "Ketchup zero / mostaza / especias: según necesidad."
     ]
   },
   menu: {
@@ -462,37 +463,61 @@ const NUTRITION_DATA = {
   },
   totales_diarios: {
     padre: [
-      { dia: 1, kcal: 2623, p: 195, h: 308, g: 64 },
-      { dia: 2, kcal: 2885, p: 209, h: 354, g: 70 },
-      { dia: 3, kcal: 2745, p: 180, h: 323, g: 80 },
-      { dia: 4, kcal: 2641, p: 198, h: 347, g: 50 },
-      { dia: 5, kcal: 2769, p: 191, h: 352, g: 66 },
-      { dia: 6, kcal: 2664, p: 207, h: 344, g: 50 }
+      { dia: 1, kcal: 2148, p: 171, h: 269, g: 42 },
+      { dia: 2, kcal: 2327, p: 177, h: 259, g: 62 },
+      { dia: 3, kcal: 2265, p: 155, h: 281, g: 59 },
+      { dia: 4, kcal: 2109, p: 171, h: 298, g: 23 },
+      { dia: 5, kcal: 2294, p: 170, h: 311, g: 40 },
+      { dia: 6, kcal: 2031, p: 176, h: 256, g: 33 }
+    ],
+    padre_batido: [
+      { dia: 1, kcal: 2378, p: 203, h: 283, g: 48 },
+      { dia: 2, kcal: 2557, p: 209, h: 273, g: 68 },
+      { dia: 3, kcal: 2495, p: 187, h: 295, g: 65 },
+      { dia: 4, kcal: 2339, p: 203, h: 312, g: 29 },
+      { dia: 5, kcal: 2524, p: 202, h: 325, g: 46 },
+      { dia: 6, kcal: 2261, p: 208, h: 269, g: 39 }
     ],
     madre: [
-      { dia: 1, kcal: 1862, p: 159, h: 192, g: 48 },
-      { dia: 2, kcal: 1896, p: 161, h: 204, g: 48 },
-      { dia: 3, kcal: 1878, p: 138, h: 203, g: 57 },
-      { dia: 4, kcal: 1725, p: 146, h: 209, g: 33 },
-      { dia: 5, kcal: 1897, p: 150, h: 224, g: 44 },
-      { dia: 6, kcal: 1758, p: 164, h: 195, g: 35 }
+      { dia: 1, kcal: 1689, p: 141, h: 184, g: 43 },
+      { dia: 2, kcal: 1761, p: 138, h: 169, g: 57 },
+      { dia: 3, kcal: 1712, p: 118, h: 193, g: 53 },
+      { dia: 4, kcal: 1567, p: 127, h: 203, g: 26 },
+      { dia: 5, kcal: 1739, p: 134, h: 216, g: 38 },
+      { dia: 6, kcal: 1559, p: 143, h: 165, g: 36 }
     ],
     luis: [
-      { dia: 1, kcal: 2174, p: 168, h: 236, g: 57 },
-      { dia: 2, kcal: 2382, p: 179, h: 272, g: 62 },
-      { dia: 3, kcal: 2268, p: 150, h: 249, g: 72 },
-      { dia: 4, kcal: 2151, p: 167, h: 273, g: 41 },
-      { dia: 5, kcal: 2297, p: 162, h: 278, g: 58 },
-      { dia: 6, kcal: 2163, p: 178, h: 261, g: 43 }
+      { dia: 1, kcal: 2060, p: 174, h: 236, g: 46 },
+      { dia: 2, kcal: 2214, p: 179, h: 223, g: 66 },
+      { dia: 3, kcal: 2156, p: 156, h: 247, g: 62 },
+      { dia: 4, kcal: 2009, p: 172, h: 266, g: 27 },
+      { dia: 5, kcal: 2161, p: 170, h: 271, g: 43 },
+      { dia: 6, kcal: 1918, p: 179, h: 218, g: 36 }
+    ],
+    luis_batido: [
+      { dia: 1, kcal: 2290, p: 206, h: 249, g: 52 },
+      { dia: 2, kcal: 2444, p: 210, h: 236, g: 72 },
+      { dia: 3, kcal: 2386, p: 187, h: 261, g: 68 },
+      { dia: 4, kcal: 2239, p: 204, h: 279, g: 33 },
+      { dia: 5, kcal: 2391, p: 202, h: 285, g: 49 },
+      { dia: 6, kcal: 2148, p: 211, h: 231, g: 42 }
     ],
     natalia: [
-      { dia: 1, kcal: 2017, p: 112, h: 277, g: 49 },
-      { dia: 2, kcal: 2189, p: 121, h: 313, g: 50 },
-      { dia: 3, kcal: 2084, p: 96, h: 295, g: 58 },
-      { dia: 4, kcal: 1964, p: 104, h: 309, g: 35 },
-      { dia: 5, kcal: 2004, p: 100, h: 303, g: 44 },
-      { dia: 6, kcal: 2027, p: 119, h: 305, g: 37 }
-    ]
+      { dia: 1, kcal: 1700, p: 114, h: 234, g: 34 },
+      { dia: 2, kcal: 1779, p: 115, h: 221, g: 47 },
+      { dia: 3, kcal: 1739, p: 96, h: 245, g: 43 },
+      { dia: 4, kcal: 1599, p: 103, h: 255, g: 17 },
+      { dia: 5, kcal: 1648, p: 95, h: 257, g: 29 },
+      { dia: 6, kcal: 1557, p: 114, h: 218, g: 25 }
+    ],
+    promedios_v1: {
+      padre_sin_batido: { kcal: 2196, p: 170, h: 279, g: 43 },
+      padre_con_2_batidos: { kcal: 2272, p: 181, h: 284, g: 45 },
+      madre: { kcal: 1671, p: 134, h: 188, g: 42 },
+      luis_sin_batido: { kcal: 2086, p: 172, h: 243, g: 47 },
+      luis_con_3_batidos: { kcal: 2201, p: 187, h: 250, g: 50 },
+      natalia_orientativo: { kcal: 1671, p: 106, h: 238, g: 32 }
+    }
   }
 };
 
@@ -812,15 +837,15 @@ function renderProfileDetails() {
   const mealsContainer = document.getElementById('profile-meals-container');
   mealsContainer.innerHTML = `
     <div class="meal-block">
-      <h4>🍳 Desayuno Fijo</h4>
+      <h4>🍳 Bloque Personal Diario</h4>
       <p>${member.desayuno}</p>
     </div>
     <div class="meal-block">
-      <h4>🍇 Merienda Saciante</h4>
+      <h4>🍇 Distribución Flexible</h4>
       <p>${member.merienda}</p>
     </div>
     <div class="tip-box">
-      <h5>💡 Ajustes Importantes</h5>
+      <h5>💡 Ajustes y Calibración V1</h5>
       <p>${member.ajustes}</p>
     </div>
   `;

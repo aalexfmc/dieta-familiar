@@ -1,6 +1,6 @@
-# Plan nutricional familiar V0
+# Plan nutricional familiar V1
 
-Fecha: 2026-06-14
+Fecha: 2026-06-15
 
 ## Enfoque
 
@@ -15,14 +15,88 @@ Estructura semanal realista:
 
 Natalia no entra en modo dieta ni deficit. Sus cantidades son orientativas y flexibles.
 
-## Objetivos iniciales
+## Objetivos V1
 
 | Persona | Objetivo | kcal | Proteina | Hidratos | Grasas |
 |---|---:|---:|---:|---:|---:|
-| Padre | Definicion suave con rendimiento | 2700 | 170 g | 335 g | 75 g |
-| Madre | Perdida grasa sostenible | 1800 | 130 g | 185 g | 60 g |
-| Luis | Definicion / recomposicion | 2350 | 160 g | 280 g | 65 g |
+| Padre | Definicion suave con rendimiento - V1 calibracion | 2600 media | 170 g | Variable segun entreno | 70-80 g |
+| Madre | Perdida grasa sostenible + pasos V1 | 1800 | 130 g | 185 g | 60 g |
+| Luis | Definicion / recomposicion - V1 calibracion | 2250 media | 150-160 g | Variable segun entreno | 60-70 g |
 | Natalia | Rendimiento y crecimiento | No estricto | No estricto | Generoso si entrena | No estricto |
+
+## Calibracion Padre V1
+
+Contexto usado para afinar: hombre, 53 anos, 178 cm, 88 kg, trabajo de oficina con poco movimiento laboral, 6000-9000 pasos aproximados, 2 dias de gimnasio normal y 2 sesiones de carrera de 90 min / 10-20 km. No se trata como una persona sedentaria de 2000 kcal, pero tampoco como alguien muy activo todo el dia.
+
+Objetivo operativo durante 2 semanas: 2600 kcal/dia de media semanal, contando el batido de leche + proteina dentro del total, no como extra libre.
+
+Macros objetivo:
+
+- Proteina: 170 g/dia.
+- Grasas: 70-80 g/dia.
+- Hidratos: variables segun entrenamiento y hambre, mas altos en carrera y mas bajos en descanso.
+
+Distribucion por tipo de dia:
+
+| Tipo de dia Padre | kcal objetivo | Uso practico |
+|---|---:|---|
+| Carrera 90 min / 10-20 km | 2800 | Mantener mas pan/arroz/patata/fruta alrededor de la carrera. |
+| Gimnasio | 2600 | Mantener comida normal + batido si lo toma. |
+| Descanso/oficina | 2350-2450 | Recortar principalmente pan, arroz, pasta, patata o fruta extra. |
+
+Media semanal esperada con 2 carrera + 2 gimnasio + 3 descanso: 2550-2620 kcal/dia.
+
+Control:
+
+- Pesar a diario por la manana, despues de ir al bano y antes de comer/beber.
+- Decidir con media de 7 dias, no por un peso aislado.
+- Primera revision real a los 14 dias.
+- Si baja 0,2-0,5 kg/semana y rinde bien: mantener.
+- Si no baja nada en 14 dias: recortar 100-150 kcal/dia, principalmente de hidratos o grasas.
+- Si baja mas de 0,7 kg/semana, tiene hambre fuerte o corre peor: subir 100-150 kcal en dias de carrera.
+- Si sube algo de peso pero baja cintura y rinde bien: mantener una semana mas antes de tocar.
+
+## Calibracion Luis V1
+
+Contexto usado para afinar: hombre, 23 anos, 178 cm, 73,5 kg, trabajo de oficina con poco movimiento laboral y 3-4 dias de gimnasio de fuerza por semana. No se trata como sedentario puro, pero tampoco se le suma un gasto alto fuera del gym.
+
+Objetivo operativo durante 2 semanas: 2250 kcal/dia de media semanal, contando el batido de leche + proteina dentro del total, no como extra libre.
+
+Macros objetivo:
+
+- Proteina: 150-160 g/dia.
+- Grasas: 60-70 g/dia.
+- Hidratos: variables segun entrenamiento, mas altos en gym y mas bajos en descanso.
+
+Distribucion por tipo de dia:
+
+| Tipo de dia Luis | kcal objetivo | Uso practico |
+|---|---:|---|
+| Gimnasio fuerza | 2350-2400 | Mantener hidratos alrededor del entreno y contar el batido dentro del dia. |
+| Descanso/oficina | 2050-2150 | Recortar sobre todo tortitas, pan, arroz, pasta, patata, cereales o fruta extra. |
+
+Media semanal esperada con 3-4 dias de gym y 3-4 dias de descanso: 2200-2300 kcal/dia.
+
+Control:
+
+- Pesar a diario por la manana, despues de ir al bano y antes de comer/beber.
+- Decidir con media de 7 dias, no por un peso aislado.
+- Primera revision real a los 14 dias.
+- Si baja 0,2-0,5 kg/semana, mantiene fuerza y no pasa hambre fuerte: mantener.
+- Si no baja nada en 14 dias: recortar 100-150 kcal/dia, principalmente de hidratos o grasas.
+- Si pierde fuerza claramente o baja mas de 0,6 kg/semana: subir 100-150 kcal en dias de gimnasio.
+
+## Pasos Madre V1
+
+Mamá trabaja sentada, asi que antes de recortar mas comida se prioriza subir NEAT con pasos diarios. La meta no es compensar comidas ni castigar salidas, sino mejorar gasto, salud, hambre y adherencia.
+
+Objetivo progresivo:
+
+- Semana 1: minimo 7000 pasos/dia de media.
+- Semana 2: 8000 pasos/dia de media.
+- Semana 3 en adelante: 8000-10000 pasos/dia de media, segun energia, agenda y articulaciones.
+
+Regla practica: mejor cumplir una media semanal que obsesionarse con cada dia. Si un dia se queda baja por trabajo o cansancio, se compensa con paseos suaves otros dias, no con recortes agresivos de comida.
 
 ## Productos base Mercadona
 
@@ -52,29 +126,48 @@ Valores usados a partir de fichas/etiquetas de Mercadona cuando estan disponible
 | Tortitas campestres | https://tienda.mercadona.es/product/14786/tortitas-maiz-campestre-hacendado-paquete | Extra Luis / snack |
 | Ketchup zero | https://tienda.mercadona.es/product/35343/ketchup-zero-azucares-anadidos-hacendado-bote | Salsa |
 | Leche semidesnatada Hacendado | https://tienda.mercadona.es/product/10382/leche-semidesnatada-hacendado-brick | Batido post-entreno Padre/Luis |
+| Frutos secos naturales / nueces | Confirmar etiqueta concreta en casa | Extra medido Madre |
 
-## Desayunos y extras diarios
+## Bloque personal diario
 
 ### Padre
 
-- Desayuno: pan integral 100 g + jamon serrano 60 g + tomate + AOVE 10 g + 1 fruta.
-- Merienda: 2 yogures +Proteinas pequenos de 120 g + Corn Flakes 15 g + 1 fruta.
-- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. No contarlo como cena; es un extra post-entreno. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
+- Fijo de desayuno: cafe con leche semidesnatada 150 ml.
+- Total flexible para repartir entre desayuno, media manana, almuerzo o merienda: pan integral 80 g + jamon serrano 60 g + tomate + AOVE 10 g + 1 fruta + 2 yogures +Proteinas pequenos de 120 g + Corn Flakes 15 g + 1 fruta.
+- Reparto recomendado: si desayuna poco, tomar solo cafe con leche y mover el pan/jamon/fruta a media manana; dejar yogures + Corn Flakes + fruta para merienda.
+- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. No contarlo como cena, pero en Padre V1 si cuenta dentro del objetivo del dia. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
 
 ### Madre
 
-- Desayuno: pan integral 60 g + jamon serrano 40 g + tomate + AOVE 5 g + 1 fruta.
-- Media manana: infusion + 1 fruta.
-- Merienda saciante fija: 1 yogur +Proteinas pequeno de 120 g + 1 fruta.
-- Si llega con hambre real: subir a 2 yogures pequenos o anadir 1 huevo cocido / 1 lata de atun / 10-15 g frutos secos.
+- Fijo de desayuno: cafe con leche semidesnatada 150 ml.
+- Fijo de media manana: infusion + 1 fruta, porque ella ya lo tiene como habito.
+- Total flexible para repartir entre desayuno, almuerzo o merienda: pan integral 45 g + jamon serrano 40 g + tomate + AOVE 5 g + 1 fruta + 2 yogures +Proteinas pequenos de 120 g + 1 fruta + frutos secos naturales 15 g.
+- Reparto recomendado: si no quiere desayunar fuerte, cafe con leche por la manana, infusion + fruta a media manana, y el pan/jamon o los yogures/frutos secos como merienda saciante antes del momento de picoteo.
+- Si llega con hambre real: anadir 1 huevo cocido, 1 lata de atun, verdura extra o 1 fruta. No subir frutos secos sin medir porque se disparan facil.
 
 Nota: el bote de 500 g se mantiene solo cuando encaja de verdad. Para la familia, el formato pequeno de 120 g es mejor porque evita medias raciones raras y no convierte la merienda en una comida enorme.
+
+### Luis
+
+- Fijo de desayuno: cafe con leche semidesnatada 150 ml.
+- Total flexible para repartir entre desayuno, media manana, almuerzo o merienda: yogur +Proteinas 500 g + Corn Flakes 10 g + chocolate 85% 24 g + frutos rojos 100 g + 1 platano + 1 paquete individual de tortitas campestres.
+- Reparto recomendado: cafe con leche por la manana; yogur con Corn Flakes, chocolate y frutos rojos cuando le apetezca; platano y tortitas alrededor del entreno o como snack.
+- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. En Luis V1 cuenta dentro del objetivo del dia, no como extra libre. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
+
+### Natalia
+
+- No tiene fijo de cafe con leche.
+- Total flexible orientativo usado para calculo: leche semidesnatada 250 ml + Corn Flakes 40 g + 1 fruta + bocadillo pequeno de pan 60 g + jamon 30 g + 1 fruta.
+- Alternativas equivalentes: tostadas con jamon/tomate + fruta, cereales con leche, yogur con fruta, bocadillo pequeno o tortitas.
+- En dias de baloncesto: no recortar hidratos.
 
 ## Chequeo de proporciones practicas
 
 Regla de cocina: si una racion parece rara en el plato, se corrige aunque los macros cuadren. El plan debe verse como comida normal, no como una pila absurda de un ingrediente. Hay que tener en cuenta la densidad: 30 g de cereal abultan mucho mas que 30 g de yogur, y 70 g de fideos secos en sopa pueden convertir una cena en una pasta espesa.
 
-- Yogur con cereales: en formato pequeno, usar el cereal como topping, no como base. Padre queda en 240 g yogur + 15 g Corn Flakes; Luis queda en 500 g yogur + 20 g Corn Flakes.
+- Cafe con leche: Padre, Madre y Luis lo toman como fijo de desayuno. Usar 150 ml de leche semidesnatada por persona y contarla dentro del dia.
+- Bloque flexible: todo lo que no sea cafe con leche puede moverse entre desayuno, media manana, almuerzo o merienda. No cambia macros si se respeta el total diario.
+- Yogur con cereales: en formato pequeno, usar el cereal como topping, no como base. Padre queda en 240 g yogur + 15 g Corn Flakes; Luis queda en 500 g yogur + 10 g Corn Flakes. Pueden tomarlo en desayuno o merienda.
 - Cenas: evitar doble hidrato alto. Si ya hay fideos, pasta o patata, el pan nocturno baja un poco.
 - Sopas: deben quedar caldosas. Si al reposar se espesan mucho, anadir agua/caldo y no subir mas fideos.
 - Platos secos: si un plato queda seco, arreglar con tomate triturado, caldo, gazpacho, limon/vinagre o especias, no metiendo mas pan/arroz por defecto.
@@ -85,23 +178,12 @@ Regla de cocina: si una racion parece rara en el plato, se corrige aunque los ma
 Ajustes aplicados tras revisar proporcion plato a plato:
 
 - Padre: Corn Flakes de la merienda bajan de 40 g a 15 g para que el yogur siga siendo yogur, no una masa.
+- Madre: su bloque V1 incluye 2 yogures pequenos + fruta + 15 g frutos secos. Es mas saciante y proporcionado que medio kilo de yogur o cereal excesivo.
 - Guisantes con jamon: se baja algo el pan nocturno porque ya hay guisantes y huevos.
 - Sopa de pollo: se bajan fideos y pan para que sea cena ligera real y no una pasta espesa con caldo.
 - Tortilla con gazpacho: se baja pan en todos, manteniendo huevos y jamon.
 - Pasta con atun: se baja pasta seca de la cena y se mantiene atun/verdura.
 - Judias con patata y huevo: se baja pan porque ya hay patata como hidrato principal.
-
-### Luis
-
-- Desayuno: yogur +Proteinas 500 g + Corn Flakes 20 g + chocolate 85% 24 g + frutos rojos 100 g.
-- Extra: 1 platano + 1 paquete individual de tortitas campestres.
-- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
-
-### Natalia
-
-- Desayuno orientativo: tostadas con jamon/tomate o cereales con leche + fruta.
-- Merienda orientativa: fruta, bocadillo pequeno, yogur, tortitas o similar.
-- En dias de baloncesto: no recortar hidratos.
 
 ## Menu familiar de casa
 
@@ -451,7 +533,7 @@ Extras:
 
 Comida: repetir arroz caldoso con pollo y verduras del Dia 1.
 
-Cena: repetir sopa de pollo con fideos del Dia 2.
+Cena: repetir pollo frio o a la plancha + ensalada grande + gazpacho del Dia 2.
 
 ## Recetas rapidas
 
@@ -629,33 +711,67 @@ Sal y especias: 1/2 cucharilla de postre rasa de sal para patata y judias, 1/2 c
 5. Cocer huevos aparte: agua fria, potencia 9 hasta hervir y 10-11 min de coccion.
 6. Servir el plato comun segun porcentaje y anadir huevos/pan.
 
-## Totales diarios aproximados
+## Totales diarios recalculados V1
 
-Incluyen desayuno, extras personales, comida y cena. Natalia es orientativa. Tras cambiar Padre/Madre a yogures pequenos de 120 g, estos totales siguen siendo una referencia V0 y conviene recalcularlos antes de usarlos como dato fino. Los batidos nocturnos de leche + proteina de Padre/Luis en dias de entrenamiento no estan incluidos en la tabla: sumar +220-240 kcal y +30-35 g proteina por batido.
+Incluyen bloque personal diario, comida y cena de los 6 dias de casa. No incluyen la comida fuera ni la cena fuera semanal. En Padre y Luis, la tabla principal no incluye batido; debajo queda la tabla con batido.
+
+Valores clave usados para el calculo V1:
+
+- Cafe con leche: 150 ml leche semidesnatada.
+- Batido Padre/Luis: 250 ml leche semidesnatada + 1 scoop proteina = 230 kcal / 32P / 14C / 6F aprox.
+- Fruta media: 80 kcal.
+- Pack individual tortitas campestres: 140 kcal aprox.
+- Verduras/frescos sin etiqueta clara: estimacion prudente.
+- Natalia: datos orientativos, no objetivo restrictivo.
+
+### Totales sin batido
 
 | Dia | Padre kcal/P/C/F | Madre kcal/P/C/F | Luis kcal/P/C/F | Natalia kcal/P/C/F |
 |---|---:|---:|---:|---:|
-| 1 | 2623 / 195 / 308 / 64 | 1862 / 159 / 192 / 48 | 2174 / 168 / 236 / 57 | 2017 / 112 / 277 / 49 |
-| 2 | 2885 / 209 / 354 / 70 | 1896 / 161 / 204 / 48 | 2382 / 179 / 272 / 62 | 2189 / 121 / 313 / 50 |
-| 3 | 2745 / 180 / 323 / 80 | 1878 / 138 / 203 / 57 | 2268 / 150 / 249 / 72 | 2084 / 96 / 295 / 58 |
-| 4 | 2641 / 198 / 347 / 50 | 1725 / 146 / 209 / 33 | 2151 / 167 / 273 / 41 | 1964 / 104 / 309 / 35 |
-| 5 | 2769 / 191 / 352 / 66 | 1897 / 150 / 224 / 44 | 2297 / 162 / 278 / 58 | 2004 / 100 / 303 / 44 |
-| 6 | 2664 / 207 / 344 / 50 | 1758 / 164 / 195 / 35 | 2163 / 178 / 261 / 43 | 2027 / 119 / 305 / 37 |
+| 1 | 2148 / 171 / 269 / 42 | 1689 / 141 / 184 / 43 | 2060 / 174 / 236 / 46 | 1700 / 114 / 234 / 34 |
+| 2 | 2327 / 177 / 259 / 62 | 1761 / 138 / 169 / 57 | 2214 / 179 / 223 / 66 | 1779 / 115 / 221 / 47 |
+| 3 | 2265 / 155 / 281 / 59 | 1712 / 118 / 193 / 53 | 2156 / 156 / 247 / 62 | 1739 / 96 / 245 / 43 |
+| 4 | 2109 / 171 / 298 / 23 | 1567 / 127 / 203 / 26 | 2009 / 172 / 266 / 27 | 1599 / 103 / 255 / 17 |
+| 5 | 2294 / 170 / 311 / 40 | 1739 / 134 / 216 / 38 | 2161 / 170 / 271 / 43 | 1648 / 95 / 257 / 29 |
+| 6 | 2031 / 176 / 256 / 33 | 1559 / 143 / 165 / 36 | 1918 / 179 / 218 / 36 | 1557 / 114 / 218 / 25 |
 
-Lectura:
+### Padre/Luis si toman batido ese dia
 
-- Padre: bastante cerca del objetivo. En dias de trail duro, anadir +60-100 g pan, +1 platano o +40-60 g arroz/pasta.
-- Madre: calorias en rango, proteina muy alta y grasa algo baja algunos dias. Si tiene hambre, anadir 10-15 g frutos secos o 5-10 g AOVE, no picoteo libre.
-- Luis: algunos dias quedan bajos para 2350 kcal. En dia de gym fuerte, anadir +1 paquete de tortitas o +1 fruta + 40-60 g pan.
-- Natalia: no usar estos numeros como dieta estricta. Si tiene hambre o basket, subir pan, fruta, arroz, pasta o patata.
+| Dia | Padre con batido kcal/P/C/F | Luis con batido kcal/P/C/F |
+|---|---:|---:|
+| 1 | 2378 / 203 / 283 / 48 | 2290 / 206 / 249 / 52 |
+| 2 | 2557 / 209 / 273 / 68 | 2444 / 210 / 236 / 72 |
+| 3 | 2495 / 187 / 295 / 65 | 2386 / 187 / 261 / 68 |
+| 4 | 2339 / 203 / 312 / 29 | 2239 / 204 / 279 / 33 |
+| 5 | 2524 / 202 / 325 / 46 | 2391 / 202 / 285 / 49 |
+| 6 | 2261 / 208 / 269 / 39 | 2148 / 211 / 231 / 42 |
+
+### Medias de 6 dias de casa
+
+| Persona | Media kcal/P/C/F | Lectura |
+|---|---:|---|
+| Padre sin batido | 2196 / 170 / 279 / 43 | Casa queda ligera para permitir comida/cena fuera y dias de carrera con extras. |
+| Padre con 2 batidos en 6 dias | 2272 / 181 / 284 / 45 | Sigue por debajo de la media objetivo porque faltan salidas y extras de carrera. |
+| Madre | 1671 / 134 / 188 / 42 | Proteina bien, kcal prudentes y margen para salida semanal sin hacer dieta carcel. |
+| Luis sin batido | 2086 / 172 / 243 / 47 | Correcto en descanso; en gym conviene batido o extra de hidrato si rinde peor. |
+| Luis con 3 batidos en 6 dias | 2201 / 187 / 250 / 50 | Cerca de V1, con proteina alta y kcal razonables. |
+| Natalia | 1671 / 106 / 238 / 32 | Solo orientativo; subir raciones en basket, crecimiento o hambre. |
+
+Lectura V1:
+
+- Padre: el objetivo sigue siendo 2600 kcal/dia de media semanal incluyendo batidos. Los 6 dias de casa quedan intencionadamente por debajo porque faltan 1 comida fuera, 1 cena fuera y posibles extras de carrera.
+- Padre en carrera: si corre 90 min o trail y ese dia no hay salida, anadir 300-500 kcal faciles de hidrato: mas arroz, patata, pan, fruta o cereal.
+- Madre: no recortar mas de entrada. La palanca principal son pasos y adherencia. Si los dias 4 o 6 tiene hambre real, anadir 1 fruta extra, 1 huevo cocido o 5-10 g AOVE.
+- Luis: en dias de gimnasio, si no toma batido y nota bajon, anadir batido o un extra de hidrato. En descanso puede quedarse con la version sin batido.
+- Natalia: no usar la tabla para limitar. Es una referencia de compra y cocina; con baloncesto o hambre se sube pan, pasta, arroz, patata, fruta o leche.
 
 ## Salidas semanales
 
 La semana ya contempla 1 comida fuera y 1 cena fuera. No se ponen reglas ni consejos para restaurantes: se sale a disfrutar y no se convierte en una segunda dieta.
 
-## Lista de compra semanal V0
+## Lista de compra semanal V1
 
-Para 6 dias de casa + desayunos/meriendas. Ajustar si alguna salida sustituye una comida ya comprada.
+Para 6 dias de casa + bloques personales diarios. Ajustar si alguna salida sustituye una comida ya comprada.
 
 ### Proteina
 
@@ -688,12 +804,13 @@ Para 6 dias de casa + desayunos/meriendas. Ajustar si alguna salida sustituye un
 ### Desayuno, meriendas y extras
 
 - Yogur +Proteinas 500 g: 7 botes para Luis si mantiene el desayuno diario.
-- Yogur +Proteinas natural pack 4 x 120 g: 6 packs para Padre y Madre si Padre toma 2 unidades/dia y Madre 1 unidad/dia durante 7 dias (21 unidades previstas + 3 de margen).
-- Leche semidesnatada: 3-4 bricks de 1 L si Padre y Luis toman 250 ml cada uno en 3-4 noches de entrenamiento.
+- Yogur +Proteinas natural pack 4 x 120 g: 8 packs para Padre y Madre si Padre toma 2 unidades/dia y Madre 2 unidades/dia durante 7 dias (28 unidades previstas + 4 de margen).
+- Leche semidesnatada: 6-7 bricks de 1 L si Padre, Madre y Luis toman cafe con leche a diario y Padre/Luis toman 250 ml extra con proteina en 3-4 noches de entrenamiento.
 - Proteina en polvo: no se compra por defecto en Mercadona si ya la tienen; contar 1 scoop por persona y noche de entrenamiento.
 - Creatina: 3-5 g diarios por persona que la use. No aporta kcal ni macros.
 - Fruta: 35-45 piezas/semana.
 - Frutos rojos congelados: 1-2 bolsas segun uso de Luis.
+- Frutos secos naturales / nueces: 1 paquete de 200 g aprox. para 15 g/dia de Madre y margen.
 - Chocolate 85%: 1 paquete.
 - AOVE: 1 botella.
 - Ketchup zero / mostaza / especias: segun necesidad.
@@ -711,17 +828,27 @@ Para 6 dias de casa + desayunos/meriendas. Ajustar si alguna salida sustituye un
 
 Padre:
 
-- Trail duro: sumar +60-100 g pan, +1 platano, o +40-60 g arroz/pasta en comida previa/posterior.
-- Si entrena por la tarde/noche y ya toma batido: mantener 250 ml leche + 1 scoop proteina + creatina. No hace falta compensarlo quitando cena salvo que el progreso se estanque.
+- V1 calibracion: 2600 kcal/dia de media semanal, contando el batido dentro del dia.
+- Dia de carrera: apuntar a 2800 kcal. Mantener mas hidrato en comida previa/posterior: pan, arroz, pasta, patata o fruta.
+- Dia de gimnasio: apuntar a 2600 kcal. Si toma batido, no hace falta quitar cena, pero el dia completo debe quedar dentro de esa referencia.
+- Dia de descanso/oficina: apuntar a 2350-2450 kcal. Recortar sobre todo pan, arroz, pasta, patata, cereales o fruta extra.
+- Revision: pesar a diario y comparar medias de 7 dias. No tocar hasta tener 14 dias salvo hambre excesiva, bajada muy rapida o caida clara de rendimiento.
+- Ajuste minimo: si no baja nada en 14 dias, recortar 100-150 kcal/dia; si baja demasiado o corre peor, subir 100-150 kcal en dias de carrera.
 
 Madre:
 
-- Si pica entre horas: fijar merienda obligatoria antes del momento de picoteo. Priorizar yogur proteico + fruta o 2 huevos + fruta.
+- Si pica entre horas: colocar parte del bloque personal V1 antes del momento de picoteo. Base util: 2 yogures proteicos pequenos + fruta + 15 g frutos secos medidos.
+- Si aun tiene hambre real: anadir huevo cocido, atun, verdura extra o una fruta. No convertir los frutos secos en picoteo libre.
+- Pasos V1: empezar con 7000 pasos/dia de media la primera semana, subir a 8000 la segunda y mantener 8000-10000 si lo tolera bien. Antes de bajar kcal, revisar si se estan cumpliendo los pasos.
 
 Luis:
 
-- Gym fuerte: sumar 1 pack de tortitas o 1 platano extra si baja rendimiento.
-- Si entrena por la tarde/noche y ya toma batido: mantener 250 ml leche + 1 scoop proteina + creatina. En dias sin entreno, no es obligatorio tomarlo si ya llega a proteina con comida normal.
+- V1 calibracion: 2250 kcal/dia de media semanal, contando el batido dentro del dia.
+- Dia de gimnasio: apuntar a 2350-2400 kcal. Mantener mas hidrato alrededor del entreno y contar el batido dentro de esas kcal.
+- Dia de descanso/oficina: apuntar a 2050-2150 kcal. Recortar sobre todo tortitas, pan, arroz, pasta, patata, cereales o fruta extra.
+- En dias sin entreno, no es obligatorio tomar batido si ya llega a proteina con comida normal.
+- Revision: pesar a diario y comparar medias de 7 dias. No tocar hasta tener 14 dias salvo hambre excesiva, bajada muy rapida o caida clara de rendimiento.
+- Ajuste minimo: si no baja nada en 14 dias, recortar 100-150 kcal/dia; si baja demasiado o pierde fuerza claramente, subir 100-150 kcal en dias de gimnasio.
 
 Natalia:
 

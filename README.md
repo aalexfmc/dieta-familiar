@@ -69,3 +69,150 @@ Resumen practico:
 Impacto en macros:
 
 - La tabla de macros sigue siendo orientativa V0. Al cambiar cenas de sopa por pollo + ensalada + gazpacho, conviene recalcular macros si se quiere precision.
+
+## 2026-06-15 - Calibracion kcal Padre V1
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex pidio afinar el requerimiento calorico de Padre porque 2700 kcal parecia mucho a nivel psicologico.
+- Se aclaro que Padre tiene trabajo de oficina, 6000-9000 pasos aproximados, 2 dias de gimnasio y 2 sesiones de carrera de 90 min / 10-20 km.
+
+Resumen practico:
+
+- Padre pasa de `2700 kcal + batido post-entreno opcional` a `2600 kcal/dia de media semanal incluyendo el batido`.
+- Se crea la seccion `Calibracion Padre V1` con reparto por tipo de dia:
+  - Carrera: 2800 kcal.
+  - Gimnasio: 2600 kcal.
+  - Descanso/oficina: 2350-2450 kcal.
+- El batido de Padre deja de tratarse como extra libre y pasa a contarse dentro del dia.
+- Se anade protocolo de control: peso diario, media de 7 dias y primera revision real a los 14 dias.
+- Se define ajuste pequeno: mover 100-150 kcal segun progreso, hambre y rendimiento.
+
+Impacto en macros:
+
+- Objetivo Padre V1: 170 g proteina, 70-80 g grasa e hidratos variables segun entrenamiento.
+- La tabla diaria de macros sigue siendo orientativa V0 para platos y extras. Para Padre, durante estas 2 semanas manda la calibracion V1 por tipo de dia.
+
+## 2026-06-15 - Calibracion kcal Luis V1 y pasos Madre V1
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex pidio afinar tambien el requerimiento calorico de Luis porque, como Padre, hace trabajo de oficina sentado.
+- Se aclaro que Luis entrena fuerza 3-4 dias por semana.
+- Alex pidio dar mas enfasis a pasos diarios para Madre, tambien con trabajo de oficina sentado, proponiendo 8000-10000 pasos.
+
+Resumen practico:
+
+- Luis pasa de `2350 kcal + batido post-entreno como extra` a `2250 kcal/dia de media semanal incluyendo el batido`.
+- Se crea la seccion `Calibracion Luis V1` con reparto por tipo de dia:
+  - Gimnasio: 2350-2400 kcal.
+  - Descanso/oficina: 2050-2150 kcal.
+- El batido de Luis deja de tratarse como extra libre y pasa a contarse dentro del dia.
+- Se mantiene comida y cena familiar, ajustando sobre todo extras e hidratos segun tipo de dia.
+- Madre mantiene de momento 1800 kcal, pero se anade `Pasos Madre V1` como primera palanca antes de recortar comida.
+- Progresion pasos Madre:
+  - Semana 1: 7000 pasos/dia de media.
+  - Semana 2: 8000 pasos/dia de media.
+  - Semana 3 en adelante: 8000-10000 pasos/dia de media si lo tolera bien.
+
+Impacto en macros:
+
+- Objetivo Luis V1: 150-160 g proteina, 60-70 g grasa e hidratos variables segun entrenamiento.
+- La tabla diaria de macros sigue siendo orientativa V0 para platos y extras. Para Luis, durante estas 2 semanas manda la calibracion V1 por tipo de dia.
+- Madre no cambia kcal ni macros por ahora; cambia la estrategia de gasto diario mediante pasos.
+
+## 2026-06-15 - Desayunos con cafe con leche
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex indico que a todos les gusta desayunar cafe con leche salvo Natalia.
+
+Resumen practico:
+
+- Se anade cafe con leche semidesnatada 150 ml al desayuno de Padre, Madre y Luis.
+- Para no subir kcal sin querer:
+  - Padre baja pan del desayuno de 100 g a 80 g.
+  - Madre baja pan del desayuno de 60 g a 45 g.
+  - Luis baja Corn Flakes del desayuno de 20 g a 10 g.
+- Natalia queda flexible y no se fuerza cafe con leche.
+- Se ajusta la lista de compra de leche semidesnatada de 3-4 bricks a 6-7 bricks semanales porque ahora incluye cafes con leche diarios y batidos de Padre/Luis.
+
+Impacto en macros:
+
+- Cambio compensado de forma aproximada con menos pan/cereal, por lo que las kcal deberian mantenerse parecidas.
+- La tabla diaria de macros sigue siendo orientativa V0 y conviene recalcularla cuando se cierre la version estable.
+
+## 2026-06-15 - Recalculo completo macros V1
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex pidio dejar perfecto el reajuste de toda la dieta en kcal, macros por persona y totales.
+- La tabla anterior seguia marcada como V0 orientativa tras varios cambios: cafe con leche, batidos contados, cenas de verano, yogures pequenos y calibracion Padre/Luis.
+
+Resumen practico:
+
+- El plan pasa de titulo `Plan nutricional familiar V0` a `Plan nutricional familiar V1` con fecha `2026-06-15`.
+- Se sustituye `Objetivos iniciales` por `Objetivos V1`.
+- Se recalcula la tabla de `Totales diarios recalculados V1` para los 6 dias de casa.
+- Se separan los totales sin batido de Padre/Luis y los totales si toman batido ese dia.
+- Se anade tabla de medias de 6 dias de casa para Padre, Madre, Luis y Natalia.
+- Madre cambia la merienda fija a 2 yogures proteicos pequenos + fruta + 15 g frutos secos medidos.
+- Natalia queda con desayuno y merienda orientativos mas completos para calculo, pero sin enfoque restrictivo.
+- La repeticion del Dia 6 se corrige para que coincida con las cenas de verano: pollo frio/a la plancha + ensalada + gazpacho.
+- La lista de compra pasa a `Lista de compra semanal V1`, subiendo yogures pequenos a 8 packs y anadiendo frutos secos/nueces.
+
+Impacto en macros:
+
+- Padre casa sin batido queda en media aproximada de 2196 kcal / 170P / 279C / 43F.
+- Padre casa con 2 batidos en 6 dias queda en media aproximada de 2272 kcal / 181P / 284C / 45F.
+- Madre queda en media aproximada de 1671 kcal / 134P / 188C / 42F.
+- Luis casa sin batido queda en media aproximada de 2086 kcal / 172P / 243C / 47F.
+- Luis casa con 3 batidos en 6 dias queda en media aproximada de 2201 kcal / 187P / 250C / 50F.
+- Natalia queda solo como referencia orientativa: 1671 kcal / 106P / 238C / 32F, sin usarlo como limite.
+- Las salidas semanales no se incluyen en esos totales. Por eso Padre y Luis quedan algo por debajo en dias de casa: el margen se llena con comida/cena fuera y extras de carrera/gimnasio.
+- Los frescos y productos sin etiqueta visible siguen usando estimaciones prudentes; los productos de Mercadona con etiqueta deben confirmarse con la etiqueta fisica si se quiere precision fina.
+
+## 2026-06-15 - Bloque personal flexible desayuno/merienda
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex propuso que la parte que no es cafe con leche no quede obligada al desayuno, sino que pueda usarse como desayuno, merienda, almuerzo o media manana segun hambre y horarios.
+
+Resumen practico:
+
+- La seccion `Desayunos y extras diarios` pasa a `Bloque personal diario`.
+- Padre, Madre y Luis mantienen cafe con leche semidesnatada 150 ml como fijo de desayuno.
+- El resto de alimentos personales de cada uno queda como total flexible diario repartible entre desayuno, media manana, almuerzo o merienda.
+- Madre mantiene como habito fijo la infusion + fruta de media manana.
+- Natalia queda con bloque orientativo flexible y sin cafe con leche obligatorio.
+- Se actualizan frases de totales y lista de compra para hablar de `bloques personales diarios` en vez de desayunos/meriendas fijos.
+
+Impacto en macros:
+
+- No cambian kcal ni macros diarios, porque no se modifican cantidades.
+- Cambia la distribucion horaria: se gana adherencia y se evitan desayunos demasiado grandes.
