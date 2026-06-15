@@ -67,6 +67,36 @@ const NUTRITION_DATA = {
           macros: { kcal: "2800-2900", p: "200 g", h: "355 g", g: "70 g" },
           macros_num: { kcal: 2850, p: 200, h: 355, g: 70 }
         }
+      ],
+      packs_cero_elaboracion: [
+        {
+          nombre: 'Salado crujiente',
+          momento: 'Almuerzo o merienda',
+          productos: '1 pack tortitas campestres 35 g + 1 lata atún natural + 1 mini brik gazpacho 330 ml',
+          macros: '340 kcal / 18 g P / 38 g H / 12 g G',
+          comentario: 'Salado, fresco y saciante. Alto en sal, no usar siempre.'
+        },
+        {
+          nombre: 'Dulce activo',
+          momento: 'Merienda o post-gym ligero',
+          productos: '1 bebida láctea stracciatella +Proteínas 280 g + 1 pack tortitas maíz chocolate 32,5 g',
+          macros: '301 kcal / 22 g P / 32 g H / 9 g G',
+          comentario: 'Muy cómodo y apetecible. Más procesado, usar con rotación.'
+        },
+        {
+          nombre: 'Extra carrera',
+          momento: 'Pre/post carrera',
+          productos: '1 plátano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g',
+          macros: '349 kcal / 5 g P / 69 g H / 7 g G',
+          comentario: 'Hidrato fácil para correr. Bajo en proteína a propósito.'
+        },
+        {
+          nombre: 'Post-entreno listo',
+          momento: 'Gimnasio',
+          productos: '1 bebida láctea stracciatella +Proteínas 280 g',
+          macros: '146 kcal / 20 g P / 11 g H / 2 g G',
+          comentario: 'Alternativa rápida al shaker. Si toma leche + scoop, no sumar también este por defecto.'
+        }
       ]
     },
     madre: {
@@ -77,8 +107,30 @@ const NUTRITION_DATA = {
       macros: { kcal: "1800", p: "130 g", h: "185 g", g: "60 g" },
       macros_num: { kcal: 1800, p: 130, h: 185, g: 60 },
       desayuno: "<strong>Fijo:</strong> Café con leche semidesnatada 150 ml.<br><strong>Media mañana fija:</strong> infusión + 1 fruta.<br><strong>Bloque flexible:</strong> Pan integral 45 g + jamón serrano 40 g + tomate + AOVE 5 g + 1 fruta + 2 yogures +Proteínas pequeños 120 g + 1 fruta + frutos secos naturales 15 g.",
-      merienda: "Se reparte libremente entre desayuno, media mañana, comida o merienda según convenga.",
-      ajustes: "Pasos V1: priorizar actividad diaria + no picoteo libre. Si tienes hambre, añadir 10-15 g frutos secos o 5-10 g AOVE."
+      ajustes: "Pasos V1: priorizar actividad diaria + no picoteo libre. Si tienes hambre, añadir 10-15 g frutos secos o 5-10 g AOVE.",
+      packs_cero_elaboracion: [
+        {
+          nombre: 'Dulce controlado',
+          momento: 'Merienda',
+          productos: '1 natillas chocolate +Proteínas 120 g + 1 barrita cereales y frutos secos',
+          macros: '215 kcal / 13 g P / 17 g H / 9 g G',
+          comentario: 'Dulce, cerrado y más apetecible que yogur solo. Procesado, rotar.'
+        },
+        {
+          nombre: 'Salado saciante',
+          momento: 'Hambre real',
+          productos: '1 mini brik gazpacho 330 ml + 1 lata atún natural + 1 fruta',
+          macros: '275 kcal / 17 g P / 31 g H / 9 g G',
+          comentario: 'Muy saciante y sin cocina. Alto en sal por atún/gazpacho.'
+        },
+        {
+          nombre: 'Crujiente controlado',
+          momento: 'Merienda',
+          productos: '1 pack tortitas campestres 35 g + 1 natillas chocolate +Proteínas 120 g',
+          macros: '242 kcal / 12 g P / 37 g H / 4 g G',
+          comentario: 'Crujiente + dulce, todo cerrado. Mejor que picoteo sin medir.'
+        }
+      ]
     },
     luis: {
       nombre: "Luis",
@@ -118,6 +170,29 @@ const NUTRITION_DATA = {
           macros: { kcal: "2350-2400", p: "202 g", h: "283 g", g: "53 g" },
           macros_num: { kcal: 2380, p: 202, h: 283, g: 53 }
         }
+      ],
+      packs_cero_elaboracion: [
+        {
+          nombre: 'Dulce potente',
+          momento: 'Merienda o pre-gym',
+          productos: '1 bebida láctea stracciatella +Proteínas 280 g + 1 pack tortitas maíz chocolate 32,5 g + 1 plátano',
+          macros: '406 kcal / 23 g P / 59 g H / 9 g G',
+          comentario: 'Energético y fácil. Bueno si entrena; en descanso puede ser demasiado.'
+        },
+        {
+          nombre: 'Salado crujiente',
+          momento: 'Almuerzo o merienda',
+          productos: '1 pack tortitas campestres 35 g + 1 lata atún natural + 1 mini brik gazpacho 330 ml',
+          macros: '340 kcal / 18 g P / 38 g H / 12 g G',
+          comentario: 'Salado y rápido. No hace falta meter más proteína si ya va alto.'
+        },
+        {
+          nombre: 'Extra gimnasio',
+          momento: 'Post-gym',
+          productos: 'Batido habitual: 250 ml leche semidesnatada + 1 scoop proteína + creatina',
+          macros: '230 kcal / 32 g P / 14 g H / 6 g G',
+          comentario: 'Cuenta dentro del día. En descanso no es obligatorio.'
+        }
       ]
     },
     natalia: {
@@ -129,7 +204,30 @@ const NUTRITION_DATA = {
       macros_num: { kcal: 1670, p: 106, h: 238, g: 32 }, // Orientativo V1 para gráficos
       desayuno: "<strong>Flexible orientativo:</strong> Leche semidesnatada 250 ml + Corn Flakes 40 g + 1 fruta + bocadillo pequeño pan 60 g + jamón 30 g + 1 fruta.",
       merienda: "Se reparte libremente (no tiene café fijo).",
-      ajustes: "En días de baloncesto: no recortar hidratos. No usar lenguaje de dieta restrictiva bajo ningún concepto."
+      ajustes: "En días de baloncesto: no recortar hidratos. No usar lenguaje de dieta restrictiva bajo ningún concepto.",
+      packs_cero_elaboracion: [
+        {
+          nombre: 'Dulce normal',
+          momento: 'Merienda',
+          productos: '1 vaso leche semidesnatada 250 ml + 1 barrita muesli chocolate + 1 fruta',
+          macros: '294 kcal / 10 g P / 47 g H / 8 g G',
+          comentario: 'Flexible, normal y sin enfoque de dieta.'
+        },
+        {
+          nombre: 'Salado ocasional',
+          momento: 'Merienda',
+          productos: '1 pack palitos con frutos secos 65 g + 1 mini brik gazpacho 330 ml',
+          macros: '449 kcal / 12 g P / 47 g H / 24 g G',
+          comentario: 'Muy apetecible pero más graso/salado. Usar como opción, no obligación.'
+        },
+        {
+          nombre: 'Baloncesto',
+          momento: 'Antes o despues de entrenar',
+          productos: '1 plátano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g',
+          macros: '349 kcal / 5 g P / 69 g H / 7 g G',
+          comentario: 'Hidrato fácil. No recortar en días de basket.'
+        }
+      ]
     }
   },
   productos: [
@@ -154,7 +252,14 @@ const NUTRITION_DATA = {
     { nombre: "Chocolate 85%", ref: "https://tienda.mercadona.es/product/12493/porciones-chocolate-negro-85-cacao-extrafino-hacendado-paquete", uso: "Extra controlado" },
     { nombre: "Tortitas campestres", ref: "https://tienda.mercadona.es/product/14786/tortitas-maiz-campestre-hacendado-paquete", uso: "Extra Luis / snack" },
     { nombre: "Ketchup zero", ref: "https://tienda.mercadona.es/product/35343/ketchup-zero-azucares-anadidos-hacendado-bote", uso: "Salsa" },
-    { nombre: "Leche semidesnatada Hacendado", ref: "https://tienda.mercadona.es/product/10382/leche-semidesnatada-hacendado-brick", uso: "Batido post-entreno Papá/Luis" }
+    { nombre: "Leche semidesnatada Hacendado", ref: "https://tienda.mercadona.es/product/10382/leche-semidesnatada-hacendado-brick", uso: "Batido post-entreno Papá/Luis" },
+    { nombre: "Tortitas de maíz con chocolate Hacendado", ref: "https://tienda.mercadona.es/product/14788/tortitas-maiz-chocolate-negro-hacendado-paquete", uso: "Packs 0 elaboración" },
+    { nombre: "Barritas muesli chocolate Hacendado", ref: "https://tienda.mercadona.es/product/21808/barritas-cereales-muesli-con-chocolate-hacendado-caja", uso: "Packs 0 elaboración" },
+    { nombre: "Barritas cereales y frutos secos Hacendado", ref: "https://tienda.mercadona.es/product/21854/barritas-cereales-frutos-secos-hacendado-caja", uso: "Packs 0 elaboración" },
+    { nombre: "Bebida láctea stracciatella +Proteínas Hacendado", ref: "https://tienda.mercadona.es/product/22616/bebida-lactea-stracciatella-proteinas-hacendado-bote", uso: "Packs 0 elaboración" },
+    { nombre: "Natillas chocolate +Proteínas Hacendado", ref: "https://tienda.mercadona.es/product/20914/postre-lacteo-chocolate-proteinas-hacendado-pack-4", uso: "Packs 0 elaboración" },
+    { nombre: "Gazpacho tradicional Hacendado mini brik", ref: "https://tienda.mercadona.es/product/15609/gazpacho-tradicional-hacendado-mini-brik", uso: "Packs 0 elaboración" },
+    { nombre: "Palitos con frutos secos Hacendado", ref: "https://tienda.mercadona.es/product/14603/palitos-pan-con-frutos-secos-paquete", uso: "Packs 0 elaboración" }
   ],
   compra: {
     "Proteína": [
@@ -190,6 +295,13 @@ const NUTRITION_DATA = {
       "Frutos rojos congelados: 1-2 bolsas.",
       "Frutos secos naturales/nueces: 1 paquete de 200 g.",
       "Chocolate 85%: 1 paquete.",
+      "Natillas chocolate +Proteínas pack 4x120 g: 1-2 packs (para meriendas dulces).",
+      "Bebida láctea stracciatella +Proteínas 280 g: 4-8 botellas (meriendas rápidas).",
+      "Tortitas de maíz con chocolate: 1-2 paquetes (packs dulces).",
+      "Barritas muesli chocolate: 1 caja.",
+      "Barritas cereales y frutos secos: 1 caja.",
+      "Gazpacho tradicional mini briks pack 3x330 ml: 2-4 packs.",
+      "Palitos con frutos secos: 1 paquete (Natalia / snack ocasional).",
       "AOVE: 1 botella.",
       "Ketchup zero / mostaza / especias: según necesidad."
     ]
@@ -986,6 +1098,28 @@ function renderProfileDetails() {
             </div>
           `).join('')}
         </div>
+  }
+  
+  // Build packs HTML if the member has them
+  let packsHTML = '';
+  if (member.packs_cero_elaboracion) {
+    packsHTML = `
+      <div class="packs-section">
+        <h4>📦 Packs 0 Elaboración Hacendado</h4>
+        <p class="activity-intro">Opciones rápidas de Mercadona con unidades completas (sin pesar cereales, medias raciones ni picoteo libre) para elegir dentro del bloque personal diario.</p>
+        <div class="packs-grid">
+          ${member.packs_cero_elaboracion.map(p => `
+            <div class="pack-card">
+              <div class="pack-header">
+                <h5>${p.nombre}</h5>
+                <span class="pack-momento">${p.momento}</span>
+              </div>
+              <div class="pack-products">🛒 ${p.productos}</div>
+              <div class="pack-macros">📊 ${p.macros}</div>
+              <div class="pack-comment">💡 ${p.comentario}</div>
+            </div>
+          `).join('')}
+        </div>
       </div>
     `;
   }
@@ -1004,6 +1138,7 @@ function renderProfileDetails() {
       <p>${member.ajustes}</p>
     </div>
     ${activityHTML}
+    ${packsHTML}
   `;
   
   // Attach click listeners to activity cards
