@@ -117,6 +117,40 @@ header {
   gap: 0.75rem;
 }
 
+/* Sync Indicator */
+.sync-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: help;
+}
+
+.sync-dot.synced {
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  animation: pulseSync 2.5s ease-in-out infinite;
+}
+
+.sync-dot.syncing {
+  background: var(--warning);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+  animation: pulseSync 0.8s ease-in-out infinite;
+}
+
+.sync-dot.error {
+  background: var(--danger);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+  animation: none;
+}
+
+@keyframes pulseSync {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
+
 .logo-icon {
   background: var(--gradient-main);
   width: 40px;

@@ -7,5 +7,7 @@
     "dev": "npx -y http-server -p 8080 -c-1",
     "start": "npx -y http-server -p 8080 -c-1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }

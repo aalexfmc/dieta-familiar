@@ -502,15 +502,95 @@ let activeDay = 1;
 let menuViewMode = 'lote'; // 'lote' o 'individual'
 let batchMultiplier = 1; // Multiplicador de raciones para cocina por lotes
 
+// CLOUD SYNC CONFIG (local proxy → jsonblob.com, zero CORS issues)
+const SYNC_API_URL = '/api/sync';
+const SYNC_KEYS = ['dieta_shopping_state', 'dieta_cooked_state', 'dieta_postponed_state'];
+let isSyncing = false;
+
+function setSyncStatus(status) {
+  const dot = document.getElementById('sync-indicator');
+  if (!dot) return;
+  dot.classList.remove('synced', 'syncing', 'error');
+  if (status === 'synced') {
+    dot.classList.add('synced');
+    dot.title = '✅ Sincronizado con la nube familiar';
+  } else if (status === 'syncing') {
+    dot.classList.add('syncing');
+    dot.title = '🔄 Sincronizando...';
+  } else if (status === 'error') {
+    dot.classList.add('error');
+    dot.title = '⚠️ Error de conexión. Trabajando localmente';
+  }
+}
+
+function syncPull() {
+  setSyncStatus('syncing');
+  return fetch(SYNC_API_URL, { headers: { 'Accept': 'application/json' } })
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(data => {
+      if (data && typeof data === 'object') {
+        SYNC_KEYS.forEach(key => {
+          if (data[key] !== undefined && data[key] !== null) {
+            localStorage.setItem(key, JSON.stringify(data[key]));
+          }
+        });
+      }
+      setSyncStatus('synced');
+    })
+    .catch(err => {
+      console.warn('syncPull error:', err);
+      setSyncStatus('error');
+    });
+}
+
+function syncPush() {
+  if (isSyncing) return;
+  isSyncing = true;
+  setSyncStatus('syncing');
+
+  const payload = {};
+  SYNC_KEYS.forEach(key => {
+    try {
+      payload[key] = JSON.parse(localStorage.getItem(key)) || {};
+    } catch (e) {
+      payload[key] = {};
+    }
+  });
+
+  fetch(SYNC_API_URL, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      setSyncStatus('synced');
+    })
+    .catch(err => {
+      console.warn('syncPush error:', err);
+      setSyncStatus('error');
+    })
+    .finally(() => {
+      isSyncing = false;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initTabs();
   initDashboard();
-  initProfiles();
-  initMenu();
-  initShoppingList();
-  initProducts();
-  initMercadonaModal();
+
+  // Descargar estado de la nube antes de renderizar las secciones que dependen de localStorage
+  syncPull().then(() => {
+    initProfiles();
+    initMenu();
+    initShoppingList();
+    initProducts();
+    initMercadonaModal();
+  });
 });
 
 // PESTAÑAS (TABS)
@@ -824,6 +904,7 @@ function renderMemberMenuTable() {
         if (td) td.classList.remove('cooked-done');
       }
       localStorage.setItem('dieta_cooked_state', JSON.stringify(savedCookedState));
+      syncPush();
     });
   });
 }
@@ -902,6 +983,7 @@ function initMenu() {
         const savedPostponedState = JSON.parse(localStorage.getItem('dieta_postponed_state')) || {};
         savedPostponedState[`postponed_day_${day}_${meal}`] = true;
         localStorage.setItem('dieta_postponed_state', JSON.stringify(savedPostponedState));
+        syncPush();
         renderMenuDay();
       }
       
@@ -911,6 +993,7 @@ function initMenu() {
         const savedPostponedState = JSON.parse(localStorage.getItem('dieta_postponed_state')) || {};
         delete savedPostponedState[`postponed_day_${day}_${meal}`];
         localStorage.setItem('dieta_postponed_state', JSON.stringify(savedPostponedState));
+        syncPush();
         renderMenuDay();
       }
     });
@@ -1426,6 +1509,7 @@ function initShoppingList() {
           delete savedState[itemKey];
         }
         localStorage.setItem('dieta_shopping_state', JSON.stringify(savedState));
+        syncPush();
         updateCategoryStatus(card);
       });
 
