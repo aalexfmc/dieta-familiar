@@ -1,4 +1,4 @@
-const BLOB_ID = '019ec884-82c4-7530-b661-07e2c27d03ba';
+const BLOB_ID = '019ecdbc-6944-700a-9534-b9e6b2eaf16f';
 const BLOB_URL = `https://jsonblob.com/api/jsonBlob/${BLOB_ID}`;
 
 exports.handler = async (event) => {
