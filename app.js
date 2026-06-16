@@ -861,6 +861,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initDashboard();
   initUserSelector();
+  initPwaInstall();
+  initChangeUserButton();
 
   // Descargar estado de la nube antes de renderizar las secciones que dependen de localStorage
   syncPull().then(() => {
@@ -930,6 +932,8 @@ function initUserSelector() {
   const modal = document.getElementById('user-welcome-modal');
   if (!savedUser && modal) {
     modal.style.display = 'flex';
+    const closeWelcomeBtn = document.getElementById('close-welcome-modal');
+    if (closeWelcomeBtn) closeWelcomeBtn.style.display = 'none';
     
     const cards = modal.querySelectorAll('.welcome-user-card');
     cards.forEach(card => {
@@ -2651,5 +2655,80 @@ if ('serviceWorker' in navigator) {
       .then(reg => console.log('Service Worker registrado con éxito:', reg.scope))
       .catch(err => console.error('Error al registrar Service Worker:', err));
   });
+}
+
+// ─── PWA INSTALLATION PROMPT & CAMBIAR PERSONA ───
+let deferredPrompt = null;
+
+function initPwaInstall() {
+  const installBanner = document.getElementById('mobile-install-banner');
+  if (!installBanner) return;
+
+  // Detectar si ya está instalada o ejecutándose en standalone
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  const dismissed = localStorage.getItem('fit_install_banner_dismissed') === 'true';
+
+  // Registrar el prompt de instalación nativo
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!isStandalone && !dismissed) {
+      installBanner.style.display = 'flex';
+    }
+  });
+
+  // Mostrar el banner en iOS Safari de forma informativa (ya que Apple no tiene prompt automático)
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  if (isIOS && !isStandalone && !dismissed) {
+    installBanner.style.display = 'flex';
+  }
+
+  // Configurar botones del banner
+  const installBtn = installBanner.querySelector('.install-action-btn');
+  const closeBtn = installBanner.querySelector('.install-close-btn');
+
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`PWA install prompt outcome: ${outcome}`);
+        deferredPrompt = null;
+        installBanner.style.display = 'none';
+      } else if (isIOS) {
+        alert("📲 Para instalar la App de FIT en tu iPhone/iPad:\n\n1. Pulsa el botón de Compartir (📤) en la barra de Safari.\n2. Busca y selecciona 'Añadir a la pantalla de inicio' (➕).\n\n¡Y listo! La tendrás disponible como app nativa con acceso directo.");
+      } else {
+        alert("📲 Añade esta web a tu pantalla de inicio utilizando el menú del navegador (los tres puntos en Chrome) para usarla como App.");
+      }
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      installBanner.style.display = 'none';
+      localStorage.setItem('fit_install_banner_dismissed', 'true');
+    });
+  }
+}
+
+function initChangeUserButton() {
+  const modal = document.getElementById('user-welcome-modal');
+  const closeBtn = document.getElementById('close-welcome-modal');
+  
+  // Agregar escuchador al botón global "Cambiar Persona" en la tarjeta de perfil
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.closest('#btn-change-user')) {
+      if (modal) {
+        modal.style.display = 'flex';
+        if (closeBtn) closeBtn.style.display = 'block'; // Mostrar la X para cancelar
+      }
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      if (modal) modal.style.display = 'none';
+    });
+  }
 }
 

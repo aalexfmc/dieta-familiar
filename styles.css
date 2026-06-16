@@ -2713,6 +2713,102 @@ body.light-theme .timeline-gym-box:hover {
   color: var(--text-muted);
 }
 
+/* Banner de instalación PWA */
+.install-banner {
+  position: fixed;
+  bottom: 85px; /* Por encima de la barra de pestañas móvil */
+  left: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: rgba(22, 28, 45, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), var(--shadow-glow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: slideUpInstall 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .install-banner {
+    max-width: 450px;
+    left: auto;
+    right: 2rem;
+    bottom: 2rem;
+  }
+}
+
+@keyframes slideUpInstall {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.install-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.install-banner-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-main);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem;
+}
+
+.install-banner-text h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.install-banner-text p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.install-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.install-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.install-close-btn:hover {
+  color: var(--text-primary);
+}
+
+body.light-theme .install-banner {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08), var(--shadow-glow);
+}
+
 
 
 
