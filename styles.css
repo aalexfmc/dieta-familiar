@@ -2365,8 +2365,13 @@ body.light-theme .modal-body::-webkit-scrollbar-thumb {
 }
 
 .user-select-dropdown option {
-  background: var(--bg-body);
-  color: var(--text-primary);
+  background-color: #111827 !important;
+  color: #f3f4f6 !important;
+}
+
+body.light-theme .user-select-dropdown option {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
 }
 
 /* Tarjetas de Selección en la Bienvenida */

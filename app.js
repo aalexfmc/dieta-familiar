@@ -1126,73 +1126,6 @@ function renderProfileDetails() {
   
   const kcalText = member.kcal === 'Flexible' && !selectedActivityType ? 'Flex' : kcalVal;
 
-  // Build activity modules HTML if the member has them
-  let activityHTML = '';
-  if (member.modulos_actividad) {
-    activityHTML = `
-      <details class="clean-details" style="margin-top: 1.5rem;" ${currentUser === 'global' ? 'open' : ''}>
-        <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
-          ⚡ Tipo de Día — Módulos de Actividad
-        </summary>
-        <div class="details-content" style="padding-top: 0.5rem;">
-          <p class="activity-intro" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-            La comida y la cena familiares no cambian. Haz clic en un tipo de día para ver qué módulo o comida extra añadir a tu plan diario.
-          </p>
-          <div class="activity-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
-            ${member.modulos_actividad.map(m => `
-              <div class="activity-card activity-${m.tipo} ${selectedActivityType === m.tipo ? 'active' : ''}" data-type="${m.tipo}" style="cursor: pointer; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; background: var(--bg-card); transition: all 0.2s;">
-                <div class="activity-card-header" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                  <span class="activity-icon" style="font-size: 1.25rem;">${m.icono}</span>
-                  <div class="activity-card-title">
-                    <h5 style="margin: 0; font-size: 0.95rem; font-weight: 600;">${m.titulo}</h5>
-                  </div>
-                </div>
-                <div class="activity-card-body" style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-secondary);">
-                  <div class="activity-module-row">
-                    <strong style="color: var(--text-primary);">${m.batido ? '🥤 Módulo' : '📋 Plan'}:</strong>
-                    <span>${m.modulo}</span>
-                  </div>
-                  ${m.extra_opcional ? `<div class="activity-module-row"><strong>➕ Opcional:</strong> <span>${m.extra_opcional}</span></div>` : ''}
-                  ${m.extras_hidrato ? `<div class="activity-module-row"><strong>🍞 Extra hidrato:</strong> <span>${m.extras_hidrato}</span></div>` : ''}
-                  ${m.nota ? `<div class="activity-nota" style="font-style: italic; color: var(--text-muted); margin-top: 0.25rem;">💡 ${m.nota}</div>` : ''}
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      </details>
-    `;
-  }
-  
-  // Build packs HTML if the member has them
-  let packsHTML = '';
-  if (member.packs_cero_elaboracion) {
-    packsHTML = `
-      <details class="clean-details" style="margin-top: 1.5rem;" ${currentUser === 'global' ? 'open' : ''}>
-        <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
-          📦 Packs 0 Elaboración Hacendado
-        </summary>
-        <div class="details-content" style="padding-top: 0.5rem;">
-          <p class="activity-intro" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-            Opciones rápidas de Mercadona con unidades completas (sin pesar cereales, medias raciones ni picoteo libre) para elegir dentro del bloque personal diario.
-          </p>
-          <div class="packs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-            ${member.packs_cero_elaboracion.map(p => `
-              <div class="pack-card" style="border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; background: var(--bg-card);">
-                <div class="pack-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <h5 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-primary);">${p.nombre}</h5>
-                  <span class="pack-momento" style="font-size: 0.75rem; color: var(--primary); font-weight: 500; background: rgba(14, 165, 233, 0.08); padding: 0.15rem 0.4rem; border-radius: var(--radius-sm);">${p.momento}</span>
-                </div>
-                <div class="pack-products" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">🛒 ${p.productos}</div>
-                <div class="pack-comment" style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.5rem;">💡 ${p.comentario}</div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      </details>
-    `;
-  }
-  
   const timelineData = MEMBER_TIMELINES[activeMember] || [];
   const timelineHTML = `
     <div class="meal-block" style="border: none; padding: 0; background: transparent;">
@@ -1254,8 +1187,6 @@ function renderProfileDetails() {
   const mealsContainer = document.getElementById('profile-meals-container');
   mealsContainer.innerHTML = `
     ${timelineHTML}
-    ${activityHTML}
-    ${packsHTML}
     ${macrosDetailsHTML}
   `;
   
