@@ -724,7 +724,7 @@ const MEMBER_TIMELINES = {
     { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~27%" },
     { fase: "Merienda", icono: "🍌", titulo: "Pack Dulce Activo + Fruta", desc: "1 botella bebida stracciatella +Proteínas + 1 pack tortitas chocolate + 1 fruta" },
     { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~27-30% + extras según día" },
-    { fase: "Post-Entreno", icono: "🥤", titulo: "Módulo Actividad (Entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio o carrera larga" }
+    { fase: "Post-Entreno (Opcional)", icono: "🥤", titulo: "Módulo Actividad (Solo días de entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio o carrera larga" }
   ],
   madre: [
     { fase: "Desayuno", icono: "☕", titulo: "Café con leche", desc: "150 ml de leche semidesnatada" },
@@ -739,14 +739,14 @@ const MEMBER_TIMELINES = {
     { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~26-33%" },
     { fase: "Merienda / Pre-Gym", icono: "🍌", titulo: "Pack Dulce Potente", desc: "1 botella bebida stracciatella +Proteínas + 1 pack tortitas chocolate + 1 plátano" },
     { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~26-30% + extras según día" },
-    { fase: "Post-Gym", icono: "🥤", titulo: "Módulo Actividad (Entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio" }
+    { fase: "Post-Gym (Opcional)", icono: "🥤", titulo: "Módulo Actividad (Solo días de entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio" }
   ],
   natalia: [
     { fase: "Desayuno", icono: "🥣", titulo: "Bloque Flexible", desc: "1 vaso de leche semidesnatada + Corn Flakes + fruta o bocadillo de jamón" },
     { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~20%" },
     { fase: "Merienda / Snacks", icono: "🥨", titulo: "Pack Dulce o Salado", desc: "Elegir 1-2 packs (palitos con frutos secos, barritas, fruta o yogures) según hambre" },
     { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~17-23%" },
-    { fase: "Baloncesto", icono: "🏀", titulo: "Extra Entrenamiento", desc: "1 plátano + barrita chocolate + tortitas campestres en días de baloncesto" }
+    { fase: "Baloncesto (Opcional)", icono: "🏀", titulo: "Extra Entrenamiento (Solo días de basket)", desc: "1 plátano + barrita chocolate + tortitas campestres en días de baloncesto" }
   ]
 };
 
