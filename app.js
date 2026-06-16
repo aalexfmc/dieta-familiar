@@ -723,8 +723,13 @@ const MEMBER_TIMELINES = {
     { fase: "Almuerzo", icono: "🥪", titulo: "Pack Salado Crujiente", desc: "1 pack de tortitas campestres + 1 lata de atún al natural + 1 mini brik de gazpacho" },
     { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~27%" },
     { fase: "Merienda", icono: "🍌", titulo: "Pack Dulce Activo + Fruta", desc: "1 botella bebida stracciatella +Proteínas + 1 pack tortitas chocolate + 1 fruta" },
-    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~27-30% + extras según día" },
-    { fase: "Post-Entreno (Opcional)", icono: "🥤", titulo: "Módulo Actividad (Solo días de entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio o carrera larga" }
+    { 
+      fase: "Entreno (Opcional)", 
+      icono: "🏃‍♂️", 
+      titulo: "Módulos de Actividad Física (Solo si entrenas hoy)", 
+      desc: '<div class="timeline-gym-options"><div class="timeline-gym-box"><div class="timeline-gym-header"><span class="timeline-gym-icon">🏋️</span><h5 class="timeline-gym-title">Día de Gimnasio</h5></div><div class="timeline-gym-timing-row"><strong>Pre-entreno</strong> <em>(30-90 min antes)</em>:<br>1 plátano o 1 pack tortitas campestres (35 g)</div><div class="timeline-gym-timing-row"><strong>Post-entreno</strong> <em>(al llegar)</em>:<br>Batido habitual (250 ml leche semi + 1 scoop proteína + creatina)</div></div><div class="timeline-gym-box"><div class="timeline-gym-header"><span class="timeline-gym-icon">🏃</span><h5 class="timeline-gym-title">Carrera 10-12 km</h5></div><div class="timeline-gym-timing-row"><strong>Pre-carrera</strong> <em>(30-90 min antes)</em>:<br>1 plátano + 1 pack tortitas campestres (35 g)</div><div class="timeline-gym-timing-row"><strong>Post-carrera</strong> <em>(al llegar)</em>:<br>Batido habitual</div></div><div class="timeline-gym-box"><div class="timeline-gym-header"><span class="timeline-gym-icon">🏔️</span><h5 class="timeline-gym-title">Carrera 15-20 km (Larga)</h5></div><div class="timeline-gym-timing-row"><strong>Pre-carrera</strong> <em>(60-120 min antes)</em>:<br>1 plátano + 2 packs tortitas campestres (70 g)<br><em>Opcional caliente: 250g patata o 150g arroz</em></div><div class="timeline-gym-timing-row"><strong>Post-carrera</strong> <em>(al llegar)</em>:<br>Batido habitual<br><em>Si queda con hambre: +1 barrita o 30g Corn Flakes</em></div></div></div>'
+    },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~27-30% + extras según día" }
   ],
   madre: [
     { fase: "Desayuno", icono: "☕", titulo: "Café con leche", desc: "150 ml de leche semidesnatada" },
@@ -738,15 +743,25 @@ const MEMBER_TIMELINES = {
     { fase: "Almuerzo", icono: "🥪", titulo: "Pack Salado Crujiente", desc: "1 pack de tortitas campestres + 1 lata de atún al natural + 1 mini brik de gazpacho" },
     { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~26-33%" },
     { fase: "Merienda / Pre-Gym", icono: "🍌", titulo: "Pack Dulce Potente", desc: "1 botella bebida stracciatella +Proteínas + 1 pack tortitas chocolate + 1 plátano" },
-    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~26-30% + extras según día" },
-    { fase: "Post-Gym (Opcional)", icono: "🥤", titulo: "Módulo Actividad (Solo días de entreno)", desc: "Batido de proteína (leche + scoop + creatina) en días de gimnasio" }
+    { 
+      fase: "Entreno (Opcional)", 
+      icono: "🏋️", 
+      titulo: "Módulo Actividad Física (Solo si entrenas hoy)", 
+      desc: '<div class="timeline-gym-options"><div class="timeline-gym-box" style="grid-column: 1 / -1;"><div class="timeline-gym-header"><span class="timeline-gym-icon">🏋️</span><h5 class="timeline-gym-title">Día de Gimnasio</h5></div><div class="timeline-gym-timing-row"><strong>Pre-entreno</strong> <em>(30-90 min antes)</em>:<br>1 plátano o 1 pack tortitas campestres (35 g)<br><em>(Si entrenas fuerte y notas bajón, usar el pack dulce potente como pre-gym en su lugar)</em></div><div class="timeline-gym-timing-row"><strong>Post-entreno</strong> <em>(al llegar)</em>:<br>Batido habitual (250 ml leche semi + 1 scoop proteína + creatina)</div></div></div>'
+    },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~26-30% + extras según día" }
   ],
   natalia: [
     { fase: "Desayuno", icono: "🥣", titulo: "Bloque Flexible", desc: "1 vaso de leche semidesnatada + Corn Flakes + fruta o bocadillo de jamón" },
     { fase: "Comida Familiar", icono: "🍽️", titulo: "En Familia", desc: "Comida común (ver pestaña Menú). Tu ración: ~20%" },
     { fase: "Merienda / Snacks", icono: "🥨", titulo: "Pack Dulce o Salado", desc: "Elegir 1-2 packs (palitos con frutos secos, barritas, fruta o yogures) según hambre" },
-    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~17-23%" },
-    { fase: "Baloncesto (Opcional)", icono: "🏀", titulo: "Extra Entrenamiento (Solo días de basket)", desc: "1 plátano + barrita chocolate + tortitas campestres en días de baloncesto" }
+    { 
+      fase: "Baloncesto (Opcional)", 
+      icono: "🏀", 
+      titulo: "Entrenamiento / Partido (Solo si juegas hoy)", 
+      desc: '<div class="timeline-gym-options"><div class="timeline-gym-box" style="grid-column: 1 / -1;"><div class="timeline-gym-header"><span class="timeline-gym-icon">🏀</span><h5 class="timeline-gym-title">Baloncesto</h5></div><div class="timeline-gym-timing-row"><strong>Pre-basket o post-basket</strong> <em>(30-90 min antes o después)</em>:<br>1 plátano + 1 barrita muesli chocolate + 1 pack tortitas campestres (35 g)<br><em>(Mejor 30-90 min antes si entrena por la tarde; si no da tiempo, después. No recortar en días de basket)</em></div></div></div>'
+    },
+    { fase: "Cena Familiar", icono: "🌙", titulo: "En Familia", desc: "Cena común (ver pestaña Menú). Tu ración: ~17-23%" }
   ]
 };
 
