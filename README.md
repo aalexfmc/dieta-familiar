@@ -346,6 +346,37 @@ Impacto:
 - Mejor adherencia para dias de entrenamiento y carrera.
 - La web deberia sustituir los textos antiguos de `pan integral` por tortitas, platano, patata/arroz, Corn Flakes o barrita segun el modulo.
 
+## 2026-06-16 - Timing de modulos de actividad
+
+Archivos tocados:
+
+- `plan_nutricional_familiar_v0.md`
+- `README.md`
+
+Motivo:
+
+- Alex pidio que los modulos no aparezcan como comida suelta, sino colocados en el momento idoneo.
+- Los entrenos suelen ser por la tarde antes de cenar, asi que conviene diferenciar pre-entreno, post-entreno y cena familiar.
+- La web deberia mostrar el timing entre parentesis o dentro del texto del modulo para que se vea claramente que solo se usa si ese dia hay entrenamiento.
+
+Regla de timing:
+
+- Hidrato facil: pre-entreno/pre-carrera, idealmente 30-90 min antes.
+- Carrera larga: pre-carrera 60-120 min antes si el modulo es mas grande.
+- Batido con proteina + creatina: post-entreno/post-carrera, al llegar a casa.
+- Si cena inmediatamente despues de entrenar, el batido puede ir despues de cenar.
+- La cena familiar no se cambia por el modulo; el modulo se activa solo si ese dia hay gimnasio/carrera.
+- Si no hay entreno, no se anade modulo de actividad.
+
+Cambios en plan:
+
+- Padre: la distribucion flexible indica que el hidrato facil va como pre-entreno y el batido como post-entreno.
+- Padre gimnasio: pre-entreno 30-90 min antes con platano o tortitas; post-entreno al llegar con leche + scoop + creatina.
+- Padre carrera 10-12 km: pre-carrera 30-90 min antes con platano + tortitas; post-carrera al llegar con batido.
+- Padre carrera 15-20 km / 90 min: pre-carrera 60-120 min antes con platano + 2 packs de tortitas, o patata/arroz si hay tiempo; post-carrera con batido.
+- Luis: pre-gym 30-90 min antes con platano/tortitas o pack dulce potente; post-gym al llegar con batido.
+- Natalia: pack baloncesto queda como pre-basket o post-basket, preferiblemente 30-90 min antes si entrena por la tarde.
+
 ## 2026-06-15 - Modulos de actividad por tipo de dia
 
 Archivos tocados:

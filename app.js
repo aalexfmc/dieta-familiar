@@ -21,9 +21,9 @@ const NUTRITION_DATA = {
           kcal_objetivo: '2350-2450',
           batido: false,
           modulo: 'Sin batido. Mantener plan base.',
-          extra_opcional: 'Si hay hambre real: +40 g pan integral o +10 g AOVE.',
+          extra_opcional: 'Si hay hambre real: +1 pack tortitas campestres 35 g o 1 fruta.',
           resultado: '~2196-2450 kcal',
-          nota: 'No añadir más proteína: ya llega al objetivo proteico.',
+          nota: 'No añadir más proteína: ya llega al objetivo proteico con la base.',
           macros: { kcal: "2350-2450", p: "170 g", h: "270 g", g: "70 g" },
           macros_num: { kcal: 2400, p: 170, h: 270, g: 70 }
         },
@@ -33,10 +33,10 @@ const NUTRITION_DATA = {
           titulo: 'Día de Gimnasio',
           kcal_objetivo: '2600',
           batido: true,
-          modulo: 'Batido post-entreno (250 ml leche + proteína + creatina) + 40-60 g pan integral o 1 plátano.',
+          modulo: 'Pre-entreno (30-90 min antes): 1 plátano o 1 pack tortitas campestres 35 g. Post-entreno (al llegar): 250 ml leche semidesnatada + 1 scoop proteína + creatina.',
           impacto: '+330-380 kcal · +30-33 g P · +34-45 g H · +6 g G',
           resultado: '~2525-2575 kcal',
-          nota: 'El batido cuenta dentro del total diario V1.',
+          nota: 'El batido cuenta dentro del total diario V1. Solo si ese día entrena.',
           macros: { kcal: "2600", p: "200 g", h: "290 g", g: "70 g" },
           macros_num: { kcal: 2600, p: 200, h: 290, g: 70 }
         },
@@ -46,10 +46,10 @@ const NUTRITION_DATA = {
           titulo: 'Carrera 10-12 km',
           kcal_objetivo: '2600-2800',
           batido: true,
-          modulo: 'Batido post-carrera + 1 plátano + 60 g pan integral.',
+          modulo: 'Pre-carrera (30-90 min antes): 1 plátano + 1 pack tortitas campestres 35 g. Post-carrera (al llegar): batido habitual.',
           impacto: '+470 kcal aprox.',
           resultado: '~2660-2700 kcal',
-          nota: 'Suficiente si la carrera no ha sido muy larga o intensa.',
+          nota: 'Suficiente si la carrera no ha sido muy larga o intensa. Solo si ese día corre.',
           macros: { kcal: "2600-2800", p: "200 g", h: "315 g", g: "70 g" },
           macros_num: { kcal: 2700, p: 200, h: 315, g: 70 }
         },
@@ -59,11 +59,11 @@ const NUTRITION_DATA = {
           titulo: 'Carrera 15-20 km / 90 min',
           kcal_objetivo: '2800',
           batido: true,
-          modulo: 'Batido post-carrera + 1 plátano + 80 g pan integral + extra de hidrato.',
-          extras_hidrato: '250 g patata cocida, o 50 g arroz seco extra, o 30 g Corn Flakes, o bocadillo 60 g pan.',
+          modulo: 'Pre-carrera (60-120 min antes): 1 plátano + 2 packs tortitas campestres 70 g. Post-carrera (al llegar): batido habitual.',
+          extras_hidrato: 'Alternativa caliente si hay tiempo: 250 g patata cocida o 150 g arroz cocido.',
           impacto: '+600-700 kcal aprox.',
           resultado: '~2800-2900 kcal',
-          nota: 'Priorizar hidratos, no más proteína.',
+          nota: 'Priorizar hidratos, no más proteína. Si aún se queda corto, añadir 1 barrita muesli o 30 g Corn Flakes post-carrera. Solo si ese día corre largo.',
           macros: { kcal: "2800-2900", p: "200 g", h: "355 g", g: "70 g" },
           macros_num: { kcal: 2850, p: 200, h: 355, g: 70 }
         }
@@ -78,24 +78,24 @@ const NUTRITION_DATA = {
         },
         {
           nombre: 'Dulce activo',
-          momento: 'Merienda o post-gym ligero',
+          momento: 'Merienda o pre-gym ligero',
           productos: '1 bebida láctea stracciatella +Proteínas 280 g + 1 pack tortitas maíz chocolate 32,5 g',
           macros: '301 kcal / 22 g P / 32 g H / 9 g G',
-          comentario: 'Muy cómodo y apetecible. Más procesado, usar con rotación.'
+          comentario: 'Muy cómodo y apetecible. Si entrena por la tarde, usar 30-90 min antes. Más procesado, rotar.'
         },
         {
           nombre: 'Extra carrera',
-          momento: 'Pre/post carrera',
+          momento: 'Pre-carrera',
           productos: '1 plátano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g',
           macros: '349 kcal / 5 g P / 69 g H / 7 g G',
-          comentario: 'Hidrato fácil para correr. Bajo en proteína a propósito.'
+          comentario: 'Hidrato fácil para correr. Tomar 30-90 min antes; en carrera larga, 60-120 min antes. Bajo en proteína a propósito.'
         },
         {
           nombre: 'Post-entreno listo',
-          momento: 'Gimnasio',
+          momento: 'Post-gym / post-carrera',
           productos: '1 bebida láctea stracciatella +Proteínas 280 g',
           macros: '146 kcal / 20 g P / 11 g H / 2 g G',
-          comentario: 'Alternativa rápida al shaker. Si toma leche + scoop, no sumar también este por defecto.'
+          comentario: 'Alternativa rápida al shaker al llegar de entrenar. Si toma leche + scoop, no sumar también este por defecto.'
         }
       ]
     },
@@ -152,7 +152,7 @@ const NUTRITION_DATA = {
           kcal_objetivo: '2050-2150',
           batido: false,
           modulo: 'Sin batido. Mantener plan base.',
-          extra_opcional: 'Si hay hambre real: +10 g chocolate 85%, +10 g AOVE, o 1 fruta. No más yogur proteico ni whey en descanso.',
+          extra_opcional: 'Si hay hambre real: 1 fruta o 1 pack tortitas campestres 35 g.',
           resultado: '~2086 kcal',
           nota: 'Ya va alto de proteína — no añadir más.',
           macros: { kcal: "2050-2150", p: "172 g", h: "243 g", g: "47 g" },
@@ -164,10 +164,10 @@ const NUTRITION_DATA = {
           titulo: 'Día de Gimnasio',
           kcal_objetivo: '2350-2400',
           batido: true,
-          modulo: 'Batido post-entreno (250 ml leche + proteína + creatina) + 20 g Corn Flakes o 1 plátano.',
+          modulo: 'Pre-entreno (30-90 min antes): 1 plátano o 1 pack tortitas campestres 35 g. Post-entreno (al llegar): 250 ml leche semidesnatada + 1 scoop proteína + creatina.',
           impacto: '+305-340 kcal · +30 g P · +32-42 g H · +6 g G',
           resultado: '~2390-2425 kcal',
-          nota: 'Pierna/espalda fuerte → plátano. Sesión ligera → 20 g Corn Flakes.',
+          nota: 'Si entrena fuerte y nota bajón, usar el pack dulce potente como pre-gym en vez de solo plátano. Solo si ese día entrena.',
           macros: { kcal: "2350-2400", p: "202 g", h: "283 g", g: "53 g" },
           macros_num: { kcal: 2380, p: 202, h: 283, g: 53 }
         }
@@ -178,7 +178,7 @@ const NUTRITION_DATA = {
           momento: 'Merienda o pre-gym',
           productos: '1 bebida láctea stracciatella +Proteínas 280 g + 1 pack tortitas maíz chocolate 32,5 g + 1 plátano',
           macros: '406 kcal / 23 g P / 59 g H / 9 g G',
-          comentario: 'Energético y fácil. Bueno si entrena; en descanso puede ser demasiado.'
+          comentario: 'Energético y fácil. Si entrena por la tarde, tomar 30-90 min antes. En descanso puede ser demasiado.'
         },
         {
           nombre: 'Salado crujiente',
@@ -192,7 +192,7 @@ const NUTRITION_DATA = {
           momento: 'Post-gym',
           productos: 'Batido habitual: 250 ml leche semidesnatada + 1 scoop proteína + creatina',
           macros: '230 kcal / 32 g P / 14 g H / 6 g G',
-          comentario: 'Cuenta dentro del día. En descanso no es obligatorio.'
+          comentario: 'Tomar al llegar de entrenar, antes o después de cenar según tolerancia. Cuenta dentro del día. En descanso no es obligatorio.'
         }
       ]
     },
@@ -223,10 +223,10 @@ const NUTRITION_DATA = {
         },
         {
           nombre: 'Baloncesto',
-          momento: 'Antes o despues de entrenar',
+          momento: 'Pre-basket o post-basket',
           productos: '1 plátano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g',
           macros: '349 kcal / 5 g P / 69 g H / 7 g G',
-          comentario: 'Hidrato fácil. No recortar en días de basket.'
+          comentario: 'Hidrato fácil. Mejor 30-90 min antes si entrena por la tarde; si no da tiempo, después. No recortar en días de basket.'
         }
       ]
     }

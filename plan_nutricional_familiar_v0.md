@@ -143,9 +143,9 @@ Nueva regla V2: el bloque personal diario debe ser facil de cumplir. La base ya 
 
 - Fijo de desayuno: cafe con leche semidesnatada 150 ml.
 - Bloque facil recomendado: 1 pack salado crujiente + 1 pack dulce activo + 1 fruta.
-- Distribucion flexible: cafe por la manana; pack salado en almuerzo o media manana; pack dulce en merienda o alrededor del gimnasio. Si hay carrera, cambiar el pack dulce por el extra carrera o anadir extra carrera segun hambre/rendimiento.
+- Distribucion flexible: cafe por la manana; pack salado en almuerzo o media manana; pack dulce en merienda. Si hay gimnasio/carrera por la tarde antes de cenar, mover el hidrato facil del modulo a pre-entreno (30-90 min antes) y tomar el batido post-entreno despues de entrenar, antes o despues de la cena segun tolerancia. Si no hay entreno, no se anade modulo.
 - Equivalencia aproximada del bloque facil sin batido: 790 kcal / 45P / 97C / 24F.
-- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. No contarlo como cena, pero en Padre V1 si cuenta dentro del objetivo del dia. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
+- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina (post-entreno, al llegar de entrenar; si cena justo despues, puede tomarlo despues de cenar). No contarlo como cena, pero en Padre V1 si cuenta dentro del objetivo del dia. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
 
 ### Madre
 
@@ -162,9 +162,9 @@ Nota: el bote de 500 g se mantiene solo cuando encaja de verdad. Para la familia
 
 - Fijo de desayuno: cafe con leche semidesnatada 150 ml.
 - Bloque facil recomendado: 1 pack dulce potente + 1 pack salado crujiente.
-- Distribucion flexible: cafe por la manana; pack dulce como pre-gym o merienda; pack salado como almuerzo o cena tardia si no ha llegado a proteina. En descanso puede elegir solo uno de los dos packs si no tiene hambre.
+- Distribucion flexible: cafe por la manana; pack dulce como merienda o pre-gym (30-90 min antes si entrena por la tarde antes de cenar); pack salado como almuerzo o cena tardia si no ha llegado a proteina. En descanso puede elegir solo uno de los dos packs si no tiene hambre. Si no hay entreno, no se anade modulo de actividad.
 - Equivalencia aproximada del bloque facil sin batido: 815 kcal / 46P / 104C / 23F.
-- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina. En Luis V1 cuenta dentro del objetivo del dia, no como extra libre. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
+- Noche con entrenamiento: 250 ml leche semidesnatada + 1 scoop de proteina + creatina (post-entreno, al llegar de entrenar; si cena justo despues, puede tomarlo despues de cenar). En Luis V1 cuenta dentro del objetivo del dia, no como extra libre. Estimacion: +220-240 kcal, +30-35 g proteina, +12-15 g hidratos y +4-5 g grasa. La creatina aporta 0 kcal.
 
 ### Natalia
 
@@ -192,9 +192,9 @@ Reglas:
 | Pack | Momento | Productos completos | kcal/P/C/F aprox. | Comentario |
 |---|---|---|---:|---|
 | Salado crujiente | Almuerzo o merienda | 1 pack tortitas campestres 35 g + 1 lata atun natural + 1 mini brik gazpacho 330 ml | 340 / 18 / 38 / 12 | Salado, fresco y saciante. Alto en sal, no usar siempre. |
-| Dulce activo | Merienda o post-gym ligero | 1 bebida lactea stracciatella +Proteinas 280 g + 1 pack tortitas maiz chocolate 32,5 g | 301 / 22 / 32 / 9 | Muy comodo y apetecible. Mas procesado, usar con rotacion. |
-| Extra carrera | Pre/post carrera | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil para correr. Bajo en proteina a proposito. |
-| Post-entreno listo | Gimnasio | 1 bebida lactea stracciatella +Proteinas 280 g | 146 / 20 / 11 / 2 | Alternativa rapida al shaker. Si toma leche + scoop, no sumar tambien este por defecto. |
+| Dulce activo | Merienda o pre-gym ligero | 1 bebida lactea stracciatella +Proteinas 280 g + 1 pack tortitas maiz chocolate 32,5 g | 301 / 22 / 32 / 9 | Muy comodo y apetecible. Si entrena por la tarde, usar 30-90 min antes. Mas procesado, rotar. |
+| Extra carrera | Pre-carrera | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil para correr. Tomar 30-90 min antes; en carrera larga, 60-120 min antes. Bajo en proteina a proposito. |
+| Post-entreno listo | Post-gym / post-carrera | 1 bebida lactea stracciatella +Proteinas 280 g | 146 / 20 / 11 / 2 | Alternativa rapida al shaker al llegar de entrenar. Si toma leche + scoop, no sumar tambien este por defecto. |
 
 ### Packs Madre
 
@@ -208,9 +208,9 @@ Reglas:
 
 | Pack | Momento | Productos completos | kcal/P/C/F aprox. | Comentario |
 |---|---|---|---:|---|
-| Dulce potente | Merienda o pre-gym | 1 bebida lactea stracciatella +Proteinas 280 g + 1 pack tortitas maiz chocolate 32,5 g + 1 platano | 406 / 23 / 59 / 9 | Energetico y facil. Bueno si entrena; en descanso puede ser demasiado. |
+| Dulce potente | Merienda o pre-gym | 1 bebida lactea stracciatella +Proteinas 280 g + 1 pack tortitas maiz chocolate 32,5 g + 1 platano | 406 / 23 / 59 / 9 | Energetico y facil. Si entrena por la tarde, tomar 30-90 min antes. En descanso puede ser demasiado. |
 | Salado crujiente | Almuerzo o merienda | 1 pack tortitas campestres 35 g + 1 lata atun natural + 1 mini brik gazpacho 330 ml | 340 / 18 / 38 / 12 | Salado y rapido. No hace falta meter mas proteina si ya va alto. |
-| Extra gimnasio | Post-gym | Batido habitual: 250 ml leche semidesnatada + 1 scoop proteina + creatina | 230 / 32 / 14 / 6 | Cuenta dentro del dia. En descanso no es obligatorio. |
+| Extra gimnasio | Post-gym | Batido habitual: 250 ml leche semidesnatada + 1 scoop proteina + creatina | 230 / 32 / 14 / 6 | Tomar al llegar de entrenar, antes o despues de cenar segun tolerancia. Cuenta dentro del dia. En descanso no es obligatorio. |
 
 ### Packs Natalia
 
@@ -218,27 +218,33 @@ Reglas:
 |---|---|---|---:|---|
 | Dulce normal | Merienda | 1 vaso leche semidesnatada 250 ml + 1 barrita muesli chocolate + 1 fruta | 294 / 10 / 47 / 8 | Flexible, normal y sin enfoque de dieta. |
 | Salado ocasional | Merienda | 1 pack palitos con frutos secos 65 g + 1 mini brik gazpacho 330 ml | 449 / 12 / 47 / 24 | Muy apetecible pero mas graso/salado. Usar como opcion, no obligacion. |
-| Baloncesto | Antes o despues de entrenar | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil. No recortar en dias de basket. |
+| Baloncesto | Pre-basket o post-basket | 1 platano + 1 barrita muesli chocolate + 1 pack tortitas campestres 35 g | 349 / 5 / 69 / 7 | Hidrato facil. Mejor 30-90 min antes si entrena por la tarde; si no da tiempo, despues. No recortar en dias de basket. |
 
 ## Modulos de actividad V2 sin pan integral solo
 
 Regla: los modulos de actividad no deben usar pan integral como hidrato principal si se va a comer solo. Es poco apetecible y baja la adherencia. Si se usa pan, que sea dentro de una comida real; para modulos rapidos se priorizan tortitas campestres, platano, patata cocida, arroz, Corn Flakes o barritas.
+
+Momento idoneo si entrenan por la tarde antes de cenar:
+
+- Hidrato facil: antes del entreno, idealmente 30-90 min antes. Si no da tiempo o se entrena muy pronto despues de comer, moverlo a justo despues.
+- Batido con proteina + creatina: despues del entreno, al llegar a casa. Puede ir antes de la cena si hay margen o despues de cenar si cena inmediatamente.
+- Cena familiar: se mantiene igual. El modulo se activa solo si ese dia hay gimnasio/carrera; si no hay entreno, no se anade.
 
 ### Padre
 
 | Tipo de dia | Plan / modulo | Producto concreto | kcal aprox. | Uso |
 |---|---|---|---:|---|
 | Descanso/oficina | Sin batido. Mantener plan base. Opcional solo si hay hambre real. | 1 pack tortitas campestres 35 g o 1 fruta. Si el hambre es grande, mejor pack salado crujiente completo. | 80-145 | No anadir mas proteina por defecto: ya llega al objetivo proteico con la base. |
-| Dia de gimnasio | Batido post-entreno + hidrato facil. | 250 ml leche semidesnatada + 1 scoop proteina + creatina + 1 platano o 1 pack tortitas campestres 35 g. | 335-375 | Elegir platano si quiere algo mas ligero; tortitas si quiere algo crujiente y mas saciante. |
-| Carrera 10-12 km | Batido post-carrera + hidrato facil. | Batido habitual + 1 platano + 1 pack tortitas campestres 35 g. | 480 | Suficiente si la carrera no ha sido muy larga o intensa. |
-| Carrera 15-20 km / 90 min | Batido post-carrera + hidrato alto. | Batido habitual + 1 platano + 2 packs tortitas campestres 70 g. Si prefiere comida caliente: cambiar las tortitas por 250 g patata cocida o 150 g arroz cocido. | 590-625 | Priorizar hidratos, no mas proteina. Si aun se queda corto, anadir 1 barrita muesli o 30 g Corn Flakes. |
+| Dia de gimnasio | Hidrato pre-entreno + batido post-entreno. | Pre-entreno (30-90 min antes): 1 platano o 1 pack tortitas campestres 35 g. Post-entreno (al llegar): 250 ml leche semidesnatada + 1 scoop proteina + creatina. | 335-375 | Elegir platano si quiere algo mas ligero; tortitas si quiere algo crujiente y mas saciante. Solo si ese dia entrena. |
+| Carrera 10-12 km | Hidrato pre-carrera + batido post-carrera. | Pre-carrera (30-90 min antes): 1 platano + 1 pack tortitas campestres 35 g. Post-carrera (al llegar): batido habitual. | 480 | Suficiente si la carrera no ha sido muy larga o intensa. Solo si ese dia corre. |
+| Carrera 15-20 km / 90 min | Hidrato alto pre-carrera + batido post-carrera. | Pre-carrera (60-120 min antes): 1 platano + 2 packs tortitas campestres 70 g. Alternativa caliente si hay tiempo: 250 g patata cocida o 150 g arroz cocido. Post-carrera (al llegar): batido habitual. | 590-625 | Priorizar hidratos, no mas proteina. Si aun se queda corto, anadir 1 barrita muesli o 30 g Corn Flakes post-carrera. Solo si ese dia corre largo. |
 
 ### Luis
 
 | Tipo de dia | Plan / modulo | Producto concreto | kcal aprox. | Uso |
 |---|---|---|---:|---|
 | Descanso/oficina | Sin batido por defecto. | Mantener bloque personal V2. Si hay hambre real: 1 fruta o 1 pack tortitas campestres 35 g. | 80-145 | No meter batido si ya llega a proteina y no ha entrenado. |
-| Dia de gimnasio | Batido post-entreno + hidrato facil. | 250 ml leche semidesnatada + 1 scoop proteina + creatina + 1 platano o 1 pack tortitas campestres 35 g. | 335-375 | Si entrena fuerte y nota bajon, usar el pack dulce potente en vez de solo platano. |
+| Dia de gimnasio | Hidrato pre-entreno + batido post-entreno. | Pre-entreno (30-90 min antes): 1 platano o 1 pack tortitas campestres 35 g. Post-entreno (al llegar): 250 ml leche semidesnatada + 1 scoop proteina + creatina. | 335-375 | Si entrena fuerte y nota bajon, usar el pack dulce potente como pre-gym en vez de solo platano. Solo si ese dia entrena. |
 
 ### Tabla productos packs
 
