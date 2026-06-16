@@ -2668,7 +2668,13 @@ function initPwaInstall() {
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
   const dismissed = localStorage.getItem('fit_install_banner_dismissed') === 'true';
 
-  // Registrar el prompt de instalación nativo
+  // Forzar visualización en móvil/tablet si no está instalada y no se ha descartado
+  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  if (isMobile && !isStandalone && !dismissed) {
+    installBanner.style.display = 'flex';
+  }
+
+  // Registrar el prompt de instalación nativo (para navegadores compatibles en HTTPS/localhost)
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
@@ -2677,18 +2683,14 @@ function initPwaInstall() {
     }
   });
 
-  // Mostrar el banner en iOS Safari de forma informativa (ya que Apple no tiene prompt automático)
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  if (isIOS && !isStandalone && !dismissed) {
-    installBanner.style.display = 'flex';
-  }
-
   // Configurar botones del banner
   const installBtn = installBanner.querySelector('.install-action-btn');
   const closeBtn = installBanner.querySelector('.install-close-btn');
 
   if (installBtn) {
     installBtn.addEventListener('click', async () => {
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      
       if (deferredPrompt) {
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
@@ -2696,9 +2698,9 @@ function initPwaInstall() {
         deferredPrompt = null;
         installBanner.style.display = 'none';
       } else if (isIOS) {
-        alert("📲 Para instalar la App de FIT en tu iPhone/iPad:\n\n1. Pulsa el botón de Compartir (📤) en la barra de Safari.\n2. Busca y selecciona 'Añadir a la pantalla de inicio' (➕).\n\n¡Y listo! La tendrás disponible como app nativa con acceso directo.");
+        alert("📲 Para instalar la App de FIT en tu iPhone/iPad:\n\n1. Pulsa el botón de Compartir (📤) en Safari (barra inferior o superior).\n2. Selecciona 'Añadir a la pantalla de inicio' (➕).\n\n¡Y listo! Ya tendrás FIT como una app en tu pantalla de inicio.");
       } else {
-        alert("📲 Añade esta web a tu pantalla de inicio utilizando el menú del navegador (los tres puntos en Chrome) para usarla como App.");
+        alert("📲 Para instalar la App de FIT en tu Android:\n\n1. Pulsa el botón de Menú (⋮) en la esquina superior derecha de tu navegador Chrome.\n2. Selecciona 'Instalar aplicación' o 'Añadir a la pantalla de inicio'.\n\n¡Y listo! Ya tendrás la app en tu escritorio.");
       }
     });
   }
@@ -2712,23 +2714,25 @@ function initPwaInstall() {
 }
 
 function initChangeUserButton() {
-  const modal = document.getElementById('user-welcome-modal');
-  const closeBtn = document.getElementById('close-welcome-modal');
-  
-  // Agregar escuchador al botón global "Cambiar Persona" en la tarjeta de perfil
+  // Delegación de eventos dinámica a nivel de document para máxima compatibilidad
   document.addEventListener('click', (e) => {
+    // Si hace click en el botón "Cambiar Persona"
     if (e.target && e.target.closest('#btn-change-user')) {
+      const modal = document.getElementById('user-welcome-modal');
+      const closeBtn = document.getElementById('close-welcome-modal');
       if (modal) {
         modal.style.display = 'flex';
-        if (closeBtn) closeBtn.style.display = 'block'; // Mostrar la X para cancelar
+        if (closeBtn) closeBtn.style.display = 'block'; // Mostrar la X para cerrar
+      }
+    }
+    
+    // Si hace click en la X de cerrar el modal de bienvenida
+    if (e.target && e.target.closest('#close-welcome-modal')) {
+      const modal = document.getElementById('user-welcome-modal');
+      if (modal) {
+        modal.style.display = 'none';
       }
     }
   });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      if (modal) modal.style.display = 'none';
-    });
-  }
 }
 
