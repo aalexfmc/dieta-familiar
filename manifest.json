@@ -1,6 +1,6 @@
 {
-  "name": "NutriFamilia - Plan Nutricional",
-  "short_name": "NutriFamilia",
+  "name": "FIT - Plan Nutricional",
+  "short_name": "FIT",
   "description": "Plan Nutricional Familiar interactivo con recetas, raciones y lista de compra.",
   "start_url": "./index.html",
   "display": "standalone",

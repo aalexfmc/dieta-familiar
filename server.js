@@ -46,5 +46,5 @@ app.put('/api/sync', async (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`✅ NutriFamilia server running at http://localhost:${PORT}`);
+  console.log(`✅ FIT server running at http://localhost:${PORT}`);
 });

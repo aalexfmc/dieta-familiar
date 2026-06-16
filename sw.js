@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nutrifamilia-v11';
+const CACHE_NAME = 'fit-v12';
 const ASSETS = [
   './',
   './index.html',

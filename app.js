@@ -878,10 +878,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function updateHeaderUserLabel() {
+  const select = document.getElementById('header-user-select');
+  const label = document.getElementById('selected-user-label');
+  if (select && label) {
+    const selectedOption = select.options[select.selectedIndex];
+    if (selectedOption) {
+      label.innerHTML = `👤 Soy: <strong style="color: var(--primary); margin-left: 0.25rem;">${selectedOption.text}</strong>`;
+    }
+  }
+}
+
 function initUserSelector() {
   const select = document.getElementById('header-user-select');
   if (select) {
     select.value = currentUser;
+    updateHeaderUserLabel();
     select.addEventListener('change', (e) => {
       currentUser = e.target.value;
       localStorage.setItem('dieta_current_user', currentUser);
@@ -906,6 +918,7 @@ function initUserSelector() {
         document.body.classList.add('individual-mode');
       }
       
+      updateHeaderUserLabel();
       initDashboard();
       initProfiles();
       renderProfileDetails();
@@ -947,6 +960,7 @@ function initUserSelector() {
           document.body.classList.add('individual-mode');
         }
         
+        updateHeaderUserLabel();
         modal.style.display = 'none';
         
         initDashboard();
@@ -1148,40 +1162,37 @@ function renderProfileDetails() {
     </div>
   `;
 
-  // Build macros details accordion if individual mode
-  let macrosDetailsHTML = '';
-  if (currentUser !== 'global') {
-    macrosDetailsHTML = `
-      <details class="clean-details" style="margin-top: 1.5rem;" id="profile-macros-details">
-        <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
-          📊 Objetivos Nutricionales y Distribución
-        </summary>
-        <div class="details-content" style="padding-top: 0.5rem;" id="profile-macros-details-content">
-          ${overrideBadgeHTML}
-          <div class="macros-chart-container" style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
-            <svg width="200" height="200" viewBox="0 0 200 200" class="macros-svg">
-              <!-- Tracks -->
-              <circle cx="100" cy="100" r="80" class="track-circle" />
-              <circle cx="100" cy="100" r="62" class="track-circle" />
-              <circle cx="100" cy="100" r="44" class="track-circle" />
-              
-              <!-- Fills -->
-              <circle cx="100" cy="100" r="80" class="fill-circle hc" stroke-dasharray="${circumferenceH}" stroke-dashoffset="${circumferenceH}" transform="rotate(-90 100 100)" />
-              <circle cx="100" cy="100" r="62" class="fill-circle prot" stroke-dasharray="${circumferenceP}" stroke-dashoffset="${circumferenceP}" transform="rotate(-90 100 100)" />
-              <circle cx="100" cy="100" r="44" class="fill-circle fat" stroke-dasharray="${circumferenceG}" stroke-dashoffset="${circumferenceG}" transform="rotate(-90 100 100)" />
-              
-              <!-- Center Text -->
-              <text x="100" y="98" class="chart-kcal-val">${kcalText}</text>
-              <text x="100" y="118" class="chart-kcal-lbl">kcal / día</text>
-            </svg>
-          </div>
-          <div class="macros-meters-list">
-            <!-- Renderizado dinámico de barras -->
-          </div>
+  // Build macros details accordion for both global and individual modes
+  const macrosDetailsHTML = `
+    <details class="clean-details" style="margin-top: 1.5rem;" id="profile-macros-details">
+      <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--primary); outline: none; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">
+        📊 Objetivos Nutricionales y Distribución
+      </summary>
+      <div class="details-content" style="padding-top: 0.5rem;" id="profile-macros-details-content">
+        ${overrideBadgeHTML}
+        <div class="macros-chart-container" style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+          <svg width="200" height="200" viewBox="0 0 200 200" class="macros-svg">
+            <!-- Tracks -->
+            <circle cx="100" cy="100" r="80" class="track-circle" />
+            <circle cx="100" cy="100" r="62" class="track-circle" />
+            <circle cx="100" cy="100" r="44" class="track-circle" />
+            
+            <!-- Fills -->
+            <circle cx="100" cy="100" r="80" class="fill-circle hc" stroke-dasharray="${circumferenceH}" stroke-dashoffset="${circumferenceH}" transform="rotate(-90 100 100)" />
+            <circle cx="100" cy="100" r="62" class="fill-circle prot" stroke-dasharray="${circumferenceP}" stroke-dashoffset="${circumferenceP}" transform="rotate(-90 100 100)" />
+            <circle cx="100" cy="100" r="44" class="fill-circle fat" stroke-dasharray="${circumferenceG}" stroke-dashoffset="${circumferenceG}" transform="rotate(-90 100 100)" />
+            
+            <!-- Center Text -->
+            <text x="100" y="98" class="chart-kcal-val">${kcalText}</text>
+            <text x="100" y="118" class="chart-kcal-lbl">kcal / día</text>
+          </svg>
         </div>
-      </details>
-    `;
-  }
+        <div class="macros-meters-list">
+          <!-- Renderizado dinámico de barras -->
+        </div>
+      </div>
+    </details>
+  `;
 
   // Comidas Fijas
   const mealsContainer = document.getElementById('profile-meals-container');
@@ -1190,41 +1201,12 @@ function renderProfileDetails() {
     ${macrosDetailsHTML}
   `;
   
-  // Render sidebar or details content macros
-  if (currentUser === 'global') {
-    macrosList.innerHTML = `
-      ${overrideBadgeHTML}
-      <h4>Objetivos Nutricionales</h4>
-      
-      <div class="macros-chart-container">
-        <svg width="200" height="200" viewBox="0 0 200 200" class="macros-svg">
-          <!-- Tracks -->
-          <circle cx="100" cy="100" r="80" class="track-circle" />
-          <circle cx="100" cy="100" r="62" class="track-circle" />
-          <circle cx="100" cy="100" r="44" class="track-circle" />
-          
-          <!-- Fills -->
-          <circle cx="100" cy="100" r="80" class="fill-circle hc" stroke-dasharray="${circumferenceH}" stroke-dashoffset="${circumferenceH}" transform="rotate(-90 100 100)" />
-          <circle cx="100" cy="100" r="62" class="fill-circle prot" stroke-dasharray="${circumferenceP}" stroke-dashoffset="${circumferenceP}" transform="rotate(-90 100 100)" />
-          <circle cx="100" cy="100" r="44" class="fill-circle fat" stroke-dasharray="${circumferenceG}" stroke-dashoffset="${circumferenceG}" transform="rotate(-90 100 100)" />
-          
-          <!-- Center Text -->
-          <text x="100" y="98" class="chart-kcal-val">${kcalText}</text>
-          <text x="100" y="118" class="chart-kcal-lbl">kcal / día</text>
-        </svg>
-      </div>
-      
-      <div class="macros-meters-list">
-        <!-- Renders bars below -->
-      </div>
-    `;
-  } else {
-    macrosList.innerHTML = ''; // Limpiar el de la barra lateral en modo individual
+  // Limpiar el de la barra lateral en todos los modos (se usa el colapsable inferior)
+  if (macrosList) {
+    macrosList.innerHTML = '';
   }
 
-  const activeContainer = (currentUser === 'global')
-    ? macrosList
-    : document.getElementById('profile-macros-details-content');
+  const activeContainer = document.getElementById('profile-macros-details-content');
 
   if (activeContainer) {
     const metersList = activeContainer.querySelector('.macros-meters-list');
@@ -1255,20 +1237,51 @@ function renderProfileDetails() {
       });
     }
 
-    // Animate SVG rings
-    setTimeout(() => {
-      const circleH = activeContainer.querySelector('.fill-circle.hc');
-      const circleP = activeContainer.querySelector('.fill-circle.prot');
-      const circleG = activeContainer.querySelector('.fill-circle.fat');
-      if (circleH) circleH.style.strokeDashoffset = offsetH;
-      if (circleP) circleP.style.strokeDashoffset = offsetP;
-      if (circleG) circleG.style.strokeDashoffset = offsetG;
+    // Inicializar rings y bars
+    const circleH = activeContainer.querySelector('.fill-circle.hc');
+    const circleP = activeContainer.querySelector('.fill-circle.prot');
+    const circleG = activeContainer.querySelector('.fill-circle.fat');
+    
+    // Si la pestaña está abierta, animamos de inmediato; si no, esperamos al evento toggle
+    const detailsEl = document.getElementById('profile-macros-details');
+    if (detailsEl) {
+      if (detailsEl.open) {
+        setTimeout(() => {
+          if (circleH) circleH.style.strokeDashoffset = offsetH;
+          if (circleP) circleP.style.strokeDashoffset = offsetP;
+          if (circleG) circleG.style.strokeDashoffset = offsetG;
+          
+          activeContainer.querySelectorAll('.macro-meter-bar').forEach(bar => {
+            const pct = bar.getAttribute('data-pct');
+            if (pct) bar.style.width = `${pct}%`;
+          });
+        }, 50);
+      }
       
-      activeContainer.querySelectorAll('.macro-meter-bar').forEach(bar => {
-        const pct = bar.getAttribute('data-pct');
-        if (pct) bar.style.width = `${pct}%`;
+      detailsEl.addEventListener('toggle', () => {
+        if (detailsEl.open) {
+          // Reset temporal para hacer una animación de carga espectacular
+          if (circleH) circleH.style.strokeDashoffset = circumferenceH;
+          if (circleP) circleP.style.strokeDashoffset = circumferenceP;
+          if (circleG) circleG.style.strokeDashoffset = circumferenceG;
+          
+          detailsEl.querySelectorAll('.macro-meter-bar').forEach(bar => {
+            bar.style.width = '0%';
+          });
+          
+          setTimeout(() => {
+            if (circleH) circleH.style.strokeDashoffset = offsetH;
+            if (circleP) circleP.style.strokeDashoffset = offsetP;
+            if (circleG) circleG.style.strokeDashoffset = offsetG;
+            
+            detailsEl.querySelectorAll('.macro-meter-bar').forEach(bar => {
+              const pct = bar.getAttribute('data-pct');
+              if (pct) bar.style.width = `${pct}%`;
+            });
+          }, 80);
+        }
       });
-    }, 50);
+    }
   }
 
   // Attach click listeners to activity cards
@@ -2223,7 +2236,7 @@ function initShoppingListActions() {
 // Generar lista formateada de pendientes
 function getPendingShoppingList() {
   const savedState = JSON.parse(localStorage.getItem('dieta_shopping_state')) || {};
-  let pendingText = "*📋 NutriFamilia - Lista de Compra Pendiente*\n\n";
+  let pendingText = "*📋 FIT - Lista de Compra Pendiente*\n\n";
   let count = 0;
   
   // Categorías estándar
